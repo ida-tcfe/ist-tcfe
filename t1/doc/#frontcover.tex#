@@ -23,15 +23,13 @@
 
 % Title, author and degree
 \vspace{1cm}
-{\FontLb Circuit Theory and Electronics Fundamentals} \\ % <<<<< EDIT TITLE
+{\FontLb Lab 1: Circuit mnalysis methods} \\ % <<<<< EDIT TITLE
 \vspace{1cm}
-{\FontSn Department of Electrical and Computer Engineering, Técnico, University of Lisbon} \\ % <<<<< EDIT COURSE
+{\FontSn Department} \\ % <<<<< EDIT COURSE
 \vspace{1cm}
 {\FontSn Example Laboratory Report} \\
 \vspace{1cm}
 {\FontSn February 27, 2021} \\ % <<<<< EDIT DATE (corresponds to date of oral examination)
 %
 \end{center}
-
-% MEFT = Master's programme in Engineering Physics
 
