@@ -1,66 +1,124 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the circuit shown in Figure~\ref{fig:rc} is analysed
-theoretically, in terms of its time and frequency responses.
+In this section, the circuit depicted in Figure 'circuit' is analysed with two different methods, so as to determine how it behaves, theoretically, both in terms of current in each branch and potential difference between nodes.
 
-\section{Time response}
+\subsection{Mesh analysis method}
 
-The circuit consists of a single V-R-C loop where a current $i(t)$ circulates. The
-voltage source $v_I(t)$ drives its input, and the output voltage $v_O(t)$ is taken from
-the capacitor terminals. Applying the Kirchhoff Voltage Law (KVL), a single
-equation for the single loop in the circuit can be written as
+The first method considered is the Mesh analysis method, considering the four meshes present in the circuit. Each mesh is given a label ($\alpha$, $\beta$, $\gamma$ and $\delta$) and an arbitrary direction for the current to flow in, as the below figure shows.
 
-\begin{equation}
-  Ri(t) + v_O(t) = v_I(t).
-  \label{eq:kvl}
-\end{equation}
+%Boneco
+%No boneco depois é preciso pôr as setinhas ou os +- que convencionam os sentidos da diferença de potencial
+%Os sentidos que considerei estão no script do octave
 
-Because $v_O$ is the voltage between capacitor C's plates, it is related to the
-current $i$ by
-\begin{equation}
-  i(t) = C\frac{dv_O}{dt}.
-\end{equation}
-
-Hence, Equation~(\ref{eq:kvl}) can be rewritten as
-\begin{equation}
-  RC\frac{dv_O}{dt} + v_O(t) = v_I.
-  \label{eq:kvl2}
-\end{equation}
-
-Equation~(\ref{eq:kvl2}) is a linear differencial equation whose solution is a
-superposition of a natural solution $v_{On}$ and a forced solution $v_{Of}$:
+By inspection:
 
 \begin{equation}
-  v_O(t) = v_{On}(t) + v_{Of}(t).
-  \label{eq:vo_sol}
+  \begin{cases}
+    I_{\alpha} = I_d \\
+    I_{\beta} = I_b
+  \end{cases}
 \end{equation}
 
-As learned in the theory classes the natural solution is of the form
-\begin{equation}
-  v_{On}(t) = Ae^{-\frac{t}{RC}},
-  \label{eq:vo_nat}
-\end{equation}
-where $A$ is an integration constant.
-
-The forced solution is of the form given in Equation~(\ref{eq:vo_for}) and is
-illustrated in Figure~\ref{fig:forced}.
+Applying KVL to the two remaining meshes:
 
 \begin{equation}
-  V_{Of}(t) = |\bar{V}_{Of}| cos(\omega t + \angle \bar{V}_{Of}),
-  \label{eq:vo_for}
+  \begin{cases}
+    V_a + R_4 (I_\gamma + I_\delta) + R_3 (I_\gamma - I_\beta) + R_1 I_\gamma = 0 \\
+    V_c + R_7 I_\delta + R_6 I_\delta + R_4 (I_\delta + I_\gamma) = 0
+  \end{cases}
 \end{equation}
 
-\lipsum[1-1]
+The conditional sources behave as:
 
+\begin{equation}
+  \begin{cases}
+  I_b = k_b V_b \\
+  V_c = k_c I_c = - k_c I_\delta
+  \end{cases}
+\end{equation}
 
-\begin{figure}[h] \centering
-\includegraphics[width=0.8\linewidth]{forced.eps}
-\caption{Forced sinusoidal response.}
-\label{fig:forced}
-\end{figure}
+Lastly, by Ohm's Law
 
-\section{Frequency response}
+\begin{equation}
+  V_b = R_3 (I_\beta - I_\gamma)
+\end{equation}
+
+Manipulating these equations and solving them using Octave yields:
+
+%\begin{equation}
+%  \begin{bmatrix}
+%  1 & 0 & 0 & 0 \\
+%  0 & 1-k_b R_3 & k_b R_3 & 0 \\
+%  0 & -R_3 & R_1+R_3+R_4 & R_4 \\
+%  0 & 0 & R_4 & R_4+R_6+R_7-k_c
+%  \end{bmatrix}
+%  \begin{bmatrix}
+%  I_\alpha \\
+%  I_\beta \\
+%  I_\gamma \\
+%  I_\delta
+%  \end{bmatrix}
+%  =
+%  \begin{bmatrix}
+%  I_d \\
+%  0 \\
+%  -V_a \\
+%  0
+%  \end{bmatrix}
+%\end{equation}
+
+%Solving this system using Octave,
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    Current & Value ($mA$) \\
+    \hline
+    \hline
+    $I_\alpha$ & $1.002$ \\
+    \hline
+    $I_\beta$ & $-0.25148$ \\
+    \hline
+    $I_\gamma$ & $-0.24033$ \\
+    \hline
+    $I_\delta$ & $-0.96886$ \\
+    \hline
+   \end{tabular}
+\end{table}
+
+Using Ohm's Law for each resistance, we get:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    Potential difference & Value ($V$) \\
+    \hline
+    \hline
+    $V_1$ & $-0.24526$ \\
+    \hline
+    $V_2$ & $-0.52089$ \\
+    \hline
+    $V_3$ & $-0.034623$ \\
+    \hline
+    $V_4$ & $-4.8601$ \\
+    \hline
+    $V_5$ & $-3.8607$ \\
+    \hline
+    $V_6$ & $-1.9502$ \\
+    \hline
+    $V_7$ & $-0.98970$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
+We can also determine the current and potential difference imposed by the conditional sources: $I_b = -0.25148\; mA$ and $V_c = 7.8\; V$.
+
+\subsection{Node analysis method}
+
+%Isabel
 
 \lipsum[1-1]
 
