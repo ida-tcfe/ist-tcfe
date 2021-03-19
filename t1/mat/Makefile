@@ -1,4 +1,4 @@
-octave.log: rc.m
+octave.log: mesh.m
 	octave $< > $@
 
 clean:

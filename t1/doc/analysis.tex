@@ -44,64 +44,77 @@ Lastly, by Ohm's Law
   V_b = R_3 (I_\beta - I_\gamma)
 \end{equation}
 
-Manipulating these equations yields:
+Manipulating these equations and solving them using Octave yields:
 
-\begin{equation}
-  \begin{bmatrix}
-  1 & 0 & 0 & 0 \\
-  0 & 1-k_b R_3 & k_b R_3 & 0 \\
-  0 & -R_3 & R_1+R_3+R_4 & R_4 \\
-  0 & 0 & R_4 & R_4+R_6+R_7-k_c
-  \end{bmatrix}
-  \begin{bmatrix}
-  I_\alpha \\
-  I_\beta \\
-  I_\gamma \\
-  I_\delta
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-  I_d \\
-  0 \\
-  -V_a \\
-  0
-  \end{bmatrix}
-\end{equation}
+%\begin{equation}
+%  \begin{bmatrix}
+%  1 & 0 & 0 & 0 \\
+%  0 & 1-k_b R_3 & k_b R_3 & 0 \\
+%  0 & -R_3 & R_1+R_3+R_4 & R_4 \\
+%  0 & 0 & R_4 & R_4+R_6+R_7-k_c
+%  \end{bmatrix}
+%  \begin{bmatrix}
+%  I_\alpha \\
+%  I_\beta \\
+%  I_\gamma \\
+%  I_\delta
+%  \end{bmatrix}
+%  =
+%  \begin{bmatrix}
+%  I_d \\
+%  0 \\
+%  -V_a \\
+%  0
+%  \end{bmatrix}
+%\end{equation}
 
-Solving this system using Octave,
+%Solving this system using Octave,
 
-\begin{equation}
-  \begin{cases}
-    I_\alpha \approx 1.002\; mA \\
-    I_\beta \approx -0.25148\; mA \\
-    I_\gamma \approx -0.24033\; mA \\
-    I_\delta \approx -0.96886\; mA
-  \end{cases}
-\end{equation}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    Current & Value ($mA$) \\
+    \hline
+    \hline
+    $I_\alpha$ & $1.002$ \\
+    \hline
+    $I_\beta$ & $-0.25148$ \\
+    \hline
+    $I_\gamma$ & $-0.24033$ \\
+    \hline
+    $I_\delta$ & $-0.96886$ \\
+    \hline
+   \end{tabular}
+\end{table}
 
 Using Ohm's Law for each resistance, we get:
 
-\begin{equation}
-  \begin{cases}
-    V_1 = -0.24526\; V \\
-    V_2 = -0.52089\; V \\
-    V_3 = -0.034623\; V \\
-    V_4 = -4.8601\; V \\
-    V_5 = -3.8607\; V \\
-    V_6 = -1.9502\; V \\
-    V_7 = -0.98970\; V
-  \end{cases}
-\end{equation}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    Potential difference & Value ($V$) \\
+    \hline
+    \hline
+    $V_1$ & $-0.24526$ \\
+    \hline
+    $V_2$ & $-0.52089$ \\
+    \hline
+    $V_3$ & $-0.034623$ \\
+    \hline
+    $V_4$ & $-4.8601$ \\
+    \hline
+    $V_5$ & $-3.8607$ \\
+    \hline
+    $V_6$ & $-1.9502$ \\
+    \hline
+    $V_7$ & $-0.98970$ \\
+    \hline
+  \end{tabular}
+\end{table}
 
-We can also determine the current and potential difference imposed by the conditional sources:
-
-\begin{equation}
-  \begin{cases}
-    I_b = -0.25148\; mA \\
-    V_c = 7.8\; V
-  \end{cases}
-\end{equation}
-    
+We can also determine the current and potential difference imposed by the conditional sources: $I_b = -0.25148\; mA$ and $V_c = 7.8\; V$.
 
 \subsection{Node analysis method}
 
