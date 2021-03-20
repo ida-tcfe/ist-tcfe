@@ -72,49 +72,17 @@ Manipulating these equations and solving them using Octave yields:
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{|c|c|}
+  \begin{tabular}{|c|r|}
     \hline
-    Current & Value ($mA$) \\
-    \hline
-    \hline
-    $I_\alpha$ & $1.002$ \\
-    \hline
-    $I_\beta$ & $-0.25148$ \\
-    \hline
-    $I_\gamma$ & $-0.24033$ \\
-    \hline
-    $I_\delta$ & $-0.96886$ \\
-    \hline
-   \end{tabular}
-\end{table}
-
-Using Ohm's Law for each resistance, we get:
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|}
-    \hline
-    Potential difference & Value ($V$) \\
-    \hline
-    \hline
-    $V_1$ & $-0.24526$ \\
-    \hline
-    $V_2$ & $-0.52089$ \\
-    \hline
-    $V_3$ & $-0.034623$ \\
-    \hline
-    $V_4$ & $-4.8601$ \\
-    \hline
-    $V_5$ & $-3.8607$ \\
-    \hline
-    $V_6$ & $-1.9502$ \\
-    \hline
-    $V_7$ & $-0.98970$ \\
-    \hline
+        {\bf Name} & {\bf Value} \\
+        \hline
+        \hline
+        \input{../mat/mesh}
+        \hline
   \end{tabular}
-\end{table}
-
-We can also determine the current and potential difference imposed by the conditional sources: $I_b = -0.25148\; mA$ and $V_c = 7.8\; V$.
+  \caption{Theoretical results}
+  \label{mesh_res}
+\end{table}    
 
 \subsection{Node analysis method}
 
