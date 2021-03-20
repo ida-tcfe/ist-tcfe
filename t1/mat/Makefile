@@ -1,4 +1,9 @@
+all: mesh node
+
 mesh: mesh.m
+	octave $< > $@.tex
+
+node: node.m
 	octave $< > $@.tex
 
 octave.log: random.m
