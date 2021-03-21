@@ -14,12 +14,15 @@
 Va n2 GND 5.07072749268
 Id n7 n6 1.00018604098m 
 
-Vzero GND nz 0 ; Imaginary source (needed to specify Hc) (unc)
+Vzero GND nz 0
+*Imaginary source (needed to specify Hc) (unc)
 
 * ------------- Dependent Sources 
-Gb n4 n6 n3 n5 7.26322828319k  ; Ib = Kb*Vb - Kb = 7.26322828319k , Vb = To be calculated
+Gb n4 n6 n3 n5 7.26322828319k
+*Ib = Kb*Vb - Kb = 7.26322828319k , Vb = To be calculated
 
-Hc n5 n7 Vzero 8.05067652194k ; Vc = Kc*Ic - Kc = 05067652194k , Ic = To be Calculated (unc)
+Hc n5 n7 Vzero 8.05067652194k
+*Vc = Kc*Ic - Kc = 05067652194k , Ic = To be Calculated (unc)
 *Vc n5 n7 7.8 ; - Not known! Just for debugg
 
 * -------------- Resistors - All in kOhms!
@@ -56,7 +59,22 @@ echo "Voltage at Nodes"
 *print @Rf[i]
 
 echo  "op_TAB"
-print all
+print n2
+print n3
+print n4
+print n5
+print n6
+print n7
+print n8
+print @r1[i]
+print @r2[i]
+print @r3[i]
+print @r4[i]
+print @r5[i]
+print @r6[i]
+print @r7[i]
+print @Gb[i]
+
 echo  "op_END"
 
 *quit might help?

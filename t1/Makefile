@@ -6,7 +6,7 @@
 
 all:
 	make -C mat
-	make -C sim
+	make -C sim -i
 	make -C doc
 	cp doc/report.pdf .
 
