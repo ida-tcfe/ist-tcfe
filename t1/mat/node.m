@@ -21,21 +21,46 @@ b = [Va;Va/R1;-Va/R1;0;-Id;0;0];
 
 c = A\b;
 
-printf("---- Voltages ----\n");
-printf("V2 = %f\n", c(1));
-printf("V3 = %f\n", c(2));
-printf("V4 = %f\n", c(3));
-printf("V5 = %f\n", c(4));
-printf("V6 = %f\n", c(5));
-printf("V7 = %f\n", c(6));
-printf("V8 = %f\n", c(7));
+#printf("---- Voltages ----\n");
+#printf("V2 = %f\n", c(1));
+#printf("V3 = %f\n", c(2));
+#printf("V4 = %f\n", c(3));
+#printf("V5 = %f\n", c(4));
+#printf("V6 = %f\n", c(5));
+#printf("V7 = %f\n", c(6));
+#printf("V8 = %f\n", c(7));
 
-printf("\n---- Conditional sources ----\n");
+#printf("\n---- Conditional sources ----\n");
 
-Vb = c(2)-c(4)
+Vb = c(2)-c(4);
 
-Ib = Kb * Vb
+Ib = Kb * Vb;
 
-Ic = -c(7)/R6
+Ic = -c(7)/R6;
 
-Vc = Kc * Ic
+Vc = Kc * Ic;
+
+printf("$V_2$ & $%f\\;V$ \\\\ \n", c(1));
+printf("\\hline\n");
+printf("$V_3$ & $%f\\;V$ \\\\ \n", c(2));
+printf("\\hline\n");
+printf("$V_4$ & $%f\\;V$ \\\\ \n", c(3));
+printf("\\hline\n");
+printf("$V_5$ & $%f\\;V$ \\\\ \n", c(4));
+printf("\\hline\n");
+printf("$V_6$ & $%f\\;V$ \\\\ \n", c(5));
+printf("\\hline\n");
+printf("$V_7$ & $%f\\;V$ \\\\ \n", c(6));
+printf("\\hline\n");
+printf("$V_8$ & $%f\\;V$ \\\\ \n", c(7));
+printf("\\hline\n");
+printf("$V_b$ & $%f\\;A$ \\\\ \n", Vb);
+printf("\\hline\n");
+printf("$I_b$ & $%f\\;A$ \\\\ \n", Ib);
+printf("\\hline\n");
+printf("$I_c$ & $%f\\;A$ \\\\ \n", Ic);
+printf("\\hline\n");
+printf("$V_c$ & $%f\\;V$ \\\\ \n", Vc);
+
+
+
