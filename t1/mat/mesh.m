@@ -1,7 +1,7 @@
 close all
 clear all
 
-printf("MESH ANALYSIS\n");
+#printf("MESH ANALYSIS\n");
 
 R1 = 1.02051254911 * 1000;
 R2 = 2.07133294635 * 1000;
@@ -21,36 +21,36 @@ b = [Id;0;-Va;0];
 
 c = A\b;
 
-printf("---- Mesh currents ----\n");
-printf("I_alpha = %f\n", c(1));
-printf("I_beta = %f\n", c(2));
-printf("I_gamma = %f\n", c(3));
-printf("I_delta = %f\n", c(4));
+#printf("---- Mesh currents ----\n");
+#printf("I_alpha = %f\n", c(1));
+#printf("I_beta = %f\n", c(2));
+#printf("I_gamma = %f\n", c(3));
+#printf("I_delta = %f\n", c(4));
 
-printf("\n---- Potential differences (resistances) ----\n");
+#printf("\n---- Potential differences (resistances) ----\n");
 
 # same as gamma
-RV1 = R1 * c(3)
+RV1 = R1 * c(3);
 # same as beta
-RV2 = R2 * c(2)
+RV2 = R2 * c(2);
 # same as beta, back for gamma
-RV3 = R3 * (c(2)-c(3))
+RV3 = R3 * (c(2)-c(3));
 # same as gamma and delta
-RV4 = R4 * (c(3)+c(4))
+RV4 = R4 * (c(3)+c(4));
 # same as beta, back for alpha
-RV5 = R5 * (c(2)-c(1))
+RV5 = R5 * (c(2)-c(1));
 # same as delta
-RV6 = R6 * c(4)
+RV6 = R6 * c(4);
 # same as delta
-RV7 = R7 * c(4)
+RV7 = R7 * c(4);
 
-printf("\n---- Conditional sources ----\n");
+#printf("\n---- Conditional sources ----\n");
 
-Ib = Kb * RV3
+Ib = Kb * RV3;
 
-Vc = - Kc * c(4)
+Vc = - Kc * c(4);
 
-printf("\n---- Potential differences ----\n");
+#printf("\n---- Potential differences ----\n");
 
 V8 = RV6;
 V7 = V8 + RV7;
@@ -60,11 +60,36 @@ V3 = V2 + RV1;
 V4 = V3 + RV2;
 V6 = V5 - RV5;
 
-printf("V_2 = %f\n", V2);
-printf("V_3 = %f\n", V3);
-printf("V_4 = %f\n", V4);
-printf("V_5 = %f\n", V5);
-printf("V_6 = %f\n", V6);
-printf("V_7 = %f\n", V7);
-printf("V_8 = %f\n", V8);
+#printf("V_2 = %f\n", V2);
+#printf("V_3 = %f\n", V3);
+#printf("V_4 = %f\n", V4);
+#printf("V_5 = %f\n", V5);
+#printf("V_6 = %f\n", V6);
+#printf("V_7 = %f\n", V7);
+#printf("V_8 = %f\n", V8);
 
+printf("$I_\\alpha$ & $%f\\;A$ \\\\ \n", c(1));
+printf("\\hline\n");
+printf("$I_\\beta$ & $%f\\;A$ \\\\ \n", c(2));
+printf("\\hline\n");
+printf("$I_\\gamma$ & $%f\\;A$ \\\\ \n", c(3));
+printf("\\hline\n");
+printf("$I_\\delta$ & $%f\\;A$ \\\\ \n", c(4));
+printf("\\hline\n");
+printf("$I_b$ & $%f\\;A$ \\\\ \n", Ib);
+printf("\\hline\n");
+printf("$V_2$ & $%f\\;V$ \\\\ \n", V2);
+printf("\\hline\n");
+printf("$V_3$ & $%f\\;V$ \\\\ \n", V3);
+printf("\\hline\n");
+printf("$V_4$ & $%f\\;V$ \\\\ \n", V4);
+printf("\\hline\n");
+printf("$V_5$ & $%f\\;V$ \\\\ \n", V5);
+printf("\\hline\n");
+printf("$V_6$ & $%f\\;V$ \\\\ \n", V6);
+printf("\\hline\n");
+printf("$V_7$ & $%f\\;V$ \\\\ \n", V7);
+printf("\\hline\n");
+printf("$V_8$ & $%f\\;V$ \\\\ \n", V8);
+printf("\\hline\n");
+printf("$V_c$ & $%f\\;V$ \\\\ \n", Vc);
