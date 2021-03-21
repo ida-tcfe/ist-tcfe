@@ -66,6 +66,7 @@ print n5
 print n6
 print n7
 print n8
+print v(n5, n7)
 print @r1[i]
 print @r2[i]
 print @r3[i]
