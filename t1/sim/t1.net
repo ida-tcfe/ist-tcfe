@@ -44,6 +44,7 @@ R7 n8vv n7vv 1.02150900709K
 *set color5=rgb:3/8/0
 *set color6=rgb:4/0/0
 
+.op
 .control
 op
 
@@ -79,5 +80,5 @@ print @Gb[i]
 echo  "op_END"
 
 *quit might help?
-.endc
+*.endc
 .end
