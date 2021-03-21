@@ -12,7 +12,7 @@
 
 * ------------- Independent Sources 
 Va n2 GND 5.07072749268
-Id n6 n7 1.00018604098m 
+Id n7 n6 1.00018604098m 
 
 Vzero GND nz 0 ; Imaginary source (needed to specify Hc) (unc)
 
@@ -51,7 +51,7 @@ echo "********************************************"
 echo "---------Debugging Values-----------"
 
 echo "Potential Difference"
-echo "Volage at Nodes"
+echo "Voltage at Nodes"
 *print @Q1[ic]
 *print @Rf[i]
 
