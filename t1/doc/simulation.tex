@@ -3,82 +3,42 @@
 
 \subsection{Operating Point Analysis}
 
+\par After analysing the circuit we proceeded to the simulation using \bf{ngspice} in order to
+compare the results with the theoretical predictions. The results are shown in Table~\ref{tab:op}
+
 Table~\ref{tab:op} shows the simulated operating point results for the circuit
 under analysis. Compared to the theoretical analysis results, one notices the
 following differences: describe and explain the differences.
 
 \begin{table}[h]
-  \centering
-  \begin{tabular}{|l|r|}
-    \hline    
-        {\bf Name} & {\bf Value [A or V]} \\
-        \hline
-        \hline
-    \input{../sim/op_tab}
-  \end{tabular}
-  \caption{Operating point. The '$n$' variables represent the potential differences determined at the nodes, compared to GND. The '$r$' variables represent the current that passes through each resistor, as depicted in Figure~\ref{node_fig}}
-  \label{tab:op}
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [A or V]} \\ \hline
+		\input{../sim/op_tab}
+	\end{tabular}
+	\caption{Operating point. A variable preceded by @ is of type {\em current}
+		and expressed in Ampere; other variables are of type {\it voltage} and expressed in
+		Volt.}
+	\label{tab:op}
 \end{table}
 
-\lipsum[1-1]
+\par As one can see there's a slight deviation in the values compared with previous calculations,
+however this error is assumed to be caused by numerical propagated errors made when solving the linear 
+system of equations. %There's also a certain random error...
 
-\subsection{Transient Analysis}
+
+
+%\subsection{Transient Analysis}
 
 %Figure~\ref{fig:trans} shows the simulated transient analysis results for the
-circuit under analysis. Compared to the theoretical analysis results, one
-notices the following differences: describe and explain the differences.
+%circuit under analysis. Compared to the theoretical analysis results, one
+%notices the following differences: describe and explain the differences.
 
 %\begin{figure}[h] \centering
 %\includegraphics[width=0.6\linewidth]{trans.pdf}
 %\caption{Transient output voltage}
 %\label{fig:trans}
 %\end{figure}
-
-\lipsum[1-1]
-
-\subsection{Frequency Analysis}
-
-\subsubsection{Magnitude Response}
-
-%Figure~\ref{fig:acm} shows the magnitude of the frequency response for the
-circuit under analysis. Compared to the theoretical analysis results, one
-notices the following differences: describe and explain the differences.
-
-%\begin{figure}[h] \centering
-%\includegraphics[width=0.6\linewidth]{acm.pdf}
-%\caption{Magnitude response}
-%\label{fig:acm}
-%\end{figure}
-
-\lipsum[1-1]
-
-\subsubsection{Phase Response}
-
-%Figure~\ref{fig:acp} shows the magnitude of the frequency response for the
-circuit under analysis. Compared to the theoretical analysis results, one
-notices the following differences: describe and explain the differences.
-
-%\begin{figure}[h] \centering
-%\includegraphics[width=0.6\linewidth]{acp.pdf}
-%\caption{Phase response}
-%\label{fig:acp}
-%\end{figure}
-
-\lipsum[1-1]
-
-\subsubsection{Input Impedance}
-
-%Figure~\ref{fig:zim} shows the magnitude of the frequency response for the
-circuit under analysis. Compared to the theoretical analysis results, one
-notices the following differences: describe and explain the differences.
-
-%\begin{figure}[h] \centering
-%\includegraphics[width=0.6\linewidth]{zim.pdf}
-%\caption{Input impedance}
-%\label{fig:zim}
-%\end{figure}
-
-\lipsum[1-1]
-
 
 

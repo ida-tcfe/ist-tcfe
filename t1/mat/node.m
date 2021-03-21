@@ -40,27 +40,27 @@ Ic = -c(7)/R6;
 
 Vc = Kc * Ic;
 
-printf("$V_2$ & $%f\\;V$ \\\\ \n", c(1));
+printf("$V_2\\;(V)$ & $%f$ \\\\ \n", c(1));
 printf("\\hline\n");
-printf("$V_3$ & $%f\\;V$ \\\\ \n", c(2));
+printf("$V_3\\;(V)$ & $%f$ \\\\ \n", c(2));
 printf("\\hline\n");
-printf("$V_4$ & $%f\\;V$ \\\\ \n", c(3));
+printf("$V_4\\;(V)$ & $%f$ \\\\ \n", c(3));
 printf("\\hline\n");
-printf("$V_5$ & $%f\\;V$ \\\\ \n", c(4));
+printf("$V_5\\;(V)$ & $%f$ \\\\ \n", c(4));
 printf("\\hline\n");
-printf("$V_6$ & $%f\\;V$ \\\\ \n", c(5));
+printf("$V_6\\;(V)$ & $%f$ \\\\ \n", c(5));
 printf("\\hline\n");
-printf("$V_7$ & $%f\\;V$ \\\\ \n", c(6));
+printf("$V_7\\;(V)$ & $%f$ \\\\ \n", c(6));
 printf("\\hline\n");
-printf("$V_8$ & $%f\\;V$ \\\\ \n", c(7));
+printf("$V_8\\;(V)$ & $%f$ \\\\ \n", c(7));
 printf("\\hline\n");
-printf("$V_b$ & $%f\\;A$ \\\\ \n", Vb);
+printf("$V_b\\;(V)$ & $%f$ \\\\ \n", Vb);
 printf("\\hline\n");
-printf("$I_b$ & $%f\\;A$ \\\\ \n", Ib);
+printf("$I_b\\;(V)$ & $%f$ \\\\ \n", Ib);
 printf("\\hline\n");
-printf("$I_c$ & $%f\\;A$ \\\\ \n", Ic);
+printf("$I_c\\;(V)$ & $%f$ \\\\ \n", Ic);
 printf("\\hline\n");
-printf("$V_c$ & $%f\\;V$ \\\\ \n", Vc);
+printf("$V_c\\;(V)$ & $%f$ \\\\ \n", Vc);
 
 
 

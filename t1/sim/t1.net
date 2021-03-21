@@ -11,28 +11,28 @@
 .options savecurrents
 
 * ------------- Independent Sources 
-Va n2 GND 5.07072749268
-Id n7 n6 1.00018604098m 
+Va n2vv GND 5.07072749268
+Id n7vv n6vv 1.00018604098m 
 
-Vzero GND nz 0
+Vzero GND nzvv 0
 *Imaginary source (needed to specify Hc) (unc)
 
 * ------------- Dependent Sources 
-Gb n4 n6 n3 n5 7.26322828319k
+Gb n4vv n6vv n3vv n5vv 7.26322828319k
 *Ib = Kb*Vb - Kb = 7.26322828319k , Vb = To be calculated
 
-Hc n5 n7 Vzero 8.05067652194k
+Hc n5vv n7vv Vzero 8.05067652194k
 *Vc = Kc*Ic - Kc = 05067652194k , Ic = To be Calculated (unc)
 *Vc n5 n7 7.8 ; - Not known! Just for debugg
 
 * -------------- Resistors - All in kOhms!
-R1 n3 n2 1.02051254911K
-R2 n4 n3 2.07133294635K
-R3 n3 n5 3.10650554224K
-R4 GND n5 4.01929064552K
-R5 n5 n6 3.0844359874K
-R6 nz n8 2.01287586659K
-R7 n8 n7 1.02150900709K
+R1 n3vv n2vv 1.02051254911K
+R2 n4vv n3vv 2.07133294635K
+R3 n3vv n5vv 3.10650554224K
+R4 GND n5vv 4.01929064552K
+R5 n5vv n6vv 3.0844359874K
+R6 nzvv n8vv 2.01287586659K
+R7 n8vv n7vv 1.02150900709K
 
 *makes plots in color
 *set hcopypscolor=0
@@ -59,14 +59,14 @@ echo "Voltage at Nodes"
 *print @Rf[i]
 
 echo  "op_TAB"
-print n2
-print n3
-print n4
-print n5
-print n6
-print n7
-print n8
-print v(n5, n7)
+print n2vv
+print n3vv
+print n4vv
+print n5vv
+print n6vv
+print n7vv
+print n8vv
+print v(n5vv, n7vv)
 print @r1[i]
 print @r2[i]
 print @r3[i]
