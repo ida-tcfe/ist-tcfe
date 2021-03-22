@@ -3,18 +3,6 @@
 
 This laboratory assignment had as the main objective the analysis of the circuit in Figure~\ref{circuit}. That goal was achieved by performing a theoretical analysis, using Octave, and a simulation, using Ngspice tool.
 
-As one can see there's a slight deviation in the values compared with previous calculations. We proceeded to determine, numerically, how significant these deviations are, as shown in Table~\ref{error_res}. The theoretical results ($V_t$) do not match perfectly the simulation results ($V_s$). However, the error is quite small, always inferior to $1\%$.
-
-The circuit is simply and contains only linear components, so large deviations were not anticipated. They can be due to any number of causes, including:
-
-\begin{itemize}
-\item floating point arithmetics;
-\item different numerical precisions in the different tools employed;
-\item propagated erros made when solving the linear system of equations.
-\end{itemize}
-
-%The circuit is quite simple and it contains only linear components, so it was not expected that these errors would occur. They have probably arrived due to different number precision in calculations in the two tools used.
-
 \begin{table}[H]
   \centering
   \begin{tabular}{|c|c|c|c|c|}
@@ -28,6 +16,18 @@ The circuit is simply and contains only linear components, so large deviations w
   \caption{Theoretical results and Simulation results}
   \label{error_res}
 \end{table}
+
+As one can see there's a slight deviation in the values compared with previous calculations. We proceeded to determine, numerically, how significant these deviations are, as shown in Table~\ref{error_res}. The theoretical results ($V_t$) do not match perfectly the simulation results ($V_s$). However, the error is quite small, always inferior to $1\%$.
+
+The circuit is ``simple'' and contains only linear components, so large deviations were not anticipated. These can be due to any number of causes, including but not limited to:
+
+\begin{itemize}
+\item floating point arithmetics;
+\item different numerical precisions in the different tools employed;
+\item propagated erros made when solving the linear system of equations.
+\end{itemize}
+
+%The circuit is quite simple and it contains only linear components, so it was not expected that these errors would occur. They have probably arrived due to different number precision in calculations in the two tools used.
 
 %However this error is assumed to be caused by numerical propagated errors made when solving the linear system of equations or simply due to floating point arithmetics. %There's also a certain random error...
 

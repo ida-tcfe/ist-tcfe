@@ -14,8 +14,6 @@ The first method considered is the Mesh analysis method, considering the four me
   \label{mesh_fig}
 \end{figure}
 
-\newpage
-
 By inspection:
 
 \begin{equation}
@@ -24,6 +22,8 @@ By inspection:
     I_{\beta} = I_b
   \end{cases}
 \end{equation}
+
+\newpage
 
 Applying KVL to the two remaining meshes:
 
@@ -89,8 +89,6 @@ Manipulating these equations and solving them using Octave yields:
   \label{mesh_res}
 \end{table}    
 
-\newpage
-
 \subsection{Node analysis method}
 
 The second method used was the Node analysis method. With this method, it was possible to determine the voltages in the 8 nodes of the circuit. In figure \ref{node_fig}, the directions of the currents chosen to do this analysis are represented, as well as the numerical labels that were given to the nodes.
@@ -128,8 +126,6 @@ By analysing the dependent voltage source, it is also possible to conclude that
 \begin{equation}
   V_5 - V_7 + K_c\frac{V_8}{R_6} = 0
 \end{equation}
-
-\newpage
 
 Once again, using Octave and the former equations, is possible to determine the voltages in the nodes and the unknown currents and voltages of the circuit:
 
