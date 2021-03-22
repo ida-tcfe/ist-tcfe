@@ -13,7 +13,6 @@ all: $(FILE).pdf
 
 $(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
 	python error.py
-	python error_old.py
 	export TEXINPUTS=$(TEXINPUTS)
 	#cp -f ../mat/*.eps .
 	pdflatex  $(FILE).tex
@@ -28,7 +27,7 @@ $(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
 clean:
 	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
 	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps
-	@rm -rf errors.tex erros_old.tex
+	@rm -rf errors.tex 
 
 .PHONY: all clean 
 

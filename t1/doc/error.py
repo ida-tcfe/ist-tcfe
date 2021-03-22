@@ -84,8 +84,6 @@ else:
 v8ter = float(v8ter)
 #print(v8ter)
 
-fter.readline()
-
 fsim = open('../sim/op_tab.tex', 'r')
 
 v2sim = fsim.readline()

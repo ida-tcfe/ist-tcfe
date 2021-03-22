@@ -1,9 +1,6 @@
-all: mesh node_old node
+all: mesh node
 
 mesh: mesh.m
-	octave $< > $@.tex
-
-node_old: node_old.m
 	octave $< > $@.tex
 
 node: node.m
