@@ -9,7 +9,7 @@ After analysing the circuit we proceeded to simulate it using {\bf ngspice} in o
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{|l|r|}
+	\begin{tabular}{|l|c|}
 		\hline    
 		{\bf Name} & {\bf Value} \\ \hline
 		\input{../sim/op_tab}
@@ -17,5 +17,3 @@ After analysing the circuit we proceeded to simulate it using {\bf ngspice} in o
 	\caption{Operating point. The '$n$' variables represent the potencial difference determined at the nodes, compared to GND. The '$r$' variables correspond to the current flowing through each resistor, as depicted in Figure~\ref{node_fig}.}
 	\label{tab:op}
 \end{table}
-
-As one can see there's a slight deviation in the values compared with previous calculations. However this error is assumed to be caused by numerical propagated errors made when solving the linear system of equations or simply due to floating point arithmetics. %There's also a certain random error...
