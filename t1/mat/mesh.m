@@ -68,18 +68,6 @@ V6 = V5 - RV5;
 #printf("V_7 = %f\n", V7);
 #printf("V_8 = %f\n", V8);
 
-printf("$I_\\alpha\\;(A)$ & $%f$ \\\\ \n", c(1));
-printf("\\hline\n");
-printf("$I_\\beta\\;(A)$ & $%f$ \\\\ \n", c(2));
-printf("\\hline\n");
-printf("$I_\\gamma\\;(A)$ & $%f$ \\\\ \n", c(3));
-printf("\\hline\n");
-printf("$I_\\delta\\;(A)$ & $%f$ \\\\ \n", c(4));
-printf("\\hline\n");
-printf("$I_c\\;(A)$ & $%f$ \\\\ \n", -c(4));
-printf("\\hline\n");
-printf("$I_b\\;(A)$ & $%f$ \\\\ \n", Ib);
-printf("\\hline\n");
 printf("$V_2\\;(V)$ & $%f$ \\\\ \n", V2);
 printf("\\hline\n");
 printf("$V_3\\;(V)$ & $%f$ \\\\ \n", V3);
@@ -94,6 +82,35 @@ printf("$V_7\\;(V)$ & $%f$ \\\\ \n", V7);
 printf("\\hline\n");
 printf("$V_8\\;(V)$ & $%f$ \\\\ \n", V8);
 printf("\\hline\n");
+printf("$V_c\\;(V)$ & $%f$ \\\\ \n", Vc);
+printf("\\hline\n");
 printf("$V_b\\;(V)$ & $%f$ \\\\ \n", RV3);
 printf("\\hline\n");
-printf("$V_c\\;(V)$ & $%f$ \\\\ \n", Vc);
+printf("$I_1\\;(A)$ & $%f$ \\\\ \n", c(3));
+printf("\\hline\n");
+printf("$I_2\\;(A)$ & $%f$ \\\\ \n", c(2));
+printf("\\hline\n");
+printf("$I_3\\;(A)$ & $%f$ \\\\ \n", c(2)-c(3));
+printf("\\hline\n");
+printf("$I_4\\;(A)$ & $%f$ \\\\ \n", c(3)+c(4));
+printf("\\hline\n");
+printf("$I_5\\;(A)$ & $%f$ \\\\ \n", c(2)-c(1));
+printf("\\hline\n");
+printf("$I_7\\;(A)$ & $%f$ \\\\ \n", -c(4));
+printf("\\hline\n");
+
+#printf("$I_\\alpha\\;(A)$ & $%f$ \\\\ \n", c(1));
+#printf("\\hline\n");
+#printf("$I_\\beta\\;(A)$ & $%f$ \\\\ \n", c(2));
+#printf("\\hline\n");
+#printf("$I_\\gamma\\;(A)$ & $%f$ \\\\ \n", c(3));
+#printf("\\hline\n");
+#printf("$I_\\delta\\;(A)$ & $%f$ \\\\ \n", c(4));
+#printf("\\hline\n");
+printf("$I_b\\;(A)$ & $%f$ \\\\ \n", Ib);
+printf("\\hline\n");
+printf("$I_c\\;(A)$ & $%f$ \\\\ \n", -c(4));
+
+
+
+
