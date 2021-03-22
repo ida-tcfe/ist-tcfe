@@ -54,13 +54,9 @@ printf("$V_7\\;(V)$ & $%f$ \\\\ \n", c(6)); #V7
 printf("\\hline\n");
 printf("$V_8\\;(V)$ & $%f$ \\\\ \n", c(7)); #V8
 printf("\\hline\n");
-printf("$V_b\\;(V)$ & $%f$ \\\\ \n", Vb);
-printf("\\hline\n");
-printf("$I_b\\;(V)$ & $%f$ \\\\ \n", Ib);
-printf("\\hline\n");
-printf("$I_c\\;(V)$ & $%f$ \\\\ \n", Ic);
-printf("\\hline\n");
 printf("$V_c\\;(V)$ & $%f$ \\\\ \n", Vc);
+printf("\\hline\n");
+printf("$V_b\\;(V)$ & $%f$ \\\\ \n", Vb);
 
 I1 = (c(2)-c(1)) / R1;
 I2 = (c(3)-c(2)) / R2;
@@ -81,5 +77,9 @@ printf("\\hline\n");
 printf("$I_5\\;(A)$ & $%f$ \\\\ \n", I5);
 printf("\\hline\n");
 printf("$I_7\\;(A)$ & $%f$ \\\\ \n", I7);
+printf("\\hline\n");
+printf("$I_b\\;(V)$ & $%f$ \\\\ \n", Ib);
+printf("\\hline\n");
+printf("$I_c\\;(V)$ & $%f$ \\\\ \n", Ic);
 
 
