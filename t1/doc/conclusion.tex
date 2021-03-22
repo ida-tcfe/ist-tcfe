@@ -1,7 +1,7 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-This laboratory assignment had as the main objective the analysis of the circuit in Figure~\ref{circuit}. That goal was achieved by performing a theoretical analysis, using Octave, and a simulation, using Ngspice tool.
+This laboratory assignment had as the main objective the analysis of the circuit in Figure~\ref{circuit}. That goal was achieved by performing a theoretical analysis, using {\bf Octave}, and a simulation, using {\bf Ngspice}.
 
 \begin{table}[H]
   \centering
@@ -13,13 +13,15 @@ This laboratory assignment had as the main objective the analysis of the circuit
         \input{errors}
         \hline
   \end{tabular}
-  \caption{Theoretical results and Simulation results}
+  \caption{Theoretical results and Simulation results (table produced with {\bf Python}}
   \label{error_res}
 \end{table}
 
 \footnotetext{The error presented here is rounded up to one significant digit, for ease of interpretation.}
 
 \newpage
+
+To evaluate the study done, we chose to compare only the voltages determined at the nodes, since all other variables can be determined from these.
 
 As one can see there's a slight deviation in the values compared with previous calculations. We proceeded to determine, numerically, how significant these deviations are, as shown in Table~\ref{error_res}. The theoretical results ($V_t$) do not match perfectly the simulation results ($V_s$). However, the error is quite small, always inferior to $1\%$.
 
