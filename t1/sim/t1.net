@@ -14,11 +14,11 @@
 Va n2vv GND 5.07072749268
 Id n7vv n6vv 1.00018604098m 
 
-Vzero GND nzvv 0
+Vzero GND nzvv 0.0
 *Imaginary source (needed to specify Hc) (unc)
 
 * ------------- Dependent Sources 
-Gb n4vv n6vv n3vv n5vv 7.26322828319k
+Gb n6vv n4vv n3vv n5vv 7.26322828319m
 *Ib = Kb*Vb - Kb = 7.26322828319k , Vb = To be calculated
 
 Hc n5vv n7vv Vzero 8.05067652194k
