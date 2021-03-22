@@ -14,7 +14,7 @@
 Va n2vv GND 5.07072749268
 Id n7vv n6vv 1.00018604098m 
 
-Vzero GND nzvv 0
+Vzero GND nzvv 0.0
 *Imaginary source (needed to specify Hc) (unc)
 
 * ------------- Dependent Sources 
