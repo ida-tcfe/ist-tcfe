@@ -1,4 +1,18 @@
 import math
+import numpy as np
+
+def err(x):
+    if (x == 0):
+        return 0
+    num = float("{:e}".format(x).split('e')[0])
+    pow = float("{:e}".format(x).split('e')[1])
+    num = np.ceil(num)
+    if (x >= num*(10**pow)):
+        num += 1
+        if (num == 10):
+            num = 0
+            pow += 1
+    return num*(10**pow)
 
 fter = open('../mat/node.tex', 'r')
 
@@ -122,6 +136,15 @@ per7 = abs7*100 / math.fabs(v7ter)
 
 abs8 = math.fabs(v8ter-v8sim)
 per8 = abs8*100 / math.fabs(v8ter)
+
+# Arredondamentos
+per2 = err(per2)
+per3 = err(per3)
+per4 = err(per4)
+per5 = err(per5)
+per6 = err(per6)
+per7 = err(per7)
+per8 = err(per8)
 
 fe = open('errors.tex', 'w')
 
