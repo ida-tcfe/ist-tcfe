@@ -3,6 +3,8 @@
 
 In this section, the circuit depicted in Figure~\ref{circuit} is analysed with two different methods, so as to determine how it behaves, theoretically, both in terms of current in each branch and potential difference between nodes.
 
+To provide for common ground between the theoretical analysis and the simulation run, we chose to always present the voltage at the nodes, in comparison to the same GND (the other variables can be easily obtained from these, so it would be superfluous to also present them). The voltage produced by $V_c$ and current produced by $I_c$ were also presented, as well as the current $I_c$ and voltage $V_b$ that control each one, respectively, since these are important system parameters.
+
 \subsection{Mesh analysis method}
 
 The first method considered is the Mesh analysis method, considering the four meshes present in the circuit. Each mesh is given a label ($\alpha$, $\beta$, $\gamma$ and $\delta$) and an arbitrary direction for the current to flow in, as the below figure shows.
@@ -14,6 +16,8 @@ The first method considered is the Mesh analysis method, considering the four me
   \label{mesh_fig}
 \end{figure}
 
+\newpage
+
 By inspection:
 
 \begin{equation}
@@ -22,8 +26,6 @@ By inspection:
     I_{\beta} = I_b
   \end{cases}
 \end{equation}
-
-\newpage
 
 Applying KVL to the two remaining meshes:
 
