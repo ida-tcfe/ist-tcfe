@@ -78,8 +78,8 @@ printf("$I_5\\;(A)$ & $%f$ \\\\ \n", I5);
 printf("\\hline\n");
 printf("$I_7\\;(A)$ & $%f$ \\\\ \n", I7);
 printf("\\hline\n");
-printf("$I_b\\;(V)$ & $%f$ \\\\ \n", Ib);
+printf("$I_b\\;(A)$ & $%f$ \\\\ \n", Ib);
 printf("\\hline\n");
-printf("$I_c\\;(V)$ & $%f$ \\\\ \n", Ic);
+printf("$I_c\\;(A)$ & $%f$ \\\\ \n", Ic);
 
 
