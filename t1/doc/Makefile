@@ -8,10 +8,11 @@ FILE=report
 #list of LibreOffice Draw files
 LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 
-all: $(FILE).pdf
+all: $(FILE).pdf 
 	evince $< &
 
 $(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
+	python error.py
 	export TEXINPUTS=$(TEXINPUTS)
 	#cp -f ../mat/*.eps .
 	pdflatex  $(FILE).tex
@@ -26,7 +27,8 @@ $(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
 clean:
 	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
 	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.eps
+	@rm -rf errors.tex
 
-.PHONY: all clean
+.PHONY: all clean 
 
 

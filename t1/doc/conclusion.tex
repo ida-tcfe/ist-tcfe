@@ -1,14 +1,22 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-In this laboratory assignment the objective of analysing an RC circuit has been
-achieved. Static, time and frequency analyses have been performed both
-theoretically using the Octave maths tool and by circuit simulation using the
-Ngspice tool. The simulation results matched the theoretical results
-precisely. The reason for this perfect match is the fact that this is a
-straightforward circuit containing only linear components, so the theoretical
-and simulation models cannot differ. For more complex components, the
-theoretical and simulation models could differ but this is not the case in this
-work.
+This laboratory assignment had as the main objective the analysis of the circuit in figure \ref{circuit}. That goal was achieved by performing a theoretical analysis, using Octave, and a simulation, using Ngspice tool.
 
-\lipsum[1-1]
+As it can be observed in table \ref{error_res}, the theoretical results ($V_t$) do not match perfectly the simulation results ($V_s$). However, the error is quite small, always inferior to $1\%$. The circuit is quite simple and it contains only linear components, so it was not expected that these errors would occur. They have probably arrived due to different number precision in calculations in the two tools used.
+
+%praticamente 100 palavras
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        $V$ & $V_t$ & $V_s$ & $|V_t-V_s|$ & $Error (\%)$ \\
+        \hline
+        \hline
+        \input{errors}
+        \hline
+  \end{tabular}
+  \caption{Theoretical results and Simulation results}
+  \label{error_res}
+\end{table}   
