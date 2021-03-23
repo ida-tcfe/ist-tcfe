@@ -66,20 +66,20 @@ I5 = (c(4)-c(5)) / R5;
 I7 = (c(7)-c(6)) / R7;
 
 printf("\\hline\n");
-printf("$I_1\\;(A)$ & $%f$ \\\\ \n", I1);
+printf("$I_1\\;(mA)$ & $%f$ \\\\ \n", I1*1000);
 printf("\\hline\n");
-printf("$I_2\\;(A)$ & $%f$ \\\\ \n", I2);
+printf("$I_2\\;(mA)$ & $%f$ \\\\ \n", I2*1000);
 printf("\\hline\n");
-printf("$I_3\\;(A)$ & $%f$ \\\\ \n", I3);
+printf("$I_3\\;(mA)$ & $%f$ \\\\ \n", I3*1000);
 printf("\\hline\n");
-printf("$I_4\\;(A)$ & $%f$ \\\\ \n", I4);
+printf("$I_4\\;(mA)$ & $%f$ \\\\ \n", I4*1000);
 printf("\\hline\n");
-printf("$I_5\\;(A)$ & $%f$ \\\\ \n", I5);
+printf("$I_5\\;(mA)$ & $%f$ \\\\ \n", I5*1000);
 printf("\\hline\n");
-printf("$I_7\\;(A)$ & $%f$ \\\\ \n", I7);
+printf("$I_7\\;(mA)$ & $%f$ \\\\ \n", I7*1000);
 printf("\\hline\n");
-printf("$I_b\\;(A)$ & $%f$ \\\\ \n", Ib);
+printf("$I_b\\;(mA)$ & $%f$ \\\\ \n", Ib*1000);
 printf("\\hline\n");
-printf("$I_c\\;(A)$ & $%f$ \\\\ \n", Ic);
+printf("$I_c\\;(mA)$ & $%f$ \\\\ \n", Ic*1000);
 
 
