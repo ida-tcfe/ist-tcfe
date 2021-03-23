@@ -40,27 +40,46 @@ Ic = -c(7)/R6;
 
 Vc = Kc * Ic;
 
-printf("$V_2\\;(V)$ & $%f$ \\\\ \n", c(1));
+printf("$V_2\\;(V)$ & $%f$ \\\\ \n", c(1)); #V2
 printf("\\hline\n");
-printf("$V_3\\;(V)$ & $%f$ \\\\ \n", c(2));
+printf("$V_3\\;(V)$ & $%f$ \\\\ \n", c(2)); #V3
 printf("\\hline\n");
-printf("$V_4\\;(V)$ & $%f$ \\\\ \n", c(3));
+printf("$V_4\\;(V)$ & $%f$ \\\\ \n", c(3)); #V4
 printf("\\hline\n");
-printf("$V_5\\;(V)$ & $%f$ \\\\ \n", c(4));
+printf("$V_5\\;(V)$ & $%f$ \\\\ \n", c(4)); #V5
 printf("\\hline\n");
-printf("$V_6\\;(V)$ & $%f$ \\\\ \n", c(5));
+printf("$V_6\\;(V)$ & $%f$ \\\\ \n", c(5)); #V6
 printf("\\hline\n");
-printf("$V_7\\;(V)$ & $%f$ \\\\ \n", c(6));
+printf("$V_7\\;(V)$ & $%f$ \\\\ \n", c(6)); #V7
 printf("\\hline\n");
-printf("$V_8\\;(V)$ & $%f$ \\\\ \n", c(7));
-printf("\\hline\n");
-printf("$V_b\\;(V)$ & $%f$ \\\\ \n", Vb);
-printf("\\hline\n");
-printf("$I_b\\;(V)$ & $%f$ \\\\ \n", Ib);
-printf("\\hline\n");
-printf("$I_c\\;(V)$ & $%f$ \\\\ \n", Ic);
+printf("$V_8\\;(V)$ & $%f$ \\\\ \n", c(7)); #V8
 printf("\\hline\n");
 printf("$V_c\\;(V)$ & $%f$ \\\\ \n", Vc);
+printf("\\hline\n");
+printf("$V_b\\;(V)$ & $%f$ \\\\ \n", Vb);
 
+I1 = (c(2)-c(1)) / R1;
+I2 = (c(3)-c(2)) / R2;
+I3 = Vb / R3;
+I4 = -c(4) / R4;
+I5 = (c(4)-c(5)) / R5;
+I7 = (c(7)-c(6)) / R7;
+
+printf("\\hline\n");
+printf("$I_1\\;(mA)$ & $%f$ \\\\ \n", I1*1000);
+printf("\\hline\n");
+printf("$I_2\\;(mA)$ & $%f$ \\\\ \n", I2*1000);
+printf("\\hline\n");
+printf("$I_3\\;(mA)$ & $%f$ \\\\ \n", I3*1000);
+printf("\\hline\n");
+printf("$I_4\\;(mA)$ & $%f$ \\\\ \n", I4*1000);
+printf("\\hline\n");
+printf("$I_5\\;(mA)$ & $%f$ \\\\ \n", I5*1000);
+printf("\\hline\n");
+printf("$I_7\\;(mA)$ & $%f$ \\\\ \n", I7*1000);
+printf("\\hline\n");
+printf("$I_b\\;(mA)$ & $%f$ \\\\ \n", Ib*1000);
+printf("\\hline\n");
+printf("$I_c\\;(mA)$ & $%f$ \\\\ \n", Ic*1000);
 
 
