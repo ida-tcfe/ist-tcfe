@@ -110,6 +110,10 @@ printf("\\hline\n");
 printf("$I_b\\;(mA)$ & $%f$ \\\\ \n", Ib*1000);
 printf("\\hline\n");
 printf("$I_c\\;(mA)$ & $%f$ \\\\ \n", -c(4)*1000);
+printf("\\hline\n");
+printf("$IV_c\\;(mA)$ & $%f$ \\\\ \n", (c(1)+c(4))*1000);
+printf("\\hline\n");
+printf("$IV_a\\;(mA)$ & $%f$ \\\\ \n", c(3)*1000);
 
 
 
