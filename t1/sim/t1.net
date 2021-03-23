@@ -77,6 +77,7 @@ print @r5[i]
 print @r7[i]
 print @Gb[i]
 print @r6[i]
+print @Hc[i]
 
 echo  "op_END"
 
