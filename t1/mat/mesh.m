@@ -86,17 +86,17 @@ printf("$V_c\\;(V)$ & $%f$ \\\\ \n", Vc);
 printf("\\hline\n");
 printf("$V_b\\;(V)$ & $%f$ \\\\ \n", RV3);
 printf("\\hline\n");
-printf("$I_1\\;(A)$ & $%f$ \\\\ \n", c(3));
+printf("$I_1\\;(mA)$ & $%f$ \\\\ \n", c(3)*1000);
 printf("\\hline\n");
-printf("$I_2\\;(A)$ & $%f$ \\\\ \n", c(2));
+printf("$I_2\\;(mA)$ & $%f$ \\\\ \n", c(2)*1000);
 printf("\\hline\n");
-printf("$I_3\\;(A)$ & $%f$ \\\\ \n", c(2)-c(3));
+printf("$I_3\\;(mA)$ & $%f$ \\\\ \n", (c(2)-c(3))*1000);
 printf("\\hline\n");
-printf("$I_4\\;(A)$ & $%f$ \\\\ \n", c(3)+c(4));
+printf("$I_4\\;(mA)$ & $%f$ \\\\ \n", (c(3)+c(4))*1000);
 printf("\\hline\n");
-printf("$I_5\\;(A)$ & $%f$ \\\\ \n", c(2)-c(1));
+printf("$I_5\\;(mA)$ & $%f$ \\\\ \n", (c(2)-c(1))*1000);
 printf("\\hline\n");
-printf("$I_7\\;(A)$ & $%f$ \\\\ \n", -c(4));
+printf("$I_7\\;(mA)$ & $%f$ \\\\ \n", -c(4)*1000);
 printf("\\hline\n");
 
 #printf("$I_\\alpha\\;(A)$ & $%f$ \\\\ \n", c(1));
@@ -107,9 +107,9 @@ printf("\\hline\n");
 #printf("\\hline\n");
 #printf("$I_\\delta\\;(A)$ & $%f$ \\\\ \n", c(4));
 #printf("\\hline\n");
-printf("$I_b\\;(A)$ & $%f$ \\\\ \n", Ib);
+printf("$I_b\\;(mA)$ & $%f$ \\\\ \n", Ib*1000);
 printf("\\hline\n");
-printf("$I_c\\;(A)$ & $%f$ \\\\ \n", -c(4));
+printf("$I_c\\;(mA)$ & $%f$ \\\\ \n", -c(4)*1000);
 
 
 
