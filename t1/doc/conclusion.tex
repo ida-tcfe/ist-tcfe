@@ -3,23 +3,7 @@
 
 This laboratory assignment had as the main objective the analysis of the circuit in Figure~\ref{circuit}. That goal was achieved by performing a theoretical analysis, using {\bf Octave}, and a simulation, using {\bf Ngspice}.
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-        $V$ & $V_t$ & $V_s$ & $|V_t-V_s|$ & $Error (\%)$\footnotemark \\
-        \hline
-        \hline
-        \input{errors}
-        \hline
-  \end{tabular}
-  \caption{Theoretical results and Simulation results (table produced with {\bf Python})}
-  \label{error_res}
-\end{table}
-
-\footnotetext{The error presented here is rounded up to one significant digit, for ease of interpretation.}
-
-In order to evaluate the study done, we chose to compare only the voltages determined at the nodes, since all other variables can be determined from these. A very slight deviation is present in the last two values, but it is not apparent whether it has arised from miscalculations, and is therefore an error, or if it results from the values being rounded when presented. Nevertheless, we determined, numerically, how significant the deviations are, as shown in Table~\ref{error_res}.
+In order to evaluate the study done, we chose to compare only the voltages determined at the nodes, since all other variables can be determined from these. A very slight deviation is present in some values, but it is not apparent whether it has arised from miscalculations, and is therefore an error, or if it stems from the values being rounded when presented. Nevertheless, we determined, numerically, how significant the deviations are, as shown in Table~\ref{error_res}.
 
 %As one can see there's a very slight deviation in some of the values compared with previous calculations. We proceeded to determine, numerically, how significant these deviations are, as shown in Table~\ref{error_res}. Most of the values are exact ($0\%$) error, and those that aren't have very small errors.
 
@@ -30,7 +14,7 @@ The circuit is ``simple'' and contains only linear components, so large deviatio
 \begin{itemize}
 \item floating point arithmetics;
 \item different numerical precisions in the different tools employed;
-\item propagated erros made when solving the linear system of equations.
+\item propagated errors made when solving the linear system of equations.
 \end{itemize}
 
 %The circuit is quite simple and it contains only linear components, so it was not expected that these errors would occur. They have probably arrived due to different number precision in calculations in the two tools used.
@@ -38,5 +22,23 @@ The circuit is ``simple'' and contains only linear components, so large deviatio
 %However this error is assumed to be caused by numerical propagated errors made when solving the linear system of equations or simply due to floating point arithmetics. %There's also a certain random error...
 
 All in all, the results obtained were very satisfactory.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        $V$ & $V_t$ & $V_s$ & $|V_t-V_s|$\footnotemark & $Error (\%)$\footnotemark \\
+        \hline
+        \hline
+        \input{errors}
+        \hline
+  \end{tabular}
+  \caption{Theoretical results and Simulation results (table produced with {\bf Python})}
+  \label{error_res}
+\end{table}
+
+\footnotetext{The absolute deviation presented here is rounded up to one significant digit, for ease of interpretation.}
+
+\footnotetext{The error presented here is rounded up to one significant digit, for ease of interpretation.}
 
 
