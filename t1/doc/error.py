@@ -174,6 +174,24 @@ else:
     icter = icter[15:23]
 icter = float(icter)
 
+fter.readline()
+
+ivcter = fter.readline()
+if ivcter.find("-") != -1:
+    ivcter = ivcter[16:25]
+else:
+    ivcter = ivcter[16:24]
+ivcter = float(ivcter)
+
+fter.readline()
+
+ivater = fter.readline()
+if ivater.find("-") != -1:
+    ivater = ivater[16:25]
+else:
+    ivater = ivater[16:24]
+ivater = float(ivater)
+
 fsim = open('../sim/op_tab.tex', 'r')
 
 v2sim = fsim.readline()
@@ -236,6 +254,12 @@ ibsim = float(ibsim[9:21])*1000
 icsim = fsim.readline()
 icsim = float(icsim[9:21])*1000
 
+ivcsim = fsim.readline()
+ivcsim = float(ivcsim[10:22])*1000
+
+ivasim = fsim.readline()
+ivasim = float(ivasim[10:22])*1000
+
 abs2 = math.fabs(v2ter-v2sim)
 per2 = abs2*100 / math.fabs(v2ter)
 
@@ -287,6 +311,12 @@ perib = absib*100 / math.fabs(ibter)
 absic = math.fabs(icter-icsim)
 peric = absic*100 / math.fabs(icter)
 
+absivc = math.fabs(ivcter-ivcsim)
+perivc = absivc*100 / math.fabs(ivcter)
+
+absiva = math.fabs(ivater-ivasim)
+periva = absiva*100 / math.fabs(ivater)
+
 # Arredondamentos
 per2 = err(per2)
 per3 = err(per3)
@@ -305,6 +335,8 @@ perr5 = err(perr5)
 perr7 = err(perr7)
 perib = err(perib)
 peric = err(peric)
+periva = err(periva)
+perivc = err(perivc)
 abs2 = err(abs2)
 abs3 = err(abs3)
 abs4 = err(abs4)
@@ -322,6 +354,8 @@ absr5 = err(absr5)
 absr7 = err(absr7)
 absvb = err(absvb)
 absvc = err(absvc)
+absiva = err(absiva)
+absivc = err(absivc)
 
 fe = open('errors.tex', 'w')
 
@@ -358,6 +392,10 @@ fe.write('\hline \n')
 fe.write('$I_b\;(mA)$ & $'+str(ibter)+'$ & $'+str(ibsim)+'$ & $'+str(absib)+'$ & $'+str(perib)+'$ \\\\ \n')
 fe.write('\hline \n')
 fe.write('$I_c\;(mA)$ & $'+str(icter)+'$ & $'+str(icsim)+'$ & $'+str(absic)+'$ & $'+str(peric)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$IV_c\;(mA)$ & $'+str(ivcter)+'$ & $'+str(ivcsim)+'$ & $'+str(absivc)+'$ & $'+str(perivc)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$IV_a\;(mA)$ & $'+str(ivater)+'$ & $'+str(ivasim)+'$ & $'+str(absiva)+'$ & $'+str(periva)+'$ \\\\ \n')
 
 fe.close()
 fsim.close()
