@@ -106,72 +106,72 @@ fter.readline()
 
 r1ter = fter.readline()
 if r1ter.find("-") != -1:
-    r1ter = r1ter[14:23]
+    r1ter = r1ter[15:24]
 else:
-    r1ter = r1ter[14:22]
+    r1ter = r1ter[15:23]
 r1ter = float(r1ter)
 
 fter.readline()
 
 r2ter = fter.readline()
 if r2ter.find("-") != -1:
-    r2ter = r2ter[14:23]
+    r2ter = r2ter[15:24]
 else:
-    r2ter = r2ter[14:22]
+    r2ter = r2ter[15:23]
 r2ter = float(r2ter)
 
 fter.readline()
 
 r3ter = fter.readline()
 if r3ter.find("-") != -1:
-    r3ter = r3ter[14:23]
+    r3ter = r3ter[15:24]
 else:
-    r3ter = r3ter[14:22]
+    r3ter = r3ter[15:23]
 r3ter = float(r3ter)
 
 fter.readline()
 
 r4ter = fter.readline()
 if r4ter.find("-") != -1:
-    r4ter = r4ter[14:23]
+    r4ter = r4ter[15:24]
 else:
-    r4ter = r4ter[14:22]
+    r4ter = r4ter[15:23]
 r4ter = float(r4ter)
 
 fter.readline()
 
 r5ter = fter.readline()
 if r5ter.find("-") != -1:
-    r5ter = r5ter[14:23]
+    r5ter = r5ter[15:24]
 else:
-    r5ter = r5ter[14:22]
+    r5ter = r5ter[15:23]
 r5ter = float(r5ter)
 
 fter.readline()
 
 r7ter = fter.readline()
 if r7ter.find("-") != -1:
-    r7ter = r7ter[14:23]
+    r7ter = r7ter[15:24]
 else:
-    r7ter = r7ter[14:22]
+    r7ter = r7ter[15:23]
 r7ter = float(r7ter)
 
 fter.readline()
 
 ibter = fter.readline()
 if ibter.find("-") != -1:
-    ibter = ibter[14:23]
+    ibter = ibter[15:24]
 else:
-    ibter = ibter[14:22]
+    ibter = ibter[15:23]
 ibter = float(ibter)
 
 fter.readline()
 
 icter = fter.readline()
 if icter.find("-") != -1:
-    icter = icter[14:23]
+    icter = icter[15:24]
 else:
-    icter = icter[14:22]
+    icter = icter[15:23]
 icter = float(icter)
 
 fsim = open('../sim/op_tab.tex', 'r')
@@ -211,30 +211,30 @@ vbsim = fsim.readline()
 vbsim = float(vbsim[9:21])
 
 r1sim = fsim.readline()
-r1sim = float(r1sim[9:21])
+r1sim = float(r1sim[9:21])*1000
 #print(r1sim)
 
 r2sim = fsim.readline()
-r2sim = float(r2sim[9:21])
+r2sim = float(r2sim[9:21])*1000
 
 r3sim = fsim.readline()
-r3sim = float(r3sim[9:21])
+r3sim = float(r3sim[9:21])*1000
 
 r4sim = fsim.readline()
-r4sim = float(r4sim[9:21])
+r4sim = float(r4sim[9:21])*1000
 
 r5sim = fsim.readline()
-r5sim = float(r5sim[9:21])
+r5sim = float(r5sim[9:21])*1000
 
 r7sim = fsim.readline()
-r7sim = float(r7sim[9:21])
+r7sim = float(r7sim[9:21])*1000
 #print(r7sim)
 
 ibsim = fsim.readline()
-ibsim = float(ibsim[9:21])
+ibsim = float(ibsim[9:21])*1000
 
 icsim = fsim.readline()
-icsim = float(icsim[9:21])
+icsim = float(icsim[9:21])*1000
 
 abs2 = math.fabs(v2ter-v2sim)
 per2 = abs2*100 / math.fabs(v2ter)
@@ -326,21 +326,21 @@ fe.write('$V_c\;(V)$ & $'+str(vcter)+'$ & $'+str(vcsim)+'$ & $'+str(absvc)+'$ & 
 fe.write('\hline \n')
 fe.write('$V_b\;(V)$ & $'+str(vbter)+'$ & $'+str(vbsim)+'$ & $'+str(absvb)+'$ & $'+str(pervb)+'$ \\\\ \n')
 fe.write('\hline \n')
-fe.write('$I_1\;(A)$ & $'+str(r1ter)+'$ & $'+str(r1sim)+'$ & $'+str(absr1)+'$ & $'+str(perr1)+'$ \\\\ \n')
+fe.write('$I_1\;(mA)$ & $'+str(r1ter)+'$ & $'+str(r1sim)+'$ & $'+str(absr1)+'$ & $'+str(perr1)+'$ \\\\ \n')
 fe.write('\hline \n')
-fe.write('$I_2\;(A)$ & $'+str(r2ter)+'$ & $'+str(r2sim)+'$ & $'+str(absr2)+'$ & $'+str(perr2)+'$ \\\\ \n')
+fe.write('$I_2\;(mA)$ & $'+str(r2ter)+'$ & $'+str(r2sim)+'$ & $'+str(absr2)+'$ & $'+str(perr2)+'$ \\\\ \n')
 fe.write('\hline \n')
-fe.write('$I_3\;(A)$ & $'+str(r3ter)+'$ & $'+str(r3sim)+'$ & $'+str(absr3)+'$ & $'+str(perr3)+'$ \\\\ \n')
+fe.write('$I_3\;(mA)$ & $'+str(r3ter)+'$ & $'+str(r3sim)+'$ & $'+str(absr3)+'$ & $'+str(perr3)+'$ \\\\ \n')
 fe.write('\hline \n')
-fe.write('$I_4\;(A)$ & $'+str(r4ter)+'$ & $'+str(r4sim)+'$ & $'+str(absr4)+'$ & $'+str(perr4)+'$ \\\\ \n')
+fe.write('$I_4\;(mA)$ & $'+str(r4ter)+'$ & $'+str(r4sim)+'$ & $'+str(absr4)+'$ & $'+str(perr4)+'$ \\\\ \n')
 fe.write('\hline \n')
-fe.write('$I_5\;(A)$ & $'+str(r5ter)+'$ & $'+str(r5sim)+'$ & $'+str(absr5)+'$ & $'+str(perr5)+'$ \\\\ \n')
+fe.write('$I_5\;(mA)$ & $'+str(r5ter)+'$ & $'+str(r5sim)+'$ & $'+str(absr5)+'$ & $'+str(perr5)+'$ \\\\ \n')
 fe.write('\hline \n')
-fe.write('$I_7\;(A)$ & $'+str(r7ter)+'$ & $'+str(r7sim)+'$ & $'+str(absr7)+'$ & $'+str(perr7)+'$ \\\\ \n')
+fe.write('$I_7\;(mA)$ & $'+str(r7ter)+'$ & $'+str(r7sim)+'$ & $'+str(absr7)+'$ & $'+str(perr7)+'$ \\\\ \n')
 fe.write('\hline \n')
-fe.write('$I_b\;(A)$ & $'+str(ibter)+'$ & $'+str(ibsim)+'$ & $'+str(absib)+'$ & $'+str(perib)+'$ \\\\ \n')
+fe.write('$I_b\;(mA)$ & $'+str(ibter)+'$ & $'+str(ibsim)+'$ & $'+str(absib)+'$ & $'+str(perib)+'$ \\\\ \n')
 fe.write('\hline \n')
-fe.write('$I_c\;(A)$ & $'+str(icter)+'$ & $'+str(icsim)+'$ & $'+str(absic)+'$ & $'+str(peric)+'$ \\\\ \n')
+fe.write('$I_c\;(mA)$ & $'+str(icter)+'$ & $'+str(icsim)+'$ & $'+str(absic)+'$ & $'+str(peric)+'$ \\\\ \n')
 
 fe.close()
 fsim.close()
