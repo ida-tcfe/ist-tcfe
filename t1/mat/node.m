@@ -83,8 +83,8 @@ printf("\\hline\n");
 printf("$I_c\\;(mA)$ & $%f$ \\\\ \n", Ic*1000);
 printf("\\hline\n");
 # I4+I3 = I5+IVc
-printf("$I(V_c)\\;(mA)$ & $%f$ \\\\ \n", (I4+I3-I5)*1000);
+printf("$IV_c\\;(mA)$ & $%f$ \\\\ \n", (I4+I3-I5)*1000);
 printf("\\hline\n");
-printf("$I(V_a)\\;(mA)$ & $%f$ \\\\ \n", I1*1000);
+printf("$IV_a\\;(mA)$ & $%f$ \\\\ \n", I1*1000);
 
 
