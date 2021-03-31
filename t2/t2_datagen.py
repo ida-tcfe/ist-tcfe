@@ -7,6 +7,7 @@
 
 import math
 import random
+import sys
 
 class Var:
     def __init__(self, name, val, tol):
@@ -66,9 +67,10 @@ class DataSet:
 
 def main():
     #init test
-    number = input("\n\nPlease enter the lowest student number in your group: \n")
-    print
-    print
+    #number = input("\n\nPlease enter the lowest student number in your group: \n")
+    #print
+    #print
+    number = str(sys.argv)[0]
     dataset = DataSet(number)
 
     #print test
