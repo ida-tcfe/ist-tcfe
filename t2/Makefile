@@ -16,7 +16,7 @@ clean:
 	make -C doc clean
 
 py:
-	./t2_datagen.py 96187 > data.txt
+	./t2_datagen.py 96187 > mat/data.txt
 
 .PHONY: all clean
 
