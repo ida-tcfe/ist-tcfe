@@ -1,0 +1,25 @@
+Work to be done
+
+Simulation Analysis
+1) Diogo
+2)
+3)
+4)
+5)
+
+Theoretical Analysis
+1) Isabel
+2) Ana
+3)
+4)
+5)
+6)
+
+Lab report
+1) Ana
+NOTES: changed t2_datagen.py ever so slightly;
+       the student number and file location are on the Makefile
+2) Diogo
+3)
+4)
+5)
