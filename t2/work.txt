@@ -16,7 +16,7 @@ Theoretical Analysis
 6)
 
 Lab report
-1) Ana
+1) Ana - done
 NOTES: changed t2_datagen.py ever so slightly;
        the student number and file location are on the Makefile
 2) Diogo
