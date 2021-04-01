@@ -23,3 +23,8 @@ NOTES: changed t2_datagen.py ever so slightly;
 3)
 4)
 5)
+
+Introduction - Isabel
+
+Esquema - Diogo
+
