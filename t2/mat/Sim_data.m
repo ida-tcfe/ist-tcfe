@@ -7,7 +7,7 @@ clear all
 fid = fopen("results.txt", "a");
 
 
-a = textread ("data.txt", "%s")
+a = textread ("data.txt", "%s");
 values = cell(1, 11);
 
 for i = 1:11
@@ -17,19 +17,18 @@ endfor
 
 %%%%%%%%%%%%%%%%%% Conversion from str to var
 format long
-wval = cell2mat(values)
-R1 = str2num(wval{1})*1000
-R2 = str2double(wval{2})*1000
-R3 = str2double(wval{3})*1000 
-R4 = str2double(wval{4})*1000  
-R5 = str2double(wval{5})*1000 
-R6 = str2double(wval{6})*1000 
-R7 = str2double(wval{7})*1000  
-Vs =  str2double(wval{8}) 
-C = str2double(wval{9})/(1e+6)  
-Kb = str2double(wval{10})/1000  
-Kd = str2double(wval{11})*1000 
-
+wval = cell2mat(values);
+R1 = str2num(wval{1})*1000;
+R2 = str2double(wval{2})*1000;
+R3 = str2double(wval{3})*1000; 
+R4 = str2double(wval{4})*1000; 
+R5 = str2double(wval{5})*1000;
+R6 = str2double(wval{6})*1000;
+R7 = str2double(wval{7})*1000; 
+Vs =  str2double(wval{8});
+C = str2double(wval{9})/(1e+6);  
+Kb = str2double(wval{10})/1000; 
+Kd = str2double(wval{11})*1000;
 
 %%%%%%%%%% Escrita do ficheiro
 
@@ -44,6 +43,8 @@ fprintf(fid, ".param Vsval = %s \n", wval{1,8});
 fprintf(fid, ".param Cval = %suF \n", wval{1,9}); 
 fprintf(fid, ".param Kbval = %smS \n", wval{1,10}); 
 fprintf(fid, ".param Kdval = %sk \n", wval{1,11});
+
+fclose(fid);
 
 # Node analysis t<0
 
@@ -61,6 +62,8 @@ c = A\b;
 #printf("V6 = %f\n", c(5));
 #printf("V7 = %f\n", c(6));
 #printf("V8 = %f\n", c(7));
+
+Vx = c(5)-c(7);
 
 fnode = fopen("node.tex", "a");
 
@@ -111,5 +114,31 @@ fprintf(fnode, "$IV_s\\;(mA)$ & $%f$ \\\\ \n", I1*1000);
 fprintf(fnode, "\\hline\n");
 fprintf(fnode, "$IV_d\\;(mA)$ & $%f$ \\\\ \n", IVd*1000);
 
-fclose(fnode)
-fclose(fid)
+fclose(fnode);
+
+# Node analysis t=0 for capacitor Req
+
+A = [1,0,0,0,0,0,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,Kb+1/R2,-1/R2,-Kb,0,0,0;-1/R1,1/R1,0,1/R4,0,1/R4,0;0,0,0,1,0,Kd/R6,-1;0,0,0,0,1,0,-1;0,0,0,0,0,-1/R6-1/R7,1/R7];
+
+b = [0;0;0;0;,0;Vx;0];
+
+c = A\b;
+
+fnode2 = fopen("nodeReq.tex", "a");
+
+fprintf(fnode, "\\hline\n");
+fprintf(fnode, "$V_1\\;(V)$ & $%f$ \\\\ \n", c(1)); #V1
+fprintf(fnode, "\\hline\n");
+fprintf(fnode, "$V_2\\;(V)$ & $%f$ \\\\ \n", c(2)); #V2
+fprintf(fnode, "\\hline\n");
+fprintf(fnode, "$V_3\\;(V)$ & $%f$ \\\\ \n", c(3)); #V3
+fprintf(fnode, "\\hline\n");
+fprintf(fnode, "$V_5\\;(V)$ & $%f$ \\\\ \n", c(4)); #V5
+fprintf(fnode, "\\hline\n");
+fprintf(fnode, "$V_6\\;(V)$ & $%f$ \\\\ \n", c(5)); #V6
+fprintf(fnode, "\\hline\n");
+fprintf(fnode, "$V_7\\;(V)$ & $%f$ \\\\ \n", c(6)); #V7
+fprintf(fnode, "\\hline\n");
+fprintf(fnode, "$V_8\\;(V)$ & $%f$ \\\\ \n", c(7)); #V8
+
+fclose(fnode2);
