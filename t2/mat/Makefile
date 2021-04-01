@@ -1,15 +1,15 @@
-all: mesh node
+all: data
 
-mesh: mesh.m
-	octave $< > $@.tex
+data: Sim_data.m
+	octave $<
 
-node: node.m
-	octave $< > $@.tex
+#mesh: mesh.m
+#	octave $< > $@.tex
 
-octave.log: random.m
-	octave $< > $@
+#octave.log: random.m
+#	octave $< > $@
 
 clean:
-	@rm -f octave.log octave-workspace *.eps *~ *.tex data.txt
+	@rm -f octave.log octave-workspace *.eps *~ *.tex *.txt
 
 .PHONY: clean
