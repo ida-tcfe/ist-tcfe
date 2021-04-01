@@ -10,6 +10,6 @@ data: Sim_data.m
 #	octave $< > $@
 
 clean:
-	@rm -f octave.log octave-workspace *.eps *~ *.tex data.txt
+	@rm -f octave.log octave-workspace *.eps *~ *.tex *.txt
 
 .PHONY: clean
