@@ -10,29 +10,43 @@
 * forces current values to be saved
 .options savecurrents
 
+
+.param R1val = 1.02051254911k 
+.param R2val = 2.07133294635k 
+.param R3val = 3.10650554224k 
+.param R4val = 4.01929064552k 
+.param R5val = 3.0844359874k 
+.param R6val = 2.01287586659k 
+.param R7val = 1.02150900709k 
+.param Vsval = 5.07072749268 
+.param Cval = 1.00018604098uF 
+.param Kbval = 7.26322828319mS 
+.param Kdval = 8.05067652194k 
+
 * ------------- Independent Sources 
-Va n2vv GND 5.07072749268
-Id n7vv n6vv 1.00018604098m 
+Vs n1vv GND 5.07072749268
+Id n8vv n6vv 1.00018604098m 
 
 Vzero GND nzvv 0.0
 *Imaginary source (needed to specify Hc) (unc)
 
 * ------------- Dependent Sources 
-Gb n6vv n4vv n3vv n5vv 7.26322828319m
+Gb n6vv n3vv n2vv n5vv 7.26322828319m
 *Ib = Kb*Vb - Kb = 7.26322828319k , Vb = To be calculated
 
-Hc n5vv n7vv Vzero 8.05067652194k
+Hc n5vv n8vv Vzero 8.05067652194k
 *Vc = Kc*Ic - Kc = 05067652194k , Ic = To be Calculated (unc)
 *Vc n5 n7 7.8 ; - Not known! Just for debugg
+ 
 
 * -------------- Resistors - All in kOhms!
-R1 n3vv n2vv 1.02051254911K
-R2 n4vv n3vv 2.07133294635K
-R3 n3vv n5vv 3.10650554224K
+R1 n2vv n1vv 1.02051254911K
+R2 n3vv n2vv 2.07133294635K
+R3 n2vv n5vv 3.10650554224K
 R4 GND n5vv 4.01929064552K
 R5 n5vv n6vv 3.0844359874K
-R6 nzvv n8vv 2.01287586659K
-R7 n8vv n7vv 1.02150900709K
+R6 nzvv n7vv 2.01287586659K
+R7 n7vv n8vv 1.02150900709K
 
 *makes plots in color
 *set hcopypscolor=0
@@ -60,15 +74,15 @@ echo "Voltage at Nodes"
 *print @Rf[i]
 
 echo  "op_TAB"
+print n1vv
 print n2vv
 print n3vv
-print n4vv
 print n5vv
 print n6vv
 print n7vv
 print n8vv
-print v(n5vv, n7vv)
-print v(n3vv, n5vv)
+print v(n5vv, n8vv)
+print v(n2vv, n5vv)
 print @r1[i]
 print @r2[i]
 print @r3[i]
@@ -78,7 +92,7 @@ print @r7[i]
 print @Gb[i]
 print @r6[i]
 print @Hc[i]
-print @Va[i]
+print @Vs[i]
 
 echo  "op_END"
 
