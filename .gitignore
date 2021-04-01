@@ -8,3 +8,5 @@ report.pdf
 */mat/*.tex
 */sim/*.log
 */sim/*.tex
+*/mat/*.eps
+*/doc/*.eps

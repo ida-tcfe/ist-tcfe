@@ -144,11 +144,23 @@ fclose(fnode2);
 fnode3 = fopen("nodeReq2.tex", "w");
 
 Ix = ((c(4)-c(5))/R5 - Kb*(c(2)-c(4)));
+Req = Vx/Ix;
 
 fprintf(fnode3, "$I_x\\;(mA)$ & $%f$ \\\\ \n", Ix*1000);
 fprintf(fnode3, "\\hline\n");
-fprintf(fnode3, "$R_{eq}\\;(k\\Omega)$ & $%f$ \\\\ \n", Vx/Ix / 1000);
+fprintf(fnode3, "$R_{eq}\\;(k\\Omega)$ & $%f$ \\\\ \n", Req / 1000);
 fprintf(fnode3, "\\hline\n");
 fprintf(fnode3, "$P_x\\;(mW)$ & $%f$ \\\\ \n", Vx * Ix * 1000);
 
 fclose(fnode3);
+
+# Plot natural solution
+
+t = 0:1e-6:20e-3; % 0 to 20 ms
+vn = Vx * exp(t/(Req*C));
+
+g = figure();
+plot(t*1000, vn, "b");
+xlabel("t [ms]");
+ylabel("vn(t) [V]");
+print(g, "natural.eps", "-depsc");

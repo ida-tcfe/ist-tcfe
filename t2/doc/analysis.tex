@@ -69,3 +69,60 @@ The results obtained were as follows:
 
 As expected, the current value $I_x$ is negative, thus making $P_x$ negative: the voltage source supplies energy to the circuit.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{rc.pdf}
+  \caption{Equivalent RC circuit}
+  \label{rc_fig}
+\end{figure}
+
+
+\subsubsection{Natural solution}
+
+The natural solution of the capacitor behaviour is obtained by considering $v_x(t>0)=0$ and $v_x(0)=V_x$.
+
+Is is known that:
+
+\begin{equation}
+  \begin{cases}
+    KVL:\; v(t) + R_{eq} \cdot i(t) = 0 \\
+    Capacitor:\; i(t) = C \cdot \frac{dv(t)}{dt}
+  \end{cases}
+  \label{sis}
+\end{equation}
+
+A first order linear equation arises from \ref{sis}, which can be readily solved:
+
+\begin{equation}
+  RC \cdot \frac{dv(t)}{dt} + v(t) = 0 \Rightarrow v(t) = Ae^{-\frac{t}{RC}}
+\end{equation}
+
+Applying the initial condition:
+
+\begin{equation}
+  v(0) = A = V_x
+\end{equation}
+
+The natural solution is:
+
+\begin{equation}
+  \label{nat_sol} v(t) =
+  \begin{cases}
+    V_x & \mbox{if } t \leq 0 \\
+    V_xe^{-\frac{t}{RC}} & \mbox{if } t > 0
+  \end{cases}
+\end{equation}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{rc.pdf}
+  \caption{Equivalent RC circuit}
+  \label{rc_fig}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{natural.eps}
+  \caption{Natural response.}
+  \label{fig:nat}
+\end{figure}
