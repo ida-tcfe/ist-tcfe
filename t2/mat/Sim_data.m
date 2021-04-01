@@ -67,7 +67,6 @@ Vx = c(5)-c(7);
 
 fnode = fopen("node.tex", "a");
 
-fprintf(fnode, "\\hline\n");
 fprintf(fnode, "$V_1\\;(V)$ & $%f$ \\\\ \n", c(1)); #V1
 fprintf(fnode, "\\hline\n");
 fprintf(fnode, "$V_2\\;(V)$ & $%f$ \\\\ \n", c(2)); #V2
@@ -124,21 +123,30 @@ b = [0;0;0;0;,0;Vx;0];
 
 c = A\b;
 
-fnode2 = fopen("nodeReq.tex", "a");
+fnode2 = fopen("nodeReq.tex", "w");
 
-fprintf(fnode, "\\hline\n");
-fprintf(fnode, "$V_1\\;(V)$ & $%f$ \\\\ \n", c(1)); #V1
-fprintf(fnode, "\\hline\n");
-fprintf(fnode, "$V_2\\;(V)$ & $%f$ \\\\ \n", c(2)); #V2
-fprintf(fnode, "\\hline\n");
-fprintf(fnode, "$V_3\\;(V)$ & $%f$ \\\\ \n", c(3)); #V3
-fprintf(fnode, "\\hline\n");
-fprintf(fnode, "$V_5\\;(V)$ & $%f$ \\\\ \n", c(4)); #V5
-fprintf(fnode, "\\hline\n");
-fprintf(fnode, "$V_6\\;(V)$ & $%f$ \\\\ \n", c(5)); #V6
-fprintf(fnode, "\\hline\n");
-fprintf(fnode, "$V_7\\;(V)$ & $%f$ \\\\ \n", c(6)); #V7
-fprintf(fnode, "\\hline\n");
-fprintf(fnode, "$V_8\\;(V)$ & $%f$ \\\\ \n", c(7)); #V8
+fprintf(fnode2, "$V_1\\;(V)$ & $%f$ \\\\ \n", c(1)); #V1 = 0
+fprintf(fnode2, "\\hline\n");
+fprintf(fnode2, "$V_2\\;(V)$ & $%f$ \\\\ \n", c(2)); #V2 = 0
+fprintf(fnode2, "\\hline\n");
+fprintf(fnode2, "$V_3\\;(V)$ & $%f$ \\\\ \n", c(3)); #V3 = 0
+fprintf(fnode2, "\\hline\n");
+fprintf(fnode2, "$V_5\\;(V)$ & $%f$ \\\\ \n", c(4)); #V5 = 0
+fprintf(fnode2, "\\hline\n");
+fprintf(fnode2, "$V_6\\;(V)$ & $%f$ \\\\ \n", c(5)); #V6
+fprintf(fnode2, "\\hline\n");
+fprintf(fnode2, "$V_7\\;(V)$ & $%f$ \\\\ \n", c(6)); #V7 = 0
+fprintf(fnode2, "\\hline\n");
+fprintf(fnode2, "$V_8\\;(V)$ & $%f$ \\\\ \n", c(7)); #V8 = 0
 
 fclose(fnode2);
+
+fnode3 = fopen("nodeReq2.tex", "w");
+
+Ix = ((c(4)-c(5))/R5 - Kb*(c(2)-c(4)));
+
+fprintf(fnode3, "$I_x\\;(mA)$ & $%f$ \\\\ \n", Ix*1000);
+fprintf(fnode3, "\\hline\n");
+fprintf(fnode3, "$R_{eq}\\;(k\\Omega)$ & $%f$ \\\\ \n", Vx/Ix / 1000);
+
+fclose(fnode3);

@@ -4,3 +4,59 @@
 \subsection{Node analysis method}
 \label{sec:node}
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        {\bf Name} & {\bf Value} \\
+        \hline
+        \hline
+        \input{../mat/node}
+        \hline
+  \end{tabular}
+  \caption{Theoretical results}
+  \label{mesh_res}
+\end{table}
+
+\subsection{Capacitor behaviour}
+\label{sec:Req}
+
+In order to ascertain how the capacitor would behave, the equivalent resistor seen by it was determined. To do this, a tension source was added in lieu of the capacitor, and the response current of the remainder of the circuit was obtained, via node analysis methods.
+
+For this procedure it considered that $t=0\;s$, at which time the capacitor is fully charged, and so the voltage difference at it's terminals is known from \ref{sec:node} and constant (static analysis). At this time, it is also known that $V_s=0\;V$ - it is the exact time at which the source shifts from constant to sinusoidal.
+
+% Boneco
+
+By applying KCL to node 6, $I_x$ can be calculated:
+
+\begin{equation}
+  I_x = \frac{V_5-V_6}{R_5}-I_b = \frac{V_5-V_6}{R_5} - K_b \cdot (V_2-V_5)
+\end{equation}
+
+The results obtained were as follows:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        {\bf Name} & {\bf Value} \\
+        \hline
+        \hline
+        \input{../mat/nodeReq}
+        \hline
+  \end{tabular}
+  \caption{Theoretical results}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        {\bf Name} & {\bf Value} \\
+        \hline
+        \hline
+        \input{../mat/nodeReq2}
+        \hline
+  \end{tabular}
+  \caption{Theoretical results}
+\end{table}
