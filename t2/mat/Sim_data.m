@@ -4,7 +4,7 @@ clear all
 %%%%%%%%%%%%%%%%Support File for NGspice
 
 % Simulate OP, t<0  
-fid = fopen("results.txt", "a");
+fid = fopen("results.txt", "w");
 
 
 a = textread ("data.txt", "%s");
@@ -65,7 +65,7 @@ c = A\b;
 
 Vx = c(5)-c(7);
 
-fnode = fopen("node.tex", "a");
+fnode = fopen("node.tex", "w");
 
 fprintf(fnode, "$V_1\\;(V)$ & $%f$ \\\\ \n", c(1)); #V1
 fprintf(fnode, "\\hline\n");
