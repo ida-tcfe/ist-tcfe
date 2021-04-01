@@ -9,7 +9,7 @@ Simulation Analysis
 
 Theoretical Analysis
 1) Isabel
-2) Ana
+2) Ana - done (missing figure)
 3)
 4)
 5)
@@ -26,5 +26,5 @@ NOTES: changed t2_datagen.py ever so slightly;
 
 Introduction - Isabel
 
-Esquema - Diogo
+Schematic - Diogo
 
