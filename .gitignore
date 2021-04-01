@@ -1,1 +1,10 @@
 report.pdf
+*/doc/*.pdf
+*/doc/report.aux
+*/doc/report.log
+*/doc/report.out
+*/doc/report.toc
+*.txt
+*/mat/*.tex
+*/sim/*.log
+*/sim/*.tex
