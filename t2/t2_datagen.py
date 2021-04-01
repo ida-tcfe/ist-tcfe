@@ -24,10 +24,10 @@ class Prob:
         self.weight = weight
         
     def printProb(self):
-        print "Values: ",
+        #print "Values: ",
         for i in range(len(self.varList)):
             self.varList[i].printVar()
-        print "\n\n"
+        #print "\n\n"
             
     def addVar(self, var):
         self.varList.append(var)
@@ -61,7 +61,7 @@ class DataSet:
     
     def printDataSet(self):
         nprobs = len(self.probList)
-        print "Units for the values: V, mA, kOhm, mS and uF\n\n"
+        #print "Units for the values: V, mA, kOhm, mS and uF\n\n"
         for i in range(nprobs):
             self.probList[i].printProb()
 
