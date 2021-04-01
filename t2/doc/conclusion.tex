@@ -22,17 +22,3 @@ The circuit is ``simple'' and contains only linear components, so large deviatio
 %However this error is assumed to be caused by numerical propagated errors made when solving the linear system of equations or simply due to floating point arithmetics. %There's also a certain random error...
 
 All in all, the results obtained were very satisfactory.
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-        $V$ & $V_t$ & $V_s$ & $|V_t-V_s|$ & $Error (\%)$ \\
-        \hline
-        \hline
-        \input{errors}
-        \hline
-  \end{tabular}
-  \caption{Theoretical values ($V_t$) and Simulation values ($V_s$) (table produced with {\bf Python}) - The absolute deviation and error presented here are rounded up to one significant digit, for ease of interpretation.}
-  \label{error_res}
-\end{table}

@@ -12,7 +12,6 @@ all: $(FILE).pdf
 	evince $< &
 
 $(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
-	python error.py
 	export TEXINPUTS=$(TEXINPUTS)
 	#cp -f ../mat/*.eps .
 	pdflatex  $(FILE).tex
