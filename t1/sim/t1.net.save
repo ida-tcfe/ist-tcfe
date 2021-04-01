@@ -44,10 +44,13 @@ R7 n8vv n7vv 1.02150900709K
 *set color5=rgb:3/8/0
 *set color6=rgb:4/0/0
 
+*.INCLUDE inc.net
+
 .op
+
+.INCLUDE inc.net
 .control
 op
-
 echo "********************************************"
 echo  "Operating point"
 echo "********************************************"
@@ -81,6 +84,8 @@ print @Hc[i]
 print @Va[i]
 
 echo  "op_END"
+
+*.INCLUDE inc.net
 
 *quit might help?
 *.endc
