@@ -1,3 +1,5 @@
+close all
+clear all
 
 %%%%%%%%%%%%%%%%Support File for NGspice
 
@@ -44,3 +46,20 @@ fprintf(fid, ".param Kdval = %sk \n", wval{1,11})
 
 
 fclose(fid)
+
+# Node analysis t<0
+
+A = [1,0,0,0,0,0,0;-1/R1,1/R1,0,1/R4,0,-1/R6,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,1/R2+Kb,-1/R2,-Kb,0,0,0;0,-Kb,0,Kb+1/R5,-1/R5,0,0;0,0,0,0,0,1/R6-1/R7,1/R7;0,0,0,1,0,-Kd/R6,-1];
+
+b = [Vs;0;0;0;0;0;0];
+
+c = A\b;
+
+#printf("---- Voltages ----\n");
+#printf("V1 = %f\n", c(1));
+#printf("V2 = %f\n", c(2));
+#printf("V3 = %f\n", c(3));
+#printf("V5 = %f\n", c(4));
+#printf("V6 = %f\n", c(5));
+#printf("V7 = %f\n", c(6));
+#printf("V8 = %f\n", c(7));
