@@ -148,5 +148,7 @@ Ix = ((c(4)-c(5))/R5 - Kb*(c(2)-c(4)));
 fprintf(fnode3, "$I_x\\;(mA)$ & $%f$ \\\\ \n", Ix*1000);
 fprintf(fnode3, "\\hline\n");
 fprintf(fnode3, "$R_{eq}\\;(k\\Omega)$ & $%f$ \\\\ \n", Vx/Ix / 1000);
+fprintf(fnode3, "\\hline\n");
+fprintf(fnode3, "$P_x\\;(mW)$ & $%f$ \\\\ \n", Vx * Ix * 1000);
 
 fclose(fnode3);

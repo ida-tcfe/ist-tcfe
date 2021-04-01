@@ -21,9 +21,9 @@
 \subsection{Capacitor behaviour}
 \label{sec:Req}
 
-In order to ascertain how the capacitor would behave, the equivalent resistor seen by it was determined. To do this, a tension source was added in lieu of the capacitor, and the response current of the remainder of the circuit was obtained, via node analysis methods.
+In order to ascertain how the capacitor behaves, the equivalent resistor seen by it was determined. To do this, a tension source was added in lieu of the capacitor, and the response current of the remainder of the circuit was obtained, via node analysis methods.
 
-For this procedure it considered that $t=0\;s$, at which time the capacitor is fully charged, and so the voltage difference at it's terminals is known from \ref{sec:node} and constant (static analysis). At this time, it is also known that $V_s=0\;V$ - it is the exact time at which the source shifts from constant to sinusoidal.
+For this procedure it was considered that $t=0\;s$, at which time the capacitor is fully charged, and so the voltage difference at it's terminals is known from \ref{sec:node} and constant (static analysis). At this time, it is also known that $V_s=0\;V$ - it is the exact time at which the source shifts from constant to sinusoidal.
 
 % Boneco
 
@@ -31,6 +31,12 @@ By applying KCL to node 6, $I_x$ can be calculated:
 
 \begin{equation}
   I_x = \frac{V_5-V_6}{R_5}-I_b = \frac{V_5-V_6}{R_5} - K_b \cdot (V_2-V_5)
+\end{equation}
+
+$R_{eq}$ is then obtained from Ohm's Law:
+
+\begin{equation}
+  R_{eq} = \frac{V_x}{I_x}
 \end{equation}
 
 The results obtained were as follows:
@@ -60,3 +66,6 @@ The results obtained were as follows:
   \end{tabular}
   \caption{Theoretical results}
 \end{table}
+
+As expected, the current value $I_x$ is negative, thus making $P_x$ negative: the voltage source supplies energy to the circuit.
+
