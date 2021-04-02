@@ -195,7 +195,8 @@ print(g, "natural.eps", "-depsc");
 f = 1000; %Hz
 w = 2*pi*f; %rad/s
 
-cvs = exp(-j*pi/2);
+%cvs = exp(-j*pi/2);
+syms cvs;
 
 cA = [1,0,0,0,0,0,0;-1/R1,1/R1,0,1/R4,0,1/R6,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,1/R2+Kb,-1/R2,-Kb,0,0,0;0,-Kb,0,Kb+1/R5,-1/R5-j*w*C,0,j*w*C;0,0,0,0,0,-1/R6-1/R7,1/R7;0,0,0,1,0,Kd/R6,-1];
 
@@ -205,18 +206,60 @@ cc = cA\cb;
 
 forced = fopen("forced.tex", "w");
 
-fprintf(forced, "$V_1$ & $%f + j*%f$ \\\\ \n", real(cc(1)), imag(cc(1))); #V1
+d = cc;
+
+cc(1) = subs(cc(1), cvs, exp(-j*pi/2));
+cc(2) = subs(cc(2), cvs, exp(-j*pi/2));
+cc(3) = subs(cc(3), cvs, exp(-j*pi/2));
+cc(4) = subs(cc(4), cvs, exp(-j*pi/2));
+cc(5) = subs(cc(5), cvs, exp(-j*pi/2));
+cc(6) = subs(cc(6), cvs, exp(-j*pi/2));
+cc(7) = subs(cc(7), cvs, exp(-j*pi/2));
+
+fprintf(forced, "$V_1$ & $%f + j*%f$ \\\\ \n", double(real(cc(1))), double(imag(cc(1)))); #V1
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_2$ & $%f + j*%f$ \\\\ \n", real(cc(2)), imag(cc(2))); #V2
+fprintf(forced, "$V_2$ & $%f + j*%f$ \\\\ \n", double(real(cc(2))), double(imag(cc(2)))); #V2
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_3$ & $%f + j*%f$ \\\\ \n", real(cc(3)), imag(cc(3))); #V3
+fprintf(forced, "$V_3$ & $%f + j*%f$ \\\\ \n", double(real(cc(3))), double(imag(cc(3)))); #V3
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_5$ & $%f + j*%f$ \\\\ \n", real(cc(4)), imag(cc(4))); #V5
+fprintf(forced, "$V_5$ & $%f + j*%f$ \\\\ \n", double(real(cc(4))), double(imag(cc(4)))); #V5
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_6$ & $%f + j*%f$ \\\\ \n", real(cc(5)), imag(cc(5))); #V6
+fprintf(forced, "$V_6$ & $%f + j*%f$ \\\\ \n", double(real(cc(5))), double(imag(cc(5)))); #V6
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_7$ & $%f + j*%f$ \\\\ \n", real(cc(6)), imag(cc(6))); #V7
+fprintf(forced, "$V_7$ & $%f + j*%f$ \\\\ \n", double(real(cc(6))), double(imag(cc(6)))); #V7
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_8$ & $%f + j*%f$ \\\\ \n", real(cc(7)), imag(cc(7))); #V8
+fprintf(forced, "$V_8$ & $%f + j*%f$ \\\\ \n", double(real(cc(7))), double(imag(cc(7)))); #V8
 
 fclose(forced);
+
+function Out = piecewise (varargin)
+  Conditions = varargin(1:2:end);    % Select all 'odd' inputs
+  Values     = varargin(2:2:end);    % Select all 'even' inputs
+  N          = length (Conditions);
+  if length (Values) ~= N            % 'default' case has been provided
+    Values{end+1} = Conditions{end}; % move default return-value to 'Values'
+    Conditions{end} = true;          % replace final (ie. default) test with true
+  end
+
+  % Wrap return-values into function-handles
+  ValFuncs = cell (1, N);
+  for n = 1 : N; ValFuncs{n} = @() Values{n}; end
+
+  % Grab funhandle for first successful test and call it to return its value
+  Out = ValFuncs([Conditions{:}]){1}();
+end
+
+syms x;
+F = @(a) piecewise(a >= 0, sin(w*a), 0);
+
+function getv1 (tin, vec, s, func)
+vec(1) = subs(vec(1), s, func(tin));
+getv1 = double(real(d(1)));
+endfunction
+
+g = figure();
+plot(t*1000, getv1(t, d, cvs, F), "r");
+xlabel("t [ms]");
+ylabel("vn(t) [V]");
+print(g, "total.eps", "-depsc");
+
