@@ -189,3 +189,7 @@ plot(t*1000, vn, "b");
 xlabel("t [ms]");
 ylabel("vn(t) [V]");
 print(g, "natural.eps", "-depsc");
+
+% Forced solution 
+
+f = 1000 %Hz
