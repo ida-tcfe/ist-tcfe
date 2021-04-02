@@ -235,3 +235,52 @@ The natural solution is:
 \end{figure}
 
 \subsubsection{Forced solution}
+
+For this part, where it will be considered the value of $v_s(t)$ when $t > 0$, another node analysis was performed. The equations used were the same as the ones already presented in Section~\ref{sec:node}, but in this case, $I_c$ is not zero. For this situation $I_c = \frac{V_6-V_8}{Z}$, where $Z = \frac{1}{jwC}$ is the impedance of the capacitor, that has capacitance C. $w = 2\pi f$ is the radial frequency of the signal of $v_s(t) = \sin(wt) = \cos(wt-\frac{\pi}{2})$. This sinusoidal excitation will induce a sinusoidal forced solution with the same frequency for the components of the circuit.
+
+Consequently, the voltages in the nodes for the forced solution will have the form of $V_i\cos(wt-\phi_i)$. It is possible to compute the voltages in the nodes by representing these voltages as phasors. Solving the matrix below, with {\bf Octave}, gives the values of the phasors, that are in table \ref{forced_res}. The module of these complex numbers gives the amplitude $V_i$ and their angle is equal to $\frac{pi}{2}-\phi_i$.
+
+\begin{equation}
+  \begin{bmatrix}
+    -\frac{1}{R_1} & \frac{1}{R_1} & 0 & \frac{1}{R_4} & 0 & \frac{1}{R_6} & 0 \\
+    1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    \frac{1}{R_1} & -\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3} & \frac{1}{R_2} & \frac{1}{R_3} & 0 & 0 & 0 \\
+    0 & K_b + \frac{1}{R_2} & -\frac{1}{R_2} & -K_b & 0 & 0 & 0 \\
+    0 & -K_b & 0 & K_b+\frac{1}{R_5} & -\frac{1}{R_5}-jwC & 0 & jwC \\
+    0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7} \\
+    0 & 0 & 0 & 1 & 0 & \frac{K_d}{R_6} & -1     
+  \end{bmatrix}
+  \begin{bmatrix}
+    V_1 \\
+    V_2 \\
+    V_3 \\
+    V_5 \\
+    V_6 \\
+    V_7 \\
+    V_8
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    0 \\
+    V_S \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0
+  \end{bmatrix}
+\end{equation}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        {\bf Name} & {\bf Value} \\
+        \hline
+        \hline
+        \input{../mat/forced}
+        \hline
+  \end{tabular}
+  \caption{Theoretical results}
+  \label{forced_res}
+\end{table}
