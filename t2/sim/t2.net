@@ -11,7 +11,7 @@
 .options savecurrents
 
 .control
-.INCLUDE /home/thunder/ist-tcfe/t2/mat/results.txt
+.INCLUDE results.txt
 .endc
 
 * ------------- Independent Sources 
