@@ -202,3 +202,21 @@ cA = [1,0,0,0,0,0,0;-1/R1,1/R1,0,1/R4,0,1/R6,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,
 cb = [cvs;0;0;0;0;0;0];
 
 cc = cA\cb;
+
+forced = fopen("forced.tex", "w");
+
+fprintf(forced, "$V_1$ & $%f + j*%f$ \\\\ \n", real(cc(1)), imag(cc(1))); #V1
+fprintf(forced, "\\hline\n");
+fprintf(forced, "$V_2$ & $%f + j*%f$ \\\\ \n", real(cc(2)), imag(cc(2))); #V2
+fprintf(forced, "\\hline\n");
+fprintf(forced, "$V_3$ & $%f + j*%f$ \\\\ \n", real(cc(3)), imag(cc(3))); #V3
+fprintf(forced, "\\hline\n");
+fprintf(forced, "$V_5$ & $%f + j*%f$ \\\\ \n", real(cc(4)), imag(cc(4))); #V5
+fprintf(forced, "\\hline\n");
+fprintf(forced, "$V_6$ & $%f + j*%f$ \\\\ \n", real(cc(5)), imag(cc(5))); #V6
+fprintf(forced, "\\hline\n");
+fprintf(forced, "$V_7$ & $%f + j*%f$ \\\\ \n", real(cc(6)), imag(cc(6))); #V7
+fprintf(forced, "\\hline\n");
+fprintf(forced, "$V_8$ & $%f + j*%f$ \\\\ \n", real(cc(7)), imag(cc(7))); #V8
+
+fclose(forced);
