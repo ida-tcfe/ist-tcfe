@@ -1,8 +1,60 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-\subsection{Node analysis method}
+\subsection{Node analysis method ($t < 0$)}
 \label{sec:node}
+
+For the time interval $t < 0$, the voltage in the independent voltage source is constant, $v_S(t) = V_S$. As a consequence, to study the circuit in this interval, it must be considered that the capacitor is fully charged, which implies that $I_c = 0$.
+
+By analysing the circuit and using KCL and Ohm's law, it is possible to perform a node analysis and to write an equation for each node as it follows:
+
+\begin{equation}
+  \begin{cases}
+    (GND) & \frac{V_7}{R_6} + \frac{V_5}{R_4} + \frac{V_2-V_1}{R_1} = 0 \\
+    (1) & V_1 = V_S \\
+    (2) & -\frac{V_2-V_1}{R_1} - \frac{V_2-V_5}{R_3} + \frac{V_3-V_2}{R_2} = 0 \\
+    (3) & I_b - \frac{V_3-V_2}{R_2} = 0 \\
+    (5) & V_2-V_5 = V_b \\
+    (6) & -I_b - \frac{V_6-V_5}{R_5} - I_c = 0
+    (7) & -\frac{V_7}{R_6} + \frac{V_8-V_7}{R_7} = 0 \\
+    (8) & V_5-V_8 = V_d
+  \end{cases}
+\end{equation}
+
+Rearranging these equations and using also the relations $I_b = K_bV_b$ and $V_d = K_dI_d$, it is possible to write the next matrix:
+
+\begin{equation}
+  \begin{bmatrix}
+    -\frac{1}{R_1} & \frac{1}{R_1} & 0 & \frac{1}{R_4} & 0 & \frac{1}{R_6} & 0 \\
+    1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    \frac{1}{R_1} & -\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3} & \frac{1}{R_2} & \frac{1}{R_3} & 0 & 0 & 0 \\
+    0 & K_b + \frac{1}{R_2} & -\frac{1}{R_2} & -K_b & 0 & 0 & 0 \\
+    0 & -K_b & 0 & K_b+\frac{1}{R_5} & -\frac{1}{R_5} & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7} \\
+    0 & 0 & 0 & 1 & 0 & \frac{K_d}{R_6} & -1     
+  \end{bmatrix}
+  \begin{bmatrix}
+    V_1 \\
+    V_2 \\
+    V_3 \\
+    V_5 \\
+    V_6 \\
+    V_7 \\
+    V_8
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    0 \\
+    V_S \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0
+  \end{bmatrix}
+\end{equation}
+
+Using {\bf Octave}, it was possible to use the matrix to compute the voltages in all nodes and the currents in all branches, that are presented in table \ref{node_res}. 
 
 \begin{table}[H]
   \centering
@@ -15,7 +67,7 @@
         \hline
   \end{tabular}
   \caption{Theoretical results}
-  \label{mesh_res}
+  \label{node_res}
 \end{table}
 
 \subsection{Capacitor behaviour}
