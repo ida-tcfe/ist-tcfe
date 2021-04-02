@@ -6,7 +6,7 @@
 
 For the time interval $t < 0$, the voltage in the independent voltage source is constant, $v_S(t) = V_S$. As a consequence, to study the circuit in this interval, it must be considered that the capacitor is fully charged, which implies that $I_c = 0$.
 
-By analysing the circuit and using KCL and Ohm's law, it is possible to perform a node analysis and to write an equation for each node as it follows:
+By analysing the circuit and using KCL and Ohm's Law, it is possible to perform a node analysis and to write an equation for each node as it follows:
 
 \begin{equation}
   \begin{cases}
@@ -86,8 +86,8 @@ There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, an
     (1) & V_1=0 \\
     (2) & \frac{V_1-V_2}{R_1} + \frac{V_5-V_2}{R_3} + \frac{V_3-V_2}{R_2} = 0 \\
     (3) & K_b (V_2-V_5)-\frac{(V_3-V_2)}{R_2} = 0 \\
-    (GND) & \frac{V_2-V_1}{R_1} + \frac{V5}{R4} + \frac{V_7}{R_4} = 0 \\
-    (5) & V_5-V_8 + K_d \frac{V_t}{R_6} = 0 \\
+    (GND) & \frac{V_2-V_1}{R_1} + \frac{V5}{R4} + \frac{V_7}{R_6} = 0 \\
+    (5) & V_5-V_8 + K_d \frac{V_7}{R_6} = 0 \\
     (6) & V_6-V_8 = V_x \\
     (7) & -\frac{V_7}{R_6} + \frac{V_8-V_7}{R_7} = 0
   \end{cases}
@@ -98,7 +98,7 @@ There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, an
     1 & 0 & 0 & 0 & 0 & 0 & 0 \\
     \frac{1}{R_1} & -\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3} & \frac{1}{R_2} & \frac{1}{R_3} & 0 & 0 & 0 \\
     0 & K_b + \frac{1}{R_2} & -\frac{1}{R_2} & -K_b & 0 & 0 & 0 \\
-    -\frac{1}{R_1} & \frac{1}{R_1} & 0 & \frac{1}{R_4} & 0 &\frac{1}{R_4} & 0 \\
+    -\frac{1}{R_1} & \frac{1}{R_1} & 0 & \frac{1}{R_4} & 0 &\frac{1}{R_6} & 0 \\
     0 & 0 & 0 & 1 & 0 & \frac{K_d}{R_6} & -1 \\
     0 & 0 & 0 & 0 & 1 & 0 & -1 \\
     0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7}
