@@ -4,7 +4,7 @@
 \subsection{Node analysis method ($t < 0$)}
 \label{sec:node}
 
-For the time interval $t < 0$, the voltage in the independent voltage source is constant, $v_S(t) = V_S$. As a consequence, to study the circuit in this interval, it must be considered that the capacitor is fully charged, which implies that $I_c = 0$.
+For the time interval $t < 0$, the voltage in the independent voltage source is constant, $v_S(t) = V_S$. As a consequence, to study the circuit in this interval, one can considere it has been on for such an amout of time  that the capacitor is fully charged, which implies that $I_c = 0$.
 
 By analysing the circuit and using KCL and Ohm's Law, it is possible to perform a node analysis and to write an equation for each node as it follows:
 
@@ -21,7 +21,7 @@ By analysing the circuit and using KCL and Ohm's Law, it is possible to perform 
   \end{cases}
 \end{equation}
 
-Rearranging these equations and using also the relations $I_b = K_bV_b$ and $V_d = K_dI_d$, it is possible to write the next matrix:
+Rearranging these equations and employing the relations $I_b = K_bV_b$ and $V_d = K_dI_d$, it is possible to write the following matrix system:
 
 \begin{equation}
   \begin{bmatrix}
@@ -54,7 +54,7 @@ Rearranging these equations and using also the relations $I_b = K_bV_b$ and $V_d
   \end{bmatrix}
 \end{equation}
 
-Using {\bf Octave}, it was possible to use the matrix to compute the voltages in all nodes and the currents in all branches, that are presented in table \ref{node_res}. 
+Using {\bf Octave}, it was possible to use the matrix to compute the voltages in all nodes and the currents in all branches. These are presented in Table~\ref{node_res}. 
 
 \begin{table}[H]
   \centering
@@ -75,23 +75,25 @@ Using {\bf Octave}, it was possible to use the matrix to compute the voltages in
 
 In order to ascertain how the capacitor behaves, the equivalent resistor seen by it was determined. To do this, a tension source was added in lieu of the capacitor, and the response current of the remainder of the circuit was obtained, via node analysis methods.
 
-For this procedure it was considered that $t=0\;s$, at which time the capacitor is fully charged, and so the voltage difference at it's terminals is known from \ref{sec:node} and constant (static analysis). At this time, it is also known that $V_s=0\;V$ - it is the exact time at which the source shifts from constant to sinusoidal.
+For this procedure it was considered that $t=0\;s$, at which time the capacitor is fully charged, and so the voltage difference at it's terminals is known from \ref{sec:node} and constant (static analysis). At this time, it is also known that $V_s=0\;V$ - it is the exact time at which the source shifts from constant ($V_s$) to sinusoidal (null).
 
 % Boneco
 
-There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, and eight nodes. For simplicity's sake, we considered the seven ``easiest'' nodes, that is, considering the GND node and discarding node eight (which would require a super-node equation).
+There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, and eight nodes. For simplicity's sake, the seven ``easiest'' nodes were considered, that is, including the GND node and discarding node eight (which would require a super-node equation).
 
 \begin{equation}
   \begin{cases}
     (1) & V_1=0 \\
     (2) & \frac{V_1-V_2}{R_1} + \frac{V_5-V_2}{R_3} + \frac{V_3-V_2}{R_2} = 0 \\
-    (3) & K_b (V_2-V_5)-\frac{(V_3-V_2)}{R_2} = 0 \\
+    (3) & I_b = \frac{(V_3-V_2)}{R_2} = 0 \\
     (GND) & \frac{V_2-V_1}{R_1} + \frac{V5}{R4} + \frac{V_7}{R_6} = 0 \\
-    (5) & V_5-V_8 + K_d \frac{V_7}{R_6} = 0 \\
+    (5) & V_5-V_8 = V_d \\
     (6) & V_6-V_8 = V_x \\
     (7) & -\frac{V_7}{R_6} + \frac{V_8-V_7}{R_7} = 0
   \end{cases}
 \end{equation}
+
+Rearranging these equations and employing the relations $I_b = K_bV_b$ and $V_d = K_dI_d$, it is possible to write the following matrix system:
 
 \begin{equation}
   \begin{bmatrix}
@@ -142,7 +144,7 @@ The results obtained by solving this system using \textbf{Octave} were as follow
 By applying KCL to node 6, $I_x$ can be calculated:
 
 \begin{equation}
-  I_x = \frac{V_5-V_6}{R_5}-I_b = \frac{V_5-V_6}{R_5} - K_b \cdot (V_2-V_5)
+  I_x = I_b - \frac{V_5-V_6}{R_5} = K_b \cdot (V_2-V_5) - \frac{V_5-V_6}{R_5} 
 \end{equation}
 
 $R_{eq}$ is then obtained from Ohm's Law:
@@ -164,9 +166,7 @@ $R_{eq}$ is then obtained from Ohm's Law:
   \caption{Theoretical results}
 \end{table}
 
-As expected, the current value $I_x$ is negative, thus making $P_x$ negative: the voltage source supplies energy to the circuit.
-
-We can then reduce the capacitor's behaviour to:
+As expected, the current value $I_x$ is negative, thus making $P_x$ negative (the current going through $V_x$ is $-I_x$): the voltage source supplies energy to the circuit. We can then reduce the capacitor's behaviour to:
 
 \begin{figure}[H]
   \centering
@@ -191,9 +191,11 @@ In order to confirm the above results do not depend on the potencial difference 
   \caption{Symbolic solution}
 \end{table}
 
+It is then true that, no matter $v_c(t)=v_6(t)-v_8(t)$, as the capacitor discharges, all nodes have null potential except for $v_6(t)$.
+
 \subsubsection{Natural solution}
 
-The natural solution of the capacitor behaviour is obtained by considering $v_x(t\geq0)=0$ and $v(0)=V_x$. From Table \ref{sym}, we can safely say that $v_8(t)=0\;V$ and $v(t)=v_6(t)\;V$ for the natural response (that is, with $v_s=0\;V$). It is known that:
+The natural solution of the capacitor behaviour is obtained by considering $v_x(t\geq0)=0$ and $v(0)=V_x$, where $v$ is as depicted in Figure~\ref{rc_fig}. From Table \ref{sym}, we can safely say that $v_8(t)=0\;V$ and $v(t)=v_6(t)\;V$ for the natural response (that is, with $v_s=0\;V$). It is known that:
 
 \begin{equation}
   \begin{cases}

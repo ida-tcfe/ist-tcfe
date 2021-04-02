@@ -5,7 +5,7 @@ pkg load symbolic
 %%%%%%%%%%%%%%%%Support File for NGspice
 
 % Simulate OP, t<0  
-fid = fopen("results.txt", "w");
+fid = fopen("../sim/results.txt", "w");
 
 
 a = textread ("data.txt", "%s");
