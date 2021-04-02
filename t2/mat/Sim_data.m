@@ -1,5 +1,6 @@
 close all
 clear all
+pkg load symbolic
 
 %%%%%%%%%%%%%%%%Support File for NGspice
 
@@ -119,9 +120,10 @@ fclose(fnode);
 
 A = [1,0,0,0,0,0,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,Kb+1/R2,-1/R2,-Kb,0,0,0;-1/R1,1/R1,0,1/R4,0,1/R4,0;0,0,0,1,0,Kd/R6,-1;0,0,0,0,1,0,-1;0,0,0,0,0,-1/R6-1/R7,1/R7];
 
-b = [0;0;0;0;,0;Vx;0];
+b = [0;0;0;0;0;Vx;0];
 
 c = A\b;
+Ix = ((c(4)-c(5))/R5 - Kb*(c(2)-c(4)));
 
 fnode2 = fopen("nodeReq.tex", "w");
 
@@ -141,9 +143,30 @@ fprintf(fnode2, "$V_8\\;(V)$ & $%f$ \\\\ \n", c(7)); #V8 = 0
 
 fclose(fnode2);
 
+V = sym('V');
+b = [0;0;0;0;0;V;0];
+c = A\b;
+
+fnode22 = fopen("nodeReqb.tex", "w");
+
+fprintf(fnode22, "$V_1\\;(V)$ & $%f$ \\\\ \n", double(c(1))); #V1 = 0
+fprintf(fnode22, "\\hline\n");
+fprintf(fnode22, "$V_2\\;(V)$ & $%f$ \\\\ \n", double(c(2))); #V2 = 0
+fprintf(fnode22, "\\hline\n");
+fprintf(fnode22, "$V_3\\;(V)$ & $%f$ \\\\ \n", double(c(3))); #V3 = 0
+fprintf(fnode22, "\\hline\n");
+fprintf(fnode22, "$V_5\\;(V)$ & $%f$ \\\\ \n", double(c(4))); #V5 = 0
+fprintf(fnode22, "\\hline\n");
+fprintf(fnode22, "$V_6\\;(V)$ & $%c$ \\\\ \n", char(c(5))); #V6
+fprintf(fnode22, "\\hline\n");
+fprintf(fnode22, "$V_7\\;(V)$ & $%f$ \\\\ \n", double(c(6))); #V7 = 0
+fprintf(fnode22, "\\hline\n");
+fprintf(fnode22, "$V_8\\;(V)$ & $%f$ \\\\ \n", double(c(7))); #V8 = 0
+
+fclose(fnode22);
+
 fnode3 = fopen("nodeReq2.tex", "w");
 
-Ix = ((c(4)-c(5))/R5 - Kb*(c(2)-c(4)));
 Req = Vx/Ix;
 
 fprintf(fnode3, "$I_x\\;(mA)$ & $%f$ \\\\ \n", Ix*1000);

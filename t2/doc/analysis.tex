@@ -114,7 +114,22 @@ $R_{eq}$ is then obtained from Ohm's Law:
 
 As expected, the current value $I_x$ is negative, thus making $P_x$ negative: the voltage source supplies energy to the circuit.
 
-We can know reduce the capacitor's behaviour to:
+In order to confirm these results do not depend on the potencial difference at the capacitor terminals ($V$), it was also solved using a symbolic package in \textbf{Octave}, which determined:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        {\bf Name} & {\bf Value} \\
+        \hline
+        \hline
+        \input{../mat/nodeReqb}
+        \hline
+  \end{tabular}
+  \caption{Theoretical results}
+\end{table}
+
+We can then reduce the capacitor's behaviour to:
 
 \begin{figure}[H]
   \centering
