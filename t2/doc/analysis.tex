@@ -114,7 +114,16 @@ $R_{eq}$ is then obtained from Ohm's Law:
 
 As expected, the current value $I_x$ is negative, thus making $P_x$ negative: the voltage source supplies energy to the circuit.
 
-In order to confirm these results do not depend on the potencial difference at the capacitor terminals ($V$), it was also solved using a symbolic package in \textbf{Octave}, which determined:
+We can then reduce the capacitor's behaviour to:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\linewidth]{rc.pdf}
+  \caption{Equivalent RC circuit}
+  \label{rc_fig}
+\end{figure}
+
+In order to confirm the above results do not depend on the potencial difference at the capacitor terminals ($V$), it was also solved using a symbolic package in \textbf{Octave}, which determined:
 
 \begin{table}[H]
   \centering
@@ -126,24 +135,13 @@ In order to confirm these results do not depend on the potencial difference at t
         \input{../mat/nodeReqb}
         \hline
   \end{tabular}
-  \caption{Theoretical results}
+  \label{sym}
+  \caption{Symbolic solution}
 \end{table}
-
-We can then reduce the capacitor's behaviour to:
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.6\linewidth]{rc.pdf}
-  \caption{Equivalent RC circuit}
-  \label{rc_fig}
-\end{figure}
-
 
 \subsubsection{Natural solution}
 
-The natural solution of the capacitor behaviour is obtained by considering $v_x(t\geq0)=0$ and $v(0)=V_x$.
-
-Is is known that:
+The natural solution of the capacitor behaviour is obtained by considering $v_x(t\geq0)=0$ and $v(0)=V_x$. From Table \ref{sym}, we can safely say that $v_8(t)=0\;V$ and $v(t)=v_6(t)\;V$ for the natural response (that is, with $v_s=0\;V$). Is is known that:
 
 \begin{equation}
   \begin{cases}
