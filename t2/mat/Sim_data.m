@@ -192,4 +192,13 @@ print(g, "natural.eps", "-depsc");
 
 % Forced solution 
 
-f = 1000 %Hz
+f = 1000; %Hz
+w = 2*pi*f; %rad/s
+
+cvs = exp(-j*pi/2);
+
+cA = [1,0,0,0,0,0,0;-1/R1,1/R1,0,1/R4,0,1/R6,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,1/R2+Kb,-1/R2,-Kb,0,0,0;0,-Kb,0,Kb+1/R5,-1/R5-j*w*C,0,j*w*C;0,0,0,0,0,-1/R6-1/R7,1/R7;0,0,0,1,0,Kd/R6,-1];
+
+cb = [cvs;0;0;0;0;0;0];
+
+cc = cA\cb;
