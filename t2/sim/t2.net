@@ -10,17 +10,9 @@
 * forces current values to be saved
 .options savecurrents
 
-.param R1val = 1.00868781263k 
-.param R2val = 2.06825553778k 
-.param R3val = 3.04338610342k 
-.param R4val = 4.19765783973k 
-.param R5val = 3.075730287k 
-.param R6val = 2.01709186452k 
-.param R7val = 1.03453590331k 
-.param Vsval = 5.15787317088 
-.param Cval = 1.0046110972uF 
-.param Kbval = 7.25995945343mS 
-.param Kdval = 8.17623284805k 
+.control
+.INCLUDE /home/thunder/ist-tcfe/t2/mat/results.txt
+.endc
 
 * ------------- Independent Sources 
 Vs n1vv GND {Vsval}
@@ -41,8 +33,8 @@ Hd n5vv n8vv Vzero {Kdval}
 R1 n2vv n1vv {R1val}
 R2 n3vv n2vv {R2val}
 R3 n2vv n5vv {R3val}
-R4 GND n5vv {R4val}
-R5 n5vv n6vv {R5val}
+R4 n5vv GND  {R4val}
+R5 n6vv n5vv {R5val}
 R6 nzvv n7vv {R6val}
 R7 n7vv n8vv {R7val}
 
