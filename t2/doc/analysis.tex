@@ -41,6 +41,37 @@ There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, an
   \end{cases}
 \end{equation}
 
+\begin{equation}
+  \begin{bmatrix}
+    1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    \frac{1}{R_1} & -\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3} & \frac{1}{R_2} & \frac{1}{R_3} & 0 & 0 & 0 \\
+    0 & K_b + \frac{1}{R_2} & -\frac{1}{R_2} & -K_b & 0 & 0 & 0 \\
+    -\frac{1}{R_1} & \frac{1}{R_1} & 0 & \frac{1}{R_4} & 0 &\frac{1}{R_4} & 0 \\
+    0 & 0 & 0 & 1 & 0 & \frac{K_d}{R_6} & -1 \\
+    0 & 0 & 0 & 0 & 1 & 0 & -1 \\
+    0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7}
+  \end{bmatrix}
+  \begin{bmatrix}
+    V_1 \\
+    V_2 \\
+    V_3 \\
+    V_5 \\
+    V_6 \\
+    V_7 \\
+    V_8
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    V_x \\
+    0
+  \end{bmatrix}
+\end{equation}
+
 The results obtained by solving this system using \textbf{Octave} were as follows:
 
 \begin{table}[H]
