@@ -27,19 +27,21 @@ For this procedure it was considered that $t=0\;s$, at which time the capacitor 
 
 % Boneco
 
-By applying KCL to node 6, $I_x$ can be calculated:
+There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, and eight nodes. For simplicity's sake, we considered the seven ``easiest'' nodes, that is, considering the GND node and discarding node eight (which would require a super-node equation).
 
 \begin{equation}
-  I_x = \frac{V_5-V_6}{R_5}-I_b = \frac{V_5-V_6}{R_5} - K_b \cdot (V_2-V_5)
+  \begin{cases}
+    (1) & V_1=0 \\
+    (2) & \frac{V_1-V_2}{R_1} + \frac{V_5-V_2}{R_3} + \frac{V_3-V_2}{R_2} = 0 \\
+    (3) & K_b (V_2-V_5)-\frac{(V_3-V_2)}{R_2} = 0 \\
+    (GND) & \frac{V_2-V_1}{R_1} + \frac{V5}{R4} + \frac{V_7}{R_4} = 0 \\
+    (5) & V_5-V_8 + K_d \frac{V_t}{R_6} = 0 \\
+    (6) & V_6-V_8 = V_x \\
+    (7) & -\frac{V_7}{R_6} + \frac{V_8-V_7}{R_7} = 0
+  \end{cases}
 \end{equation}
 
-$R_{eq}$ is then obtained from Ohm's Law:
-
-\begin{equation}
-  R_{eq} = \frac{V_x}{I_x}
-\end{equation}
-
-The results obtained were as follows:
+The results obtained by solving this system using \textbf{Octave} were as follows:
 
 \begin{table}[H]
   \centering
@@ -53,6 +55,18 @@ The results obtained were as follows:
   \end{tabular}
   \caption{Theoretical results}
 \end{table}
+
+By applying KCL to node 6, $I_x$ can be calculated:
+
+\begin{equation}
+  I_x = \frac{V_5-V_6}{R_5}-I_b = \frac{V_5-V_6}{R_5} - K_b \cdot (V_2-V_5)
+\end{equation}
+
+$R_{eq}$ is then obtained from Ohm's Law:
+
+\begin{equation}
+  R_{eq} = \frac{V_x}{I_x}
+\end{equation}
 
 \begin{table}[H]
   \centering
@@ -69,9 +83,11 @@ The results obtained were as follows:
 
 As expected, the current value $I_x$ is negative, thus making $P_x$ negative: the voltage source supplies energy to the circuit.
 
+We can know reduce the capacitor's behaviour to:
+
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\linewidth]{rc.pdf}
+  \includegraphics[width=0.6\linewidth]{rc.pdf}
   \caption{Equivalent RC circuit}
   \label{rc_fig}
 \end{figure}
