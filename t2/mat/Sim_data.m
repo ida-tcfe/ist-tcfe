@@ -173,6 +173,8 @@ fprintf(fnode3, "$I_x\\;(mA)$ & $%f$ \\\\ \n", Ix*1000);
 fprintf(fnode3, "\\hline\n");
 fprintf(fnode3, "$R_{eq}\\;(k\\Omega)$ & $%f$ \\\\ \n", Req / 1000);
 fprintf(fnode3, "\\hline\n");
+fprintf(fnode3, "$\\tau\\;(mC/A)$ & $%f$ \\\\ \n", Req * C * 1000);
+fprintf(fnode3, "\\hline\n");
 fprintf(fnode3, "$P_x\\;(mW)$ & $%f$ \\\\ \n", Vx * Ix * 1000);
 
 fclose(fnode3);
@@ -180,7 +182,7 @@ fclose(fnode3);
 # Plot natural solution
 
 t = 0:1e-6:20e-3; % 0 to 20 ms
-vn = Vx * exp(t/(Req*C));
+vn = Vx * exp(-t/(Req*C));
 
 g = figure();
 plot(t*1000, vn, "b");
