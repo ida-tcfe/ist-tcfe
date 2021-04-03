@@ -16,7 +16,7 @@
 
 * ------------- Independent Sources 
 Vs n1vv GND {Vsval}
-Cd n8vv n6vv {Cval} 
+Cd n6vv n8vv {Cval} 
 
 Vzero GND nzvv 0.0
 
@@ -71,16 +71,14 @@ print n5vv
 print n6vv
 print n7vv
 print n8vv
-print v(n5vv, n8vv)
-print v(n2vv, n5vv)
 print @r1[i]
 print @r2[i]
 print @r3[i]
 print @r4[i]
 print @r5[i]
+print @r6[i]
 print @r7[i]
 print @Gb[i]
-print @r6[i]
 print @Hd[i]
 print @Vs[i]
 

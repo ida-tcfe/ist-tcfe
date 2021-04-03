@@ -15,8 +15,9 @@
 .endc
 
 * ------------- Independent Sources 
-Vs n1vv GND {Vsval}
-Cd n8vv n6vv {Cval} 
+Vs n1vv GND sin(0.0 1.0 1khz) 
+
+Cd n6vv n8vv {Cval}  
 
 Vzero GND nzvv 0.0
 
@@ -49,6 +50,8 @@ R7 n8vv n7vv {R7val}
 *set color6=rgb:4/0/0
 
 .op
+.ic v(n1vv)=0 v(n2vv)=0 v(n3vv)=0 v(n5vv)=0 v(n6vv)=8.624089 v(n7vv)=0 v(n8vv)=0
+.end
 .control
 op
 
@@ -78,14 +81,22 @@ print @r2[i]
 print @r3[i]
 print @r4[i]
 print @r5[i]
+print @r6[i]
 print @r7[i]
 print @Gb[i]
-print @r6[i]
 print @Hd[i]
 print @Vs[i]
 
 echo  "op_END"
 
+
+echo " ------------- Trasient Analysis --------------------
+tran 1e-5 20e-3 
+
+hardcopy trans4.ps v(n6vv) v(n1vv) v(n6vv, n8vv)
+echo trans4_FIG
+
+
 *quit might help?
-*.endc
-.end
+.endc
+*.end
