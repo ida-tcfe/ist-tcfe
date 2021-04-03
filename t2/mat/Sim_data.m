@@ -141,6 +141,14 @@ fprintf(fnode2, "$V_7\\;(V)$ & $%f$ \\\\ \n", c(6)); #V7 = 0
 fprintf(fnode2, "\\hline\n");
 fprintf(fnode2, "$V_8\\;(V)$ & $%f$ \\\\ \n", c(7)); #V8 = 0
 
+V1 = c(1);
+V2 = c(2);
+V3 = c(3);
+V5 = c(4);
+V6 = c(5);
+V7 = c(6);
+V8 = c(7);
+
 fclose(fnode2);
 
 V = sym('V');
@@ -184,11 +192,12 @@ fclose(fnode3);
 t = 0:1e-6:20e-3; % 0 to 20 ms
 vn = Vx * exp(-t/(Req*C));
 
-g = figure();
+g = figure(1);
 plot(t*1000, vn, "b");
 xlabel("t [ms]");
 ylabel("vn(t) [V]");
 print(g, "natural.eps", "-depsc");
+close(g);
 
 % Forced solution 
 
@@ -205,18 +214,61 @@ cc = cA\cb;
 
 forced = fopen("forced.tex", "w");
 
-fprintf(forced, "$V_1$ & $%f + j*%f$ \\\\ \n", real(cc(1)), imag(cc(1))); #V1
+fprintf(forced, "$V_1$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(1)), imag(cc(1))); #V1
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_2$ & $%f + j*%f$ \\\\ \n", real(cc(2)), imag(cc(2))); #V2
+fprintf(forced, "$V_2$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(2)), imag(cc(2))); #V2
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_3$ & $%f + j*%f$ \\\\ \n", real(cc(3)), imag(cc(3))); #V3
+fprintf(forced, "$V_3$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(3)), imag(cc(3))); #V3
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_5$ & $%f + j*%f$ \\\\ \n", real(cc(4)), imag(cc(4))); #V5
+fprintf(forced, "$V_5$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(4)), imag(cc(4))); #V5
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_6$ & $%f + j*%f$ \\\\ \n", real(cc(5)), imag(cc(5))); #V6
+fprintf(forced, "$V_6$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(5)), imag(cc(5))); #V6
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_7$ & $%f + j*%f$ \\\\ \n", real(cc(6)), imag(cc(6))); #V7
+fprintf(forced, "$V_7$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(6)), imag(cc(6))); #V7
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_8$ & $%f + j*%f$ \\\\ \n", real(cc(7)), imag(cc(7))); #V8
+fprintf(forced, "$V_8$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(7)), imag(cc(7))); #V8
 
 fclose(forced);
+
+# determine amplitudes and phases
+
+pol = [abs(cc(1)), angle(cc(1)); abs(cc(2)), angle(cc(2)); abs(cc(3)), angle(cc(3)); abs(cc(4)), angle(cc(4)); abs(cc(5)), angle(cc(5)); abs(cc(6)), angle(cc(6)); abs(cc(7)), angle(cc(7))];
+
+forced2 = fopen("forced2.tex", "w");
+fprintf(forced2, "$V_1$ & %f & %f \\\\ \n", pol(1,1), pol(1,2));
+fprintf(forced2, "\\hline\n");
+fprintf(forced2, "$V_2$ & %f & %f \\\\ \n", pol(2,1), pol(2,2));
+fprintf(forced2, "\\hline\n");
+fprintf(forced2, "$V_3$ & %f & %f \\\\ \n", pol(3,1), pol(3,2));
+fprintf(forced2, "\\hline\n");
+fprintf(forced2, "$V_5$ & %f & %f \\\\ \n", pol(4,1), pol(4,2));
+fprintf(forced2, "\\hline\n");
+fprintf(forced2, "$V_6$ & %f & %f \\\\ \n", pol(5,1), pol(5,2));
+fprintf(forced2, "\\hline\n");
+fprintf(forced2, "$V_7$ & %f & %f \\\\ \n", pol(6,1), pol(6,2));
+fprintf(forced2, "\\hline\n");
+fprintf(forced2, "$V_8$ & %f & %f \\\\ \n", pol(7,1), pol(7,2));
+fprintf(forced2, "\\hline\n");
+
+fclose(forced2);
+
+# draw
+
+function x = pieceWise(t, amp, pha, w, V, tau)
+  x = V * ones(size (t));
+%ind = t >= (pha-pi/2)/w;
+ind = t >= 0;
+  x(ind) = V*exp(-t(ind)/tau)+amp*cos(w*t(ind)-pha);
+endfunction
+
+t = -5e-3:1e-6:20e-3; % 0 to 20 ms;
+
+f = figure(2);
+plot(t*1000, pieceWise(t, pol(5,1), pol(5,2), w, V6, Req*C), "r");
+hold on;
+plot(t*1000, sin(w*t), "g");
+xlabel("t [ms]");
+ylabel("[V]");
+legend("v6(t) [V]", "vs(t) [V]");
+print(f, "total.eps", "-deps");
+close(f);
