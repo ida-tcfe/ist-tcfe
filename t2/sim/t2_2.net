@@ -17,7 +17,7 @@
 * ------------- Independent Sources 
 Vs n1vv GND 0
 
-Vd n6vv n8vv 8.624089
+Vx n6vv n8vv 8.624089
 *Cd n6vv n8vv {Cval}   -> Alinea 2) - Substituir por fonte tensão  
 
 Vzero GND nzvv 0.0
@@ -83,7 +83,7 @@ print @r7[i]
 print @Gb[i]
 print @Hd[i]
 print @Vs[i]
-print @Vd[i]
+print @Vx[i]
 
 
 echo  "op_END"
