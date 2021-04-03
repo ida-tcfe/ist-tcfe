@@ -231,8 +231,9 @@ fprintf(forced, "$V_8$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(7)), imag(cc(7))); #
 fclose(forced);
 
 # determine amplitudes and phases
+# the angle of the phasor is -phi
 
-pol = [abs(cc(1)), angle(cc(1)); abs(cc(2)), angle(cc(2)); abs(cc(3)), angle(cc(3)); abs(cc(4)), angle(cc(4)); abs(cc(5)), angle(cc(5)); abs(cc(6)), angle(cc(6)); abs(cc(7)), angle(cc(7))];
+pol = [abs(cc(1)), -angle(cc(1)); abs(cc(2)), -angle(cc(2)); abs(cc(3)), -angle(cc(3)); abs(cc(4)), -angle(cc(4)); abs(cc(5)), -angle(cc(5)); abs(cc(6)), -angle(cc(6)); abs(cc(7)), -angle(cc(7))];
 
 forced2 = fopen("forced2.tex", "w");
 fprintf(forced2, "$V_1$ & %f & %f \\\\ \n", pol(1,1), pol(1,2));
@@ -322,25 +323,25 @@ vcp = function_handle(cc(5)-cc(7));
 
 function x = v(f, vp)
   x = vp(f);
-  x = angle(x);
+  x = -angle(x);
 % here should i:f size but it doesnt work
   for i = 1:100
 	      if (x(1,i) < 0)
 		x(1,i) = x(1,i) + 2*pi;
-  endif
+              endif
   endfor
 endfunction
 
 m = figure(4);
 % deg2rad should be inside v but it doesnt work
-semilogx(fs, rad2deg(v(fs, v6p)), "r");
+semilogx(fs, 90 - rad2deg(v(fs, v6p)), "r");
 hold on;
-semilogx(fs, rad2deg(v(fs, vcp)), "b");
+semilogx(fs, 90 - rad2deg(v(fs, vcp)), "b");
 hold on;
-semilogx(fs, 90*ones(size(fs)), "g");
+semilogx(fs, 90 - 90*ones(size(fs)), "g");
 xlabel("f [Hz]");
 ylabel("[deg]");
-title("Phase frequency response");
+title("Phase (delay) frequency response ({phi}_s - phi)");
 legend("phi_6(f)", "phi_c(f)", "phi_s");
 print(m, "freq_response_phi.eps", "-depsc");
 close(m);
