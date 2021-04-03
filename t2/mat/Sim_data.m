@@ -269,7 +269,7 @@ hold on;
 plot(t*1000, sin(w*t), "g");
 xlabel("t [ms]");
 ylabel("[V]");
-legend("v6(t) [V]", "vs(t) [V]");
+legend("v6(t)", "vs(t)");
 print(h, "total.eps", "-depsc");
 close(h);
 
@@ -287,7 +287,9 @@ cb = [cvs;0;0;0;0;0;0];
 
 cc = cA\cb; # solution with freq as unknown
 
-h = function_handle(cc(5));
+v6 = function_handle(abs(cc(5)));
+v8 = function_handle(abs(cc(7)));
+vc = function_handle(abs(cc(5)-cc(7)));
 
 %cc(5) = subs(cc(5), freq, 1000);
 %double(real(cc(5)))
@@ -296,6 +298,41 @@ h = function_handle(cc(5));
 fs = logspace(-1, 6, 100);
 
 k = figure(3);
-loglog(fs, h(fs), "r");
-print(k, "freq_response.eps", "-depsc");
+semilogx(fs, 20*log(v6(fs)), "r");
+hold on;
+semilogx(fs, 20*log(vc(fs)), "b");
+hold on;
+semilogx(fs, 20*log(ones(size(fs))), "g");
+xlabel("f [Hz]");
+ylabel("[dB]");
+legend("v_6(f)", "v_c(f)", "v_s");
+print(k, "freq_response_mag.eps", "-depsc");
 close(k);
+
+v6p = function_handle(cc(5));
+v8p = function_handle(cc(7));
+vcp = function_handle(cc(5)-cc(7));
+
+function x = v(f, vp)
+  x = vp(f);
+  x = angle(x);
+% here should i:f size but it doesnt work
+  for i = 1:100
+	      if (x(1,i) < 0)
+		x(1,i) = x(1,i) + 2*pi;
+  endif
+  endfor
+endfunction
+
+m = figure(4);
+% deg2rad should be inside v but it doesnt work
+semilogx(fs, rad2deg(v(fs, v6p)), "r");
+hold on;
+semilogx(fs, rad2deg(v(fs, vcp)), "b");
+hold on;
+semilogx(fs, 90*ones(size(fs)), "g");
+xlabel("f [Hz]");
+ylabel("[deg]");
+legend("phi_6(f)", "phi_c(f)", "phi_s");
+print(m, "freq_response_phi.eps", "-depsc");
+close(m);
