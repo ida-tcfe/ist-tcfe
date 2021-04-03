@@ -110,9 +110,9 @@ fprintf(fnode, "$I_7\\;(mA)$ & $%f$ \\\\ \n", I7*1000);
 fprintf(fnode, "\\hline\n");
 fprintf(fnode, "$I_b\\;(mA)$ & $%f$ \\\\ \n", Ib*1000);
 fprintf(fnode, "\\hline\n");
-fprintf(fnode, "$IV_s\\;(mA)$ & $%f$ \\\\ \n", I1*1000);
-fprintf(fnode, "\\hline\n");
 fprintf(fnode, "$IV_d\\;(mA)$ & $%f$ \\\\ \n", IVd*1000);
+fprintf(fnode, "\\hline\n");
+fprintf(fnode, "$IV_s\\;(mA)$ & $%f$ \\\\ \n", I1*1000);
 
 fclose(fnode);
 
