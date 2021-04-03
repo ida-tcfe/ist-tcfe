@@ -252,6 +252,12 @@ fprintf(forced2, "\\hline\n");
 
 fclose(forced2);
 
+forced6 = fopen("forced6.tex", "w");
+
+fprintf(forced6, "V_{6f}(t) = %f\cos(wt-%f)", pol(5,1), pol(5,2));
+
+fclose(forced6);
+
 # draw
 
 function x = pieceWise(t, amp, pha, w, V, tau)

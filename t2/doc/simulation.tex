@@ -6,4 +6,23 @@
 \subsection{Operating Point Analysis}
 \label{sec:op_point}
 
-After analysing the circuit, we proceeded to simulate it using {\bf Ngspice} in order to compare the results with the theoretical predictions. The results are shown in Table~\ref{tab:op}.
+\subsubsection{($t < 0$)}
+
+After the theoretical analysis, we proceeded to simulate the circuit using {\bf Ngspice} in order to compare the results with the theoretical predictions. The results for $t < 0$ are shown in Table~\ref{tab:op}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|}
+		\hline    
+		    {\bf Name} & {\bf Value} \\
+                    \hline
+                    \hline
+		\input{../sim/op_tab}
+	\end{tabular}
+	\caption{Operating point. The '$n$' variables represent the voltages determined at the nodes. The '$r$' variables correspond to the current flowing through each resistor.}
+	\label{tab:op}
+\end{table}
+
+\subsubsection{($t = 0$)}
+
+In this part, the simulation was conducted with $v_s(0) = 0$. 
