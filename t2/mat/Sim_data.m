@@ -263,12 +263,39 @@ endfunction
 
 t = -5e-3:1e-6:20e-3; % 0 to 20 ms;
 
-f = figure(2);
+h = figure(2);
 plot(t*1000, pieceWise(t, pol(5,1), pol(5,2), w, V6, Req*C), "r");
 hold on;
 plot(t*1000, sin(w*t), "g");
 xlabel("t [ms]");
 ylabel("[V]");
 legend("v6(t) [V]", "vs(t) [V]");
-print(f, "total.eps", "-deps");
-close(f);
+print(h, "total.eps", "-depsc");
+close(h);
+
+# vc(f)
+
+freq = sym('freq')
+
+w = 2*pi*freq %rad/s
+
+cvs = exp(-j*pi/2);
+
+cA = [[1,0,0,0,0,0,0];[-1/R1,1/R1,0,1/R4,0,1/R6,0];[1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0];[0,1/R2+Kb,-1/R2,-Kb,0,0,0];[0,-Kb,0,Kb+1/R5,-1/R5-j*w*C,0,j*w*C];[0,0,0,0,0,-1/R6-1/R7,1/R7];[0,0,0,1,0,Kd/R6,-1]];
+
+cb = [cvs;0;0;0;0;0;0];
+
+cc = cA\cb; # solution with freq as unknown
+
+h = function_handle(cc(5));
+
+%cc(5) = subs(cc(5), freq, 1000);
+%double(real(cc(5)))
+%double(imag(cc(5)))
+
+fs = logspace(-1, 6, 100);
+
+k = figure(3);
+loglog(fs, h(fs), "r");
+print(k, "freq_response.eps", "-depsc");
+close(k);
