@@ -341,7 +341,7 @@ hold on;
 semilogx(fs, 90 - 90*ones(size(fs)), "g");
 xlabel("f [Hz]");
 ylabel("[deg]");
-title("Phase (delay) frequency response ({phi}_s - phi)");
+title("Phase frequency response (90 - phi)");
 legend("phi_6(f)", "phi_c(f)", "phi_s");
 print(m, "freq_response_phi.eps", "-depsc");
 close(m);
