@@ -17,12 +17,41 @@ After the theoretical analysis, we proceeded to simulate the circuit using {\bf 
 		    {\bf Name} & {\bf Value} \\
                     \hline
                     \hline
-		\input{../sim/op_tab}
+		\input{../sim/op_ng1_tab}
 	\end{tabular}
 	\caption{Operating point. The '$n$' variables represent the voltages determined at the nodes. The '$r$' variables correspond to the current flowing through each resistor.}
-	\label{tab:op}
+	\label{tab:op1}
 \end{table}
 
 \subsubsection{($t = 0$)}
 
 In this part, the simulation was conducted with $v_s(0) = 0$. 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|}
+		\hline    
+		    {\bf Name} & {\bf Value} \\
+                    \hline
+                    \hline
+		\input{../sim/op_ng2_tab}
+	\end{tabular}
+	\caption{Operating point. The '$n$' variables represent the voltages determined at the nodes. The '$r$' variables correspond to the current flowing through each resistor.}
+	\label{tab:op2}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{trans3.eps}
+  \caption{Natural response}
+  \label{fig:nat}
+\end{figure}
+
+\subsubsection{($ t \geq 0$)}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{trans4.eps}
+  \caption{Total response and source signal (for comparison)}
+  \label{fig:tot}
+\end{figure}

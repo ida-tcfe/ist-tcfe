@@ -93,7 +93,7 @@ echo  "op_END"
 echo " ------------- Trasient Analysis --------------------
 tran 1e-5 20e-3 
 
-hardcopy trans3.ps v(n6vv)
+hardcopy trans3.eps v(n6vv)
 echo trans3_FIG
 
 *quit might help?
