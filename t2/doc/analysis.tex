@@ -277,6 +277,7 @@ So, using the results of \ref{forcedamplitudes_res}, it is possible to conclude 
     0 \\
     0
   \end{bmatrix}
+  \label{pha}
 \end{equation}
 
 \begin{table}[H]
@@ -316,4 +317,17 @@ The final solution can be obtained by superimposing the natural and forced solut
   \includegraphics[width=0.8\linewidth]{total.eps}
   \caption{Total response and source signal (for comparison)}
   \label{fig:tot}
+\end{figure}
+
+\subsection{Frequency response}
+
+By solving the system \ref{pha} and considering $f$ an unknown ($w=2\pi f$), using a symbolic package in \textbf{Octave}, it is possible to determine $v_6(f)$ and $v_8(f)$, where both are complex functions of a real variable. To better characterize the behaviour of the capacitor, the following graphs were made:
+
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{c c}
+    \includegraphics[width=0.5\textwidth]{freq_response_mag.eps} & \includegraphics[width=0.5\textwidth]{freq_response_phi.eps}
+  \end{tabular}
+  \caption{Frequency response}
+  \label{freq_resp}
 \end{figure}
