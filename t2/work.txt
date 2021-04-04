@@ -1,11 +1,11 @@
 Work to be done
 
 Simulation Analysis
-1) Diogo
-2) Diogo
-3) Diogo
-4) Diogo
-5) Diogo
+1) Diogo - done
+2) Diogo - done
+3) Diogo - done
+4) Diogo - done
+5) Diogo - done
 
 Theoretical Analysis
 1) Isabel
@@ -20,11 +20,13 @@ Lab report
 NOTES: changed t2_datagen.py ever so slightly;
        the student number and file location are on the Makefile
 2) Diogo
-3)
-4)
-5)
+3) -
+4) done
+5) Isabel (kinda)
 
-Introduction - Isabel
+Introduction) Isabel
 
-Schematic - Diogo
+Python script) Isabel
+
+Schematic) Diogo - done
 
