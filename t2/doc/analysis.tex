@@ -77,7 +77,12 @@ In order to ascertain how the capacitor behaves, the equivalent resistor seen by
 
 For this procedure it was considered that $t=0\;s$, at which time the capacitor is fully charged, and so the voltage difference at it's terminals is known from \ref{sec:node} and constant (static analysis). At this time, it is also known that $V_s=0\;V$ - it is the exact time at which the source shifts from constant ($V_s$) to sinusoidal (null).
 
-% Boneco
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Req.pdf}
+  \caption{Circuit}
+  \label{Req_fig}
+\end{figure}
 
 There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, and eight nodes. For simplicity's sake, the seven ``easiest'' nodes were considered, that is, including the GND node and discarding node eight (which would require a super-node equation).
 
@@ -237,6 +242,13 @@ The natural solution is:
 \subsubsection{Forced solution}
 
 The forced behaviour of the capacitor is obtained for $t > 0$, during which time $v_s(t)$ is a sine wave. To study this,  another node analysis was performed. The equations used were the same as the ones already presented in Section~\ref{sec:node}, but in this case, $I_c$ is not zero. For this situation $I_c = \frac{V_6-V_8}{Z}$, where $Z = \frac{1}{jwC}$ is the impedance of the capacitor, which has capacitance C. $w = 2\pi f$ is the radial frequency of the signal of $v_s(t) = \sin(wt) = \cos(wt-\frac{\pi}{2})$. This sinusoidal excitation will induce a sinusoidal forced solution with the same frequency for the components of the circuit.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\linewidth]{node.pdf}
+  \caption{Circuit}
+  \label{node_fig}
+\end{figure}
 
 Consequently, the voltages in the nodes for the forced solution will have the form of $V_i\cos(wt-\phi_i)$. It is possible to compute the voltages in the nodes by representing these voltages as phasors (that is, complex numbers that return the amplitude and phase difference of the response). Solving the matrix below, with {\bf Octave}, gives the values of the phasors, that are in table \ref{forced_res}. The module of these complex numbers gives the amplitude $V_i$ and their angle is the phase delay $\phi_i$.
 
