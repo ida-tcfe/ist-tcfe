@@ -10,6 +10,9 @@
 * forces current values to be saved
 .options savecurrents
 
+* Set Output Precision
+.options nmdgt = 3
+
 .control
 .INCLUDE results.txt
 .endc

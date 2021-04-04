@@ -15,7 +15,7 @@
 .endc
 
 * ------------- Independent Sources 
-Vs n1vv GND 0.0 ac 1.0 cos(0.0 1.0 1k pi/2)
+Vs n1vv GND 0.0 ac 1.0 
 
 Cd n6vv n8vv {Cval}  
 
@@ -54,40 +54,6 @@ R7 n8vv n7vv {R7val}
 .end
 .control
 op
-
-echo "********************************************"
-echo  "Operating point"
-echo "********************************************"
-
-echo "---------Debugging Values-----------"
-
-echo "Potential Difference"
-echo "Voltage at Nodes"
-*print @Q1[ic]
-*print @Rf[i]
-
-echo  "op_TAB"
-print n1vv
-print n2vv
-print n3vv
-print n5vv
-print n6vv
-print n7vv
-print n8vv
-print v(n5vv, n8vv)
-print v(n2vv, n5vv)
-print @r1[i]
-print @r2[i]
-print @r3[i]
-print @r4[i]
-print @r5[i]
-print @r6[i]
-print @r7[i]
-print @Gb[i]
-print @Hd[i]
-print @Vs[i]
-
-echo  "op_END"
 
 
 echo " ------------- Ac Analysis --------------------
