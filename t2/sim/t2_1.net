@@ -10,8 +10,6 @@
 * forces current values to be saved
 .options savecurrents
 
-* Set Output Precision
-.option nmdgt = 11
 
 .control
 .INCLUDE results.txt
@@ -51,6 +49,8 @@ R7 n8vv n7vv {R7val}
 *set color5=rgb:3/8/0
 *set color6=rgb:4/0/0
 
+.end
+
 .op
 .control
 op
@@ -88,5 +88,5 @@ print @Vs[i]
 echo  "op_END"
 
 *quit might help?
-*.endc
-.end
+.endc
+*.end
