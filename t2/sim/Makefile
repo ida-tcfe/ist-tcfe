@@ -5,6 +5,7 @@ run:
 	ngspice -b t2_2.net -o ngspice2.log
 	ngspice -b t2_3.net -o ngspice3.log
 	ngspice -b t2_4.net -o ngspice4.log
+	ngspice -b t2_5.net -o ngspice5.log
 
 ng1: ngspice1.log
 	$(eval NGSFIGS=$(shell grep _FIG $< | sed 's/_FIG//g' | sed ':a;N;$!ba;s/\n/ /g'))

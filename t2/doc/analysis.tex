@@ -325,9 +325,16 @@ By solving the system \ref{pha} and considering $f$ an unknown ($w=2\pi f$), usi
 
 \begin{figure}[H]
   \centering
-  \begin{tabular}{c c}
-    \includegraphics[width=0.5\textwidth]{freq_response_mag.eps} & \includegraphics[width=0.5\textwidth]{freq_response_phi.eps}
-  \end{tabular}
-  \caption{Frequency response}
-  \label{freq_resp}
+  \includegraphics[width=0.8\textwidth]{freq_response_mag.eps}
+  \caption{Magnitude frequency response}
+  \label{freq_resp_mag}
 \end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{freq_response_phi.eps}
+  \caption{Phase frequency response}
+  \label{freq_resp_pha}
+\end{figure}
+
+In order to ensure ease of comparison, in the latter graph it is not considered $\phi$ as calculated theoretically. This analysis considered a signal of the form $\cos(\omega t - \phi)$, while the simulation considers a signal of the form $\sin(\omega t + \phi')$. It is easy to determine that $\phi' = \frac{\pi}{2} - \phi$ in radians, or $\phi' = 90 - \phi$ in degrees. The graph in Figure~\ref{freq_resp_pha} then portrays $\phi'$, as does Figure~\ref{freq_resp_pha_sim}.

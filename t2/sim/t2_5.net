@@ -39,20 +39,21 @@ R5 n6vv n5vv {R5val}
 R6 nzvv n7vv {R6val}
 R7 n8vv n7vv {R7val}
 
-*makes plots in color
-*set hcopypscolor=0
-*set color0=white
-*set color1=black
-*set color2=red
-*set color3=blue
-*set color4=violet
-*set color5=rgb:3/8/0
-*set color6=rgb:4/0/0
-
 .op
 *.ic v(n1vv)=0 v(n2vv)=0 v(n3vv)=0 v(n5vv)=0 v(n6vv)=8.624089 v(n7vv)=0 v(n8vv)=0
 .end
 .control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
 op
 
 
@@ -60,10 +61,10 @@ echo " ------------- Ac Analysis --------------------
 ac dec 10 0.1 10MEG 
 
 
-hardcopy ac_phase5.ps vp(n6vv)*180/pi vp(n1vv)*180/pi vp(n6vv, n8vv)*180/pi
+hardcopy ac_phase5.eps vp(n6vv)*180/pi vp(n1vv)*180/pi vp(n6vv, n8vv)*180/pi
 echo ac_phase5_FIG
 
-hardcopy ac_mag5.ps db(v(n6vv)) db(v(n1vv)) db(v(n6vv, n8vv))
+hardcopy ac_mag5.eps db(v(n6vv)) db(v(n1vv)) db(v(n6vv, n8vv))
 echo ac_mag5_FIG
 
 
