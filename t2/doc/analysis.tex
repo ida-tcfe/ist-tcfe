@@ -84,17 +84,17 @@ For this procedure it was considered that $t=0\;s$, at which time the capacitor 
   \label{Req_fig}
 \end{figure}
 
-There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, and eight nodes. For simplicity's sake, the seven ``easiest'' nodes were considered, that is, including the GND node and discarding node eight (which would require a super-node equation).
+There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, and eight nodes. Given that the GND node does not constitute an unkown, it is not considered. One super-node equation is considered, regarding the eighth node, and it contais nodes 5, 6 and 8.
 
 \begin{equation}
   \begin{cases}
     (1) & V_1=0 \\
     (2) & \frac{V_1-V_2}{R_1} + \frac{V_5-V_2}{R_3} + \frac{V_3-V_2}{R_2} = 0 \\
     (3) & I_b = \frac{(V_3-V_2)}{R_2} = 0 \\
-    (GND) & \frac{V_2-V_1}{R_1} + \frac{V5}{R4} + \frac{V_7}{R_6} = 0 \\
     (5) & V_5-V_8 = V_d \\
     (6) & V_6-V_8 = V_x \\
-    (7) & -\frac{V_7}{R_6} + \frac{V_8-V_7}{R_7} = 0
+    (7) & -\frac{V_7}{R_6} + \frac{V_8-V_7}{R_7} = 0 \\
+    (8) & -\frac{V_5}{R_4}+\frac{V_2-V_5}{R_3}-I_b+\frac{V_7-V_8}{R_7} = 0
   \end{cases}
 \end{equation}
 
@@ -105,10 +105,10 @@ Rearranging these equations and employing the relations $I_b = K_bV_b$ and $V_d 
     1 & 0 & 0 & 0 & 0 & 0 & 0 \\
     \frac{1}{R_1} & -\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3} & \frac{1}{R_2} & \frac{1}{R_3} & 0 & 0 & 0 \\
     0 & K_b + \frac{1}{R_2} & -\frac{1}{R_2} & -K_b & 0 & 0 & 0 \\
-    -\frac{1}{R_1} & \frac{1}{R_1} & 0 & \frac{1}{R_4} & 0 &\frac{1}{R_6} & 0 \\
     0 & 0 & 0 & 1 & 0 & \frac{K_d}{R_6} & -1 \\
     0 & 0 & 0 & 0 & 1 & 0 & -1 \\
-    0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7}
+    0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7} \\
+    0 & \frac{1}{R_3}-K_b & 0 & 0 & -\frac{1}{R_4}-\frac{1}{R_3}+K_b & 0 & \frac{1}{R_7} & -\frac{1}{R_7}
   \end{bmatrix}
   \begin{bmatrix}
     V_1 \\
@@ -125,8 +125,8 @@ Rearranging these equations and employing the relations $I_b = K_bV_b$ and $V_d 
     0 \\
     0 \\
     0 \\
-    0 \\
     V_x \\
+    0 \\
     0
   \end{bmatrix}
 \end{equation}
