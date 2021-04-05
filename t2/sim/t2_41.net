@@ -1,0 +1,101 @@
+ -------------- Lab1 TCFE -----------------
+
+* NGSPICE simulation script
+
+* ------ To run like lab assignement uncomment (unc)
+
+* --------- Intructions to print Potential Diff ------------
+*print v(n1, n2) = v(n1) - v(n2), if only v(n1) => v2 = 0 (GND) , page 302 ngspice manual
+
+* forces current values to be saved
+.options savecurrents
+
+.control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+.INCLUDE results.txt
+.endc
+
+* ------------- Independent Sources 
+Vs n1vv GND sin(0.0 1.0 1khz)
+
+Cd n6vv n8vv {Cval}  
+
+Vzero GND nzvv 0.0
+
+* ------------- Dependent Sources 
+Gb n6vv n3vv n2vv n5vv {Kbval}
+*Ib = Kb*Vb - Kb = 7.26322828319k , Vb = To be calculated
+
+Hd n5vv n8vv Vzero {Kdval}
+*Vc = Kc*Ic - Kc = 05067652194k , Ic = To be Calculated (unc)
+*Vc n5 n7 7.8 ; - Not known! Just for debugg
+ 
+
+* -------------- Resistors - All in kOhms!
+R1 n2vv n1vv {R1val}
+R2 n3vv n2vv {R2val}
+R3 n2vv n5vv {R3val}
+R4 n5vv GND  {R4val}
+R5 n6vv n5vv {R5val}
+R6 nzvv n7vv {R6val}
+R7 n8vv n7vv {R7val}
+
+.op
+.ic v(n1vv)=0 v(n2vv)=0 v(n3vv)=0 v(n5vv)=0 v(n6vv)=8.624089 v(n7vv)=0 v(n8vv)=0
+.end
+.control
+op
+
+echo "********************************************"
+echo  "Operating point"
+echo "********************************************"
+
+echo "---------Debugging Values-----------"
+
+echo "Potential Difference"
+echo "Voltage at Nodes"
+*print @Q1[ic]
+*print @Rf[i]
+
+echo  "op_TAB"
+*print (n1vv)
+*print (n2vv)
+*print (n3vv)
+*print (n5vv)
+*print (n6vv)
+*print (n7vv)
+*print (n8vv)
+*print v(n5vv, n8vv)
+*print v(n2vv, n5vv)
+*print @r1[i]
+*print @r2[i]
+*print @r3[i]
+*print @r4[i]
+*print @r5[i]
+*print @r6[i]
+*print @r7[i]
+*print @Gb[i]
+*print @Hd[i]
+*print @Vs[i]
+
+echo  "op_END"
+
+echo " ------------- Trasient Analysis --------------------
+tran 1e-5 20e-3 
+
+hardcopy trans4.eps v(n6vv) v(n1vv) v(n6vv, n8vv)
+echo trans4_FIG
+
+*quit might help?
+.endc
+*.end
