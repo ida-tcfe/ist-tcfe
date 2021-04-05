@@ -49,7 +49,7 @@ fclose(fid);
 
 # Node analysis t<0
 
-A = [1,0,0,0,0,0,0;-1/R1,1/R1,0,1/R4,0,1/R6,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,1/R2+Kb,-1/R2,-Kb,0,0,0;0,-Kb,0,Kb+1/R5,-1/R5,0,0;0,0,0,0,0,-1/R6-1/R7,1/R7;0,0,0,1,0,Kd/R6,-1];
+A = [1,0,0,0,0,0,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,1/R2+Kb,-1/R2,-Kb,0,0,0;0,1/R3,0,-1/R3-1/R5-1/R4,1/R5,1/R7,-1/R7;0,-Kb,0,Kb+1/R5,-1/R5,0,0;0,0,0,0,0,-1/R6-1/R7,1/R7;0,0,0,1,0,Kd/R6,-1];
 
 b = [Vs;0;0;0;0;0;0];
 
@@ -206,7 +206,7 @@ w = 2*pi*f; %rad/s
 
 cvs = exp(-j*pi/2);
 
-cA = [1,0,0,0,0,0,0;-1/R1,1/R1,0,1/R4,0,1/R6,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,1/R2+Kb,-1/R2,-Kb,0,0,0;0,-Kb,0,Kb+1/R5,-1/R5-j*w*C,0,j*w*C;0,0,0,0,0,-1/R6-1/R7,1/R7;0,0,0,1,0,Kd/R6,-1];
+cA = [1,0,0,0,0,0,0;1/R1,-1/R1-1/R3-1/R2,1/R2,1/R3,0,0,0;0,1/R2+Kb,-1/R2,-Kb,0,0,0;0,1/R3,0,-1/R3-1/R5-1/R4,1/R5+j*w*C,1/R7,-1/R7-j*w*C;0,-Kb,0,Kb+1/R5,-1/R5-j*w*C,0,j*w*C;0,0,0,0,0,-1/R6-1/R7,1/R7;0,0,0,1,0,Kd/R6,-1];
 
 cb = [cvs;0;0;0;0;0;0];
 
@@ -214,19 +214,19 @@ cc = cA\cb;
 
 forced = fopen("forced.tex", "w");
 
-fprintf(forced, "$V_1$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(1)), imag(cc(1))); #V1
+fprintf(forced, "$\\widetilde{V_1}$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(1)), imag(cc(1))); #V1
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_2$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(2)), imag(cc(2))); #V2
+fprintf(forced, "$\\widetilde{V_2}$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(2)), imag(cc(2))); #V2
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_3$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(3)), imag(cc(3))); #V3
+fprintf(forced, "$\\widetilde{V_3}$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(3)), imag(cc(3))); #V3
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_5$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(4)), imag(cc(4))); #V5
+fprintf(forced, "$\\widetilde{V_5}$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(4)), imag(cc(4))); #V5
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_6$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(5)), imag(cc(5))); #V6
+fprintf(forced, "$\\widetilde{V_6}$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(5)), imag(cc(5))); #V6
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_7$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(6)), imag(cc(6))); #V7
+fprintf(forced, "$\\widetilde{V_7}$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(6)), imag(cc(6))); #V7
 fprintf(forced, "\\hline\n");
-fprintf(forced, "$V_8$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(7)), imag(cc(7))); #V8
+fprintf(forced, "$\\widetilde{V_8}$ & $%f + j\\cdot%f$ \\\\ \n", real(cc(7)), imag(cc(7))); #V8
 
 fclose(forced);
 
