@@ -6,14 +6,14 @@
 
 For the time interval $t < 0$, the voltage in the independent voltage source is constant, $v_S(t) = V_S$. As a consequence, to study the circuit in this interval, one can considere it has been on for such an amout of time  that the capacitor is fully charged, which implies that $I_c = 0$.
 
-By analysing the circuit and using KCL and Ohm's Law, considering the currents represented in figure \ref{1node_fig}, it is possible to perform a node analysis and to write an equation for each node as it is written below.
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\linewidth]{node.pdf}
   \caption{Circuit}
   \label{1node_fig}
 \end{figure}
+
+By analysing the circuit and using KCL and Ohm's Law, considering the currents represented in figure \ref{1node_fig}, it is possible to perform a node analysis and to write an equation for each node:
 
 \begin{equation}
   \begin{cases}
@@ -90,7 +90,7 @@ For this procedure it was considered that $t=0\;s$, at which time the capacitor 
   \label{Req_fig}
 \end{figure}
 
-There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, and eight nodes. Given that the GND node does not constitute an unkown, it is not considered. One super-node equation is considered, regarding the eighth node, and it contais nodes 5, 6 and 8.
+There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, and eight nodes. Given that the GND node does not constitute an unknown, it is not considered. One super-node equation is considered, regarding the eighth node, and it contains nodes 5, 6 and 8.
 
 \begin{equation}
   \begin{cases}
@@ -247,7 +247,7 @@ The natural solution is:
 
 \subsubsection{Forced solution}
 
-The forced behaviour of the capacitor is obtained for $t > 0$, during which time $v_s(t)$ is a sine wave. To study this, another node analysis was performed. The equations used were the same as the ones already presented in Section~\ref{sec:node}, but in this case, phasors were used, $v_s(t) = V_1(t) = \sin{2\pi ft}$ and $I_c$ is not zero. For this situation $\widetilde{I_c} = \frac{\widetilde{V_6}-\widetilde{V_8}}{Z}$, where $Z = \frac{1}{jwC}$ is the impedance of the capacitor, which has capacitance C. $w = 2\pi f$ is the radial frequency of the signal of $v_s(t) = \sin(wt) = \cos(wt-\frac{\pi}{2})$. This sinusoidal excitation will induce a sinusoidal forced solution with the same frequency for the components of the circuit.
+The forced behaviour of the capacitor is obtained for $t > 0$, during which time $v_s(t)$ is a sine wave. To study this, another node analysis was performed. The equations used are the same as the ones already presented in Section~\ref{sec:node}, but in this case, phasors are used, $v_s(t) = V_1(t) = \sin{2\pi ft}$ and $I_c$ is not zero. For this situation $\widetilde{I_c} = \frac{\widetilde{V_6}-\widetilde{V_8}}{Z}$, where $Z = \frac{1}{jwC}$ is the impedance of the capacitor, which has capacitance C. $w = 2\pi f$ is the radial frequency of the signal of $v_s(t) = \sin(wt) = \cos(wt-\frac{\pi}{2})$. This sinusoidal excitation will induce a sinusoidal forced solution with the same frequency for the components of the circuit.
 
 %(that is, complex numbers that return the amplitude and phase difference of the response) - tirei porque falei de phasors mais acima e esta definição parece me que não dá a entender que a amplitude que é obtida tb é relativa
 
@@ -306,6 +306,8 @@ So, using the results of \ref{forcedamplitudes_res}, it is possible to conclude 
   \caption{Theoretical results}
   \label{forced_res}
 \end{table}
+
+Equivalentely,
 
 \begin{table}[H]
   \centering

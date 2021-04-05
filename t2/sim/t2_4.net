@@ -90,13 +90,11 @@ print @Vs[i]
 
 echo  "op_END"
 
-
 echo " ------------- Trasient Analysis --------------------
 tran 1e-5 20e-3 
 
 hardcopy trans4.eps v(n6vv) v(n1vv) v(n6vv, n8vv)
 echo trans4_FIG
-
 
 *quit might help?
 .endc
