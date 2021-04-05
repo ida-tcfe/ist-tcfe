@@ -26,7 +26,7 @@ set color6=rgb:4/0/0
 .endc
 
 * ------------- Independent Sources 
-Vs n1vv GND sin(0.0 1.0 1khz) 
+Vs n1vv GND dc 0 ac 1
 
 Cd n6vv n8vv {Cval}  
 
@@ -56,6 +56,8 @@ R7 n8vv n7vv {R7val}
 .control
 op
 
+ac lin 1 1000 1000
+
 echo "********************************************"
 echo  "Operating point"
 echo "********************************************"
@@ -68,25 +70,32 @@ echo "Voltage at Nodes"
 *print @Rf[i]
 
 echo  "op_TAB"
-print n1vv
-print n2vv
-print n3vv
-print n5vv
-print n6vv
-print n7vv
-print n8vv
-print v(n5vv, n8vv)
-print v(n2vv, n5vv)
-print @r1[i]
-print @r2[i]
-print @r3[i]
-print @r4[i]
-print @r5[i]
-print @r6[i]
-print @r7[i]
-print @Gb[i]
-print @Hd[i]
-print @Vs[i]
+print vm(n1vv)
+print pi/2-vp(n1vv)
+print vm(n2vv)
+print pi/2-vp(n2vv)
+print vm(n3vv)
+print pi/2-vp(n3vv)
+print vm(n5vv)
+print pi/2-vp(n5vv)
+print vm(n6vv)
+print pi/2-vp(n6vv)-2*pi
+print vm(n7vv)
+print pi/2-vp(n7vv)-2*pi
+print vm(n8vv)
+print pi/2-vp(n8vv)-2*pi
+*print v(n5vv, n8vv)
+*print v(n2vv, n5vv)
+*print @r1[i]
+*print @r2[i]
+*print @r3[i]
+*print @r4[i]
+*print @r5[i]
+*print @r6[i]
+*print @r7[i]
+*print @Gb[i]
+*print @Hd[i]
+*print @Vs[i]
 
 echo  "op_END"
 

@@ -1,4 +1,4 @@
-all: run ng1 ng2
+all: run ng1 ng2 ng4
 
 run:
 	ngspice -b t2_1.net -o ngspice1.log
@@ -20,6 +20,10 @@ ng2: ngspice2.log
 	$(foreach i, $(NGSFIGPS), ps2pdf $i;)
 	$(eval NGSTABS=$(shell grep _TAB $< | sed 's/_TAB//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' | sed 's/g/I/g' | sed 's/[][]//g' | sed 's/i / (A) /g' | sed 's/@//g' | sed 's/vv/ (V)/g' | sed 's/hd/IVd/g' | sed 's/vs/IVs/g' | sed 's/-vx/Ix/g' > $i_ng2_tab.tex;)
+
+ng4: ngspice4.log
+	$(eval NGSTABS=$(shell grep _TAB $< | sed 's/_TAB//g' | sed ':a;N;$!ba;s/\n/ /g'))
+	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' | sed 's/vv//g' | sed 's/pi[/]2//g' | sed 's/-2[*]pi//g' | sed 's/vm/Mag/g' | sed 's/-vp/Phi/g' > $i_ng4_tab.tex;)
 
 clean:
 	@rm -f *.log *.tex *.pdf *.eps *.txt *~
