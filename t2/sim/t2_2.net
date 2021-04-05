@@ -83,7 +83,7 @@ print @r7[i]
 print @Gb[i]
 print @Hd[i]
 print @Vs[i]
-print @Vx[i]
+print -@Vx[i]
 
 
 echo  "op_END"
