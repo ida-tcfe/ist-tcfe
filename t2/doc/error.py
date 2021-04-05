@@ -520,3 +520,185 @@ fe.write('\hline \n')
 fe.write('$V_8\;(V)$ & $'+str(v8ter)+'$ & $'+str(v8sim)+'$ & $'+str(abs8)+'$ \\\\ \n')
 
 fe.close()
+
+fter = open('../mat/forced2.tex', 'r')
+
+v1ter = fter.readline()
+if v1ter.find("-") != -1:
+    v1ater = float(format(float(v1ter[8:16]),'.5f'))
+    v1fter = float(format(float(v1ter[19:28]),'.5f'))
+else:
+    v1ater = float(format(float(v1ter[8:16]),'.5f'))
+    v1fter = float(format(float(v1ter[19:28]),'.5f'))
+#print(v1ater)
+#print(v1fter)
+
+fter.readline()
+
+v2ter = fter.readline()
+if v2ter.find("-") != -1:
+    v2ater = float(format(float(v2ter[8:16]),'.5f'))
+    v2fter = float(format(float(v2ter[19:28]),'.5f'))
+else:
+    v2ater = float(format(float(v2ter[8:16]),'.5f'))
+    v2fter = float(format(float(v2ter[19:28]),'.5f'))
+#print(v2ater)
+#print(v2fter)
+
+fter.readline()
+
+v3ter = fter.readline()
+if v3ter.find("-") != -1:
+    v3ater = float(format(float(v3ter[8:16]),'.5f'))
+    v3fter = float(format(float(v3ter[19:28]),'.5f'))
+else:
+    v3ater = float(format(float(v3ter[8:16]),'.5f'))
+    v3fter = float(format(float(v3ter[19:28]),'.5f'))
+#print(v3ater)
+#print(v3fter)
+
+fter.readline()
+
+v5ter = fter.readline()
+if v5ter.find("-") != -1:
+    v5ater = float(format(float(v5ter[8:16]),'.5f'))
+    v5fter = float(format(float(v5ter[19:28]),'.5f'))
+else:
+    v5ater = float(format(float(v5ter[8:16]),'.5f'))
+    v5fter = float(format(float(v5ter[19:28]),'.5f'))
+#print(v5ater)
+#print(v5fter)
+
+fter.readline()
+
+v6ter = fter.readline()
+if v6ter.find("-") != -1:
+    v6ater = float(format(float(v6ter[8:16]),'.5f'))
+    v6fter = float(format(float(v6ter[19:28]),'.5f'))
+else:
+    v6ater = float(format(float(v6ter[8:16]),'.5f'))
+    v6fter = float(format(float(v6ter[19:28]),'.5f'))
+#print(v6ater)
+#print(v6fter)
+
+fter.readline()
+
+v7ter = fter.readline()
+if v7ter.find("-") != -1:
+    v7ater = float(format(float(v7ter[8:16]),'.5f'))
+    v7fter = float(format(float(v7ter[19:28]),'.5f'))
+else:
+    v7ater = float(format(float(v7ter[8:16]),'.5f'))
+    v7fter = float(format(float(v7ter[19:28]),'.5f'))
+#print(v7ater)
+#print(v7fter)
+
+fter.readline()
+
+v8ter = fter.readline()
+if v8ter.find("-") != -1:
+    v8ater = float(format(float(v8ter[8:16]),'.5f'))
+    v8fter = float(format(float(v8ter[19:28]),'.5f'))
+else:
+    v8ater = float(format(float(v8ter[8:16]),'.5f'))
+    v8fter = float(format(float(v8ter[19:28]),'.5f'))
+#print(v8ater)
+#print(v8fter)
+
+fter.close()
+
+fsim = open('../sim/op_ng4_tab.tex', 'r')
+
+v1asim = fsim.readline()
+v1asim = float(format(float(v1asim[10:22]),'.5f'))
+
+v1fsim = fsim.readline()
+v1fsim = float(format(float(v1fsim[10:22]),'.5f'))
+
+v2asim = fsim.readline()
+v2asim = float(format(float(v2asim[10:22]),'.5f'))
+
+v2fsim = fsim.readline()
+v2fsim = float(format(float(v2fsim[10:22]),'.5f'))
+
+v3asim = fsim.readline()
+v3asim = float(format(float(v3asim[10:22]),'.5f'))
+
+v3fsim = fsim.readline()
+v3fsim = float(format(float(v3fsim[10:22]),'.5f'))
+
+v5asim = fsim.readline()
+v5asim = float(format(float(v5asim[10:22]),'.5f'))
+
+v5fsim = fsim.readline()
+v5fsim = float(format(float(v5fsim[10:22]),'.5f'))
+
+v6asim = fsim.readline()
+v6asim = float(format(float(v6asim[10:22]),'.5f'))
+
+v6fsim = fsim.readline()
+v6fsim = float(format(float(v6fsim[10:22]),'.5f'))
+
+v7asim = fsim.readline()
+v7asim = float(format(float(v7asim[10:22]),'.5f'))
+
+v7fsim = fsim.readline()
+v7fsim = float(format(float(v7fsim[10:22]),'.5f'))
+
+v8asim = fsim.readline()
+v8asim = float(format(float(v8asim[10:22]),'.5f'))
+
+v8fsim = fsim.readline()
+v8fsim = float(format(float(v8fsim[10:22]),'.5f'))
+
+abs1a = math.fabs(v1ater-v1asim)
+abs1f = math.fabs(v1fter-v1fsim)
+abs2a = math.fabs(v2ater-v2asim)
+abs2f = math.fabs(v2fter-v2fsim)
+abs3a = math.fabs(v3ater-v3asim)
+abs3f = math.fabs(v3fter-v3fsim)
+abs5a = math.fabs(v5ater-v5asim)
+abs5f = math.fabs(v5fter-v5fsim)
+abs6a = math.fabs(v6ater-v6asim)
+abs6f = math.fabs(v6fter-v6fsim)
+abs7a = math.fabs(v7ater-v7asim)
+abs7f = math.fabs(v7fter-v7fsim)
+abs8a = math.fabs(v8ater-v8asim)
+abs8f = math.fabs(v8fter-v8fsim)
+
+fe = open('errors4a.tex', 'w')
+
+fe.write('$V_1$ & $'+str(v1ater)+'$ & $'+str(v1asim)+'$ & $'+str(abs1a)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_2$ & $'+str(v2ater)+'$ & $'+str(v2asim)+'$ & $'+str(abs2a)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_3$ & $'+str(v3ater)+'$ & $'+str(v3asim)+'$ & $'+str(abs3a)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_5$ & $'+str(v5ater)+'$ & $'+str(v5asim)+'$ & $'+str(abs5a)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_6$ & $'+str(v6ater)+'$ & $'+str(v6asim)+'$ & $'+str(abs6a)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_7$ & $'+str(v7ater)+'$ & $'+str(v7asim)+'$ & $'+str(abs7a)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_8$ & $'+str(v8ater)+'$ & $'+str(v8asim)+'$ & $'+str(abs8a)+'$ \\\\ \n')
+
+fe.close()
+
+fe = open('errors4f.tex', 'w')
+
+fe.write('$V_1$ & $'+str(v1fter)+'$ & $'+str(v1fsim)+'$ & $'+str(abs1f)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_2$ & $'+str(v2fter)+'$ & $'+str(v2fsim)+'$ & $'+str(abs2f)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_3$ & $'+str(v3fter)+'$ & $'+str(v3fsim)+'$ & $'+str(abs3f)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_5$ & $'+str(v5fter)+'$ & $'+str(v5fsim)+'$ & $'+str(abs5f)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_6$ & $'+str(v6fter)+'$ & $'+str(v6fsim)+'$ & $'+str(abs6f)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_7$ & $'+str(v7fter)+'$ & $'+str(v7fsim)+'$ & $'+str(abs7f)+'$ \\\\ \n')
+fe.write('\hline \n')
+fe.write('$V_8$ & $'+str(v8fter)+'$ & $'+str(v8fsim)+'$ & $'+str(abs8f)+'$ \\\\ \n')
+
+fe.close()
+fsim.close()
