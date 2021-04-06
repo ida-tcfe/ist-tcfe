@@ -23,9 +23,11 @@ After the theoretical analysis, we proceeded to simulate the circuit using {\bf 
 	\label{tab:op1}
 \end{table}
 
+\par With this we are able to deduce to value of the potencial on nodes 6 and 8, i.e to know the tension at the fully charged capacitor. Wich by this simulation is expected to be $8.624089$.
+
 \subsubsection{($t = 0$)}
 
-In this part, the simulation was conducted with $v_s(0) = 0$. 
+In this part, the simulation was conducted with $v_s(0) = 0$ and by substituting the capacitor with an independent voltage source with a tension about the one calculated above for the fully charged capacitor. With this we are not only able to calculate the voltage at the nodes at ($t = 0$), wich would otherwise not be possible since the node voltages can be descontinuous (with the expection of the capacitor nodes) but also able to deduce the equivalente resistance ($R_{eq}$) by wich the capacitor discharges. This enables us to later simulate the natutal solution when doing \emph{transient analysis}.
 
 \begin{table}[H]
 	\centering
@@ -86,3 +88,7 @@ The magnitudes and phase delays obtained were as follows (for ease of comparison
   \caption{Phase frequency response}
   \label{freq_resp_pha_sim}
 \end{figure}
+
+We can see that the graphs \ref{freq_resp_mag_sim} and \ref{freq_resp_pha_sim} follow the equations refered in the analysis section , it's important to note that magnitude is in \emph{decibels} (so as the gain goes to 0 that correspondes to the values in the graph going to -$\infty$).
+
+As expected we see that in both the simulation and theoretical analysis the circuit bahaves as a low pass filter.	
