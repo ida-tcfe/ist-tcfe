@@ -96,7 +96,7 @@ There are seven unknowns, $V_1$, $V_2$, $V_3$, $V_5$, $V_6$, $V_7$ and $V_8$, an
   \begin{cases}
     (1) & V_1=0 \\
     (2) & \frac{V_1-V_2}{R_1} + \frac{V_5-V_2}{R_3} + \frac{V_3-V_2}{R_2} = 0 \\
-    (3) & I_b = \frac{(V_3-V_2)}{R_2} = 0 \\
+    (3) & I_b - \frac{V_3-V_2}{R_2} = 0 \\
     (5) & V_5-V_8 = V_d \\
     (6) & V_6-V_8 = V_x \\
     (7) & -\frac{V_7}{R_6} + \frac{V_8-V_7}{R_7} = 0 \\
@@ -243,17 +243,17 @@ The natural solution is:
   \includegraphics[width=0.8\linewidth]{natural.eps}
   \caption{Natural response}
   \label{fig:nat}
-\end{figure}wi
+\end{figure}
 
 \subsubsection{Forced solution}
 
-The forced behaviour of the capacitor is obtained for $t > 0$, during which time $v_s(t)$ is a sine wave. To study this, another node analysis was performed. The equations used are the same as the ones already presented in Section~\ref{sec:node}, but in this case, phasors are used, $v_s(t) = V_1(t) = \sin{2\pi ft}$ and $I_c$ is not zero. For this situation $\widetilde{I_c} = \frac{\widetilde{V_6}-\widetilde{V_8}}{Z}$, where $Z = \frac{1}{jwC}$ is the impedance of the capacitor, which has capacitance C. $w = 2\pi f$ is the radial frequency of the signal of $v_s(t) = \sin(wt) = \cos(wt-\frac{\pi}{2})$. This sinusoidal excitation will induce a sinusoidal forced solution with the same frequency for the components of the circuit.
+The forced behaviour of the capacitor is obtained for $t > 0$, during which time $v_s(t)$ is a sine wave. To study this, another node analysis was performed. The equations used are the same as the ones already presented in Section~\ref{sec:node}, but in this case, phasors are used, $v_s(t) = V_1(t) = \sin{2\pi ft}$ and $I_c$ is not zero. For this situation $\widetilde{I_c} = \frac{\widetilde{V_6}-\widetilde{V_8}}{Z}$, where $Z = \frac{1}{jwC}$ is the impedance of the capacitor, which has capacitance C. $w = 2\pi f$ is the radial frequency of the signal of $v_s(t) = \sin(wt) = \cos(wt-\frac{\pi}{2})$. It will be considered $f = 1 kHz$. This sinusoidal excitation will induce a sinusoidal forced solution with the same frequency for the components of the circuit.
 
 %(that is, complex numbers that return the amplitude and phase difference of the response) - tirei porque falei de phasors mais acima e esta definição parece me que não dá a entender que a amplitude que é obtida tb é relativa
 
 Consequently, the voltages in the nodes for the forced solution will have the form of $V_i\cos(wt-\phi_i)$. It is possible to compute the voltages in the nodes by representing these voltages as phasors. Solving the matrix below, with {\bf Octave}, gives the values of the phasors, that are in table \ref{forced_res}. The module of these complex numbers gives the amplitude $V_i$ and their angle is $-\phi_i$, $\widetilde{V_i} = V_ie^{-j\phi_i}$.
 
-So, using the results of \ref{forcedamplitudes_res}, it is possible to conclude that
+So, using the results of Table \ref{forcedamplitudes_res}, it is possible to conclude that
 
 \begin{equation}
   \input{../mat/forced6}
