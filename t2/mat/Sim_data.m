@@ -268,12 +268,18 @@ ind = t >= 0;
   x(ind) = V*exp(-t(ind)/tau)+amp*cos(w*t(ind)-pha);
 endfunction
 
+function y = vv(w, t, V0)
+  y = V0*ones(size(t));
+ind = t>=0;
+y(ind) = sin(w*t(ind));
+endfunction
+
 t = -5e-3:1e-6:20e-3; % 0 to 20 ms;
 
 h = figure(2);
 plot(t*1000, pieceWise(t, pol(5,1), pol(5,2), w, V6, Req*C), "r");
 hold on;
-plot(t*1000, sin(w*t), "g");
+plot(t*1000, vv(w, t, Vs), "g");
 xlabel("t [ms]");
 ylabel("[V]");
 legend("v_6(t)", "v_s(t)");
