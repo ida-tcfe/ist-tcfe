@@ -3,7 +3,7 @@
 
 This laboratory assignment had as the main objective the analysis of the circuit in Figure~\ref{circuit}. That goal was achieved by performing a theoretical analysis, using {\bf Octave}, and a simulation, using {\bf Ngspice}.
 
-In the tables \ref{error1_res} and \ref{error2_res}, it is possible to see the results obtained for the two initial parts of the analysis. It can be observed that the results presented for the theoretical analysis and for the simulation are equal. However, it is worth to refer that the values presented have a limited number of algorithms. But still, the fact that the values are equal to at least 6 decimal points suggests that the models used to make the theoretical part are the same models that {\bf Ngspice} used.
+In the tables \ref{error1_res}, \ref{error2_res}, \ref{error4a_res} and \ref{error4f_res}, it is possible to see the results obtained for the two initial parts of the analysis and for the one regarding the forced solution. It can be observed that the results presented for the theoretical analysis and for the simulation are equal. However, it is worth to refer that the values presented have a limited number of algorithms. But still, the fact that the values are equal to at least 5 decimal points suggests that the models used to make the theoretical part are the same models that {\bf Ngspice} used.
 
 This is also proved my be resemblance of the graphs obtained.
 
@@ -49,6 +49,35 @@ All in all, the results obtained were very satisfactory.
         \input{errors2}
         \hline
   \end{tabular}
-  \caption{Theoretical values ($V_t$) and Simulation values ($V_s$) od the analysis for $t = 0$ (table produced with {\bf Python})}
+  \caption{Theoretical values ($V_t$) and Simulation values ($V_s$) of the analysis for $t = 0$ (table produced with {\bf Python})}
   \label{error2_res}
 \end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        $V$ & $V_t$ & $V_s$ & $|V_t-V_s|$ \\
+        \hline
+        \hline
+        \input{errors4a}
+        \hline
+  \end{tabular}
+  \caption{Theoretical values and Simulation values of the amplitudes for the forced solution (table produced with {\bf Python})}
+  \label{error4a_res}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        $V$ & $\phi_t$ & $\phi_s$ & $|\phi_t-\phi_s|$ \\
+        \hline
+        \hline
+        \input{errors4f}
+        \hline
+  \end{tabular}
+  \caption{Theoretical values and Simulation values of the phase delays for the forced solution (table produced with {\bf Python})}
+  \label{error4f_res}
+\end{table}
+
