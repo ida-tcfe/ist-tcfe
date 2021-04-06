@@ -79,7 +79,7 @@ Using {\bf Octave}, it was possible to use the matrix to compute the voltages in
 \subsection{Capacitor behaviour}
 \label{sec:Req}
 
-In order to ascertain how the capacitor behaves, the equivalent resistor seen by it was determined. To do this, a tension source was added in lieu of the capacitor, and the response current of the remainder of the circuit was obtained, via node analysis methods.
+In order to ascertain how the capacitor behaves, the equivalent resistor seen by it was determined. To do this, a tension source was added in lieu of the capacitor, and the response current of the remainder of the circuit was obtained, via node analysis methods. From this, the capacitor's time constant $\tau$, which characterizes it's behaviour, can be determined.
 
 For this procedure it was considered that $t=0\;s$, at which time the capacitor is fully charged, and so the voltage difference at it's terminals is known from \ref{sec:node} and constant (static analysis). At this time, it is also known that $V_s=0\;V$ - it is the exact time at which the source shifts from constant ($V_s$) to sinusoidal (null).
 
@@ -244,6 +244,8 @@ The natural solution is:
   \caption{Natural response}
   \label{fig:nat}
 \end{figure}
+
+As expected and depicted in Figure~\ref{fig:nat}, the capacitor's natural solution is to discharge (through the equivalent resistor).
 
 \subsubsection{Forced solution}
 
