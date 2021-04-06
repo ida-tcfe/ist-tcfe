@@ -357,3 +357,16 @@ By solving the system \ref{pha} and considering $f$ an unknown ($\omega=2\pi f$)
 \end{figure}
 
 In order to ensure ease of comparison, in the latter graph it is not considered $\phi$ as calculated theoretically. This analysis considered a signal of the form $\cos(\omega t - \phi)$, while the simulation considers a signal of the form $\sin(\omega t + \phi')$. It is easy to determine that $\phi' = \frac{\pi}{2} - \phi$ in radians, or $\phi' = 90 - \phi$ in degrees. The graph in Figure~\ref{freq_resp_pha} then portrays $\phi'$, as does Figure~\ref{freq_resp_pha_sim}.
+
+Furthermore by taking into account the equivalent circuit in Figure~\ref{rc_fig} and applying the Transfer Function equations we have:
+
+\begin{equation}
+  \begin{cases}
+    (Transfer Vc) = T(W) = \frac{\widetilde{V_c}}{\widetilde{{V_s}}} = \frac{1}{1 + jwc} \\
+    (Gain Vc) = |T(W)| =  \frac{1}{\sqrt{1 + (WRC)^{2}}} \\
+    (Phase Vc) = -\arctan{ WRC } \\
+    (Transfer V6) =  T(W) = \frac{\widetilde{V_s} - \widetilde{V_6}}{\widetilde{V_s}} = \frac{1}{1 + jwc} \\
+    (Gain V6) = |T(W)| =  \sqrt{\frac{(WRC)^4 + (WRC)^2}{(1 + (WRC)^2)^2 }}   \\
+    (Phase V6) = -\arctan{ \frac{1}{WRC } } \\
+  \end{cases}
+\end{equation}
