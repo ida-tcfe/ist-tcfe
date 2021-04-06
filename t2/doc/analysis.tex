@@ -222,6 +222,8 @@ A first order linear equation arises from \ref{sis}, which can be readily solved
   RC \cdot \frac{dv(t)}{dt} + v(t) = 0 \Rightarrow v(t) = Ae^{-\frac{t}{RC}}
 \end{equation}
 
+\newpage
+
 Applying the initial condition:
 
 \begin{equation}
@@ -249,17 +251,11 @@ As expected and depicted in Figure~\ref{fig:nat}, the capacitor's natural soluti
 
 \subsubsection{Forced solution}
 
-The forced behaviour of the capacitor is obtained for $t > 0$, during which time $v_s(t)$ is a sine wave. To study this, another node analysis was performed. The equations used are the same as the ones already presented in Section~\ref{sec:node}, but in this case, phasors are used, $v_s(t) = V_1(t) = \sin{2\pi ft}$ and $I_c$ is not zero. For this situation $\widetilde{I_c} = \frac{\widetilde{V_6}-\widetilde{V_8}}{Z}$, where $Z = \frac{1}{jwC}$ is the impedance of the capacitor, which has capacitance C. $w = 2\pi f$ is the radial frequency of the signal of $v_s(t) = \sin(wt) = \cos(wt-\frac{\pi}{2})$. It will be considered $f = 1 kHz$. This sinusoidal excitation will induce a sinusoidal forced solution with the same frequency for the components of the circuit.
+The forced behaviour of the capacitor is obtained for $t > 0$, during which time $v_s(t)$ is a sine wave. To study this, another node analysis was performed. The equations used are the same as the ones already presented in Section~\ref{sec:node}, but in this case, phasors are used, $v_s(t) = V_1(t) = \sin{2\pi ft}$ and $I_c$ is not zero. For this situation $\widetilde{I_c} = \frac{\widetilde{V_6}-\widetilde{V_8}}{Z}$, where $Z = \frac{1}{j \omega C}$ is the impedance of the capacitor, which has capacitance C. $\omega = 2\pi f$ is the radial frequency of the signal of $v_s(t) = \sin(\omega t) = \cos(\omega t-\frac{\pi}{2})$. It will be considered $f = 1 kHz$. This sinusoidal excitation will induce a sinusoidal forced solution with the same frequency for the components of the circuit.
 
 %(that is, complex numbers that return the amplitude and phase difference of the response) - tirei porque falei de phasors mais acima e esta definição parece me que não dá a entender que a amplitude que é obtida tb é relativa
 
-Consequently, the voltages in the nodes for the forced solution will have the form of $V_i\cos(wt-\phi_i)$. It is possible to compute the voltages in the nodes by representing these voltages as phasors. Solving the matrix below, with {\bf Octave}, gives the values of the phasors, that are in table \ref{forced_res}. The module of these complex numbers gives the amplitude $V_i$ and their angle is $-\phi_i$, $\widetilde{V_i} = V_ie^{-j\phi_i}$.
-
-So, using the results of Table \ref{forcedamplitudes_res}, it is possible to conclude that
-
-\begin{equation}
-  \input{../mat/forced6}
-\end{equation}
+Consequently, the voltages in the nodes for the forced solution will have the form $V_i\cos(\omega t-\phi_i)$. It is possible to compute the voltages in the nodes by representing these voltages as phasors. Solving the matrix below, with {\bf Octave}, gives the values of the phasors, that are in table \ref{forced_res}. The module of these complex numbers gives the amplitude $V_i$ and their angle is $-\phi_i$, $\widetilde{V_i} = V_ie^{-j\phi_i}$.
 
 %The phase delay with respect to the source is equal to $\frac{\pi}{2}-\phi_i$.
 
@@ -268,8 +264,8 @@ So, using the results of Table \ref{forcedamplitudes_res}, it is possible to con
     1 & 0 & 0 & 0 & 0 & 0 & 0 \\
     \frac{1}{R_1} & -\frac{1}{R_1}-\frac{1}{R_2}-\frac{1}{R_3} & \frac{1}{R_2} & \frac{1}{R_3} & 0 & 0 & 0 \\
     0 & K_b + \frac{1}{R_2} & -\frac{1}{R_2} & -K_b & 0 & 0 & 0 \\
-    0 & \frac{1}{R_3} & 0 & -\frac{1}{R_3}-\frac{1}{R_5}-\frac{1}{R_4} & \frac{1}{R_5}+jwC & \frac{1}{R_7} & -\frac{1}{R_7}-jwC \\
-    0 & -K_b & 0 & K_b+\frac{1}{R_5} & -\frac{1}{R_5}-jwC & 0 & jwC \\
+    0 & \frac{1}{R_3} & 0 & -\frac{1}{R_3}-\frac{1}{R_5}-\frac{1}{R_4} & \frac{1}{R_5}+j \omega C & \frac{1}{R_7} & -\frac{1}{R_7}-j \omega C \\
+    0 & -K_b & 0 & K_b+\frac{1}{R_5} & -\frac{1}{R_5}-j \omega C & 0 & j \omega C \\
     0 & 0 & 0 & 0 & 0 & -\frac{1}{R_6}-\frac{1}{R_7} & \frac{1}{R_7} \\
     0 & 0 & 0 & 1 & 0 & \frac{K_d}{R_6} & -1     
   \end{bmatrix}
@@ -325,6 +321,12 @@ Equivalentely,
   \label{forcedamplitudes_res}
 \end{table}
 
+So, using the results of Table \ref{forcedamplitudes_res}, it is possible to conclude that
+
+\begin{equation}
+  \input{../mat/forced6}
+\end{equation}
+
 \subsubsection{Final solution}
 
 The final solution can be obtained by superimposing the natural and forced solutions.
@@ -338,7 +340,7 @@ The final solution can be obtained by superimposing the natural and forced solut
 
 \subsection{Frequency response}
 
-By solving the system \ref{pha} and considering $f$ an unknown ($w=2\pi f$), using a symbolic package in \textbf{Octave}, it is possible to determine $v_6(f)$ and $v_8(f)$, where both are complex functions of a real variable. To better characterize the behaviour of the capacitor, the following graphs were made:
+By solving the system \ref{pha} and considering $f$ an unknown ($\omega=2\pi f$), using a symbolic package in \textbf{Octave}, it is possible to determine $v_6(f)$ and $v_8(f)$, where both are complex functions of a real variable. To better characterize the behaviour of the capacitor, the following graphs were made:
 
 \begin{figure}[H]
   \centering
