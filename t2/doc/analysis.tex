@@ -362,11 +362,15 @@ Furthermore by taking into account the equivalent circuit in Figure~\ref{rc_fig}
 
 \begin{equation}
   \begin{cases}
-    (Transfer Vc) = T(W) = \frac{\widetilde{V_c}}{\widetilde{{V_s}}} = \frac{1}{1 + jwc} \\
-    (Gain Vc) = |T(W)| =  \frac{1}{\sqrt{1 + (WRC)^{2}}} \\
-    (Phase Vc) = -\arctan{ WRC } \\
-    (Transfer V6) =  T(W) = \frac{\widetilde{V_s} - \widetilde{V_6}}{\widetilde{V_s}} = \frac{1}{1 + jwc} \\
-    (Gain V6) = |T(W)| =  \sqrt{\frac{(WRC)^4 + (WRC)^2}{(1 + (WRC)^2)^2 }}   \\
-    (Phase V6) = -\arctan{ \frac{1}{WRC } } \\
+    (Transfer Vc) = T(\omega) = \frac{\widetilde{V_c}}{\widetilde{{V_s}}} = \frac{1}{1 + j \omega c} \\
+    (Gain Vc) = |T(\omega)| =  \frac{1}{\sqrt{1 + (\omega RC)^{2}}} \\
+    (Phase Vc) = -\arctan{ \omega RC } \\
+    (Transfer VR_{eq}) =  T(\omega) = \frac{\widetilde{V_s} - \widetilde{V_6}}{\widetilde{V_s}} = \frac{1}{1 + j \omega C } \\
+    (Gain VR_{eq}) = |T(\omega)| =  \sqrt{\frac{(\omega RC)^4 + (\omega RC)^2}{(1 + (\omega RC)^2)^2 }}   \\
+    (Phase VR_{eq}) = -\arctan{ \frac{1}{\omega RC } } \\
   \end{cases}
 \end{equation}
+
+As $\omega$ goes to $+\infty$, the phase at $v_c$ goes to $-\frac{\pi}{2}$ and the phase at the potential difference of the equivalent resistor goes either to $0$ or to $-\pi$, where the latter is the case here.
+
+For $v_c$ the gain also goes to 0 as $\omega$ goes to $+\infty$, which means the rest of the circuit behaves as a low-pass filter (does not allow the propagation of high frequencies).
