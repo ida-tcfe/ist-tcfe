@@ -1,0 +1,57 @@
+ -------------- Lab3 TCFE -----------------
+
+
+* forces current values to be saved
+.options savecurrents
+
+* Declaring Componentes
+
+* Independent Src
+Vs 1 6 0 sin(0 12 50) 
+
+* Rectifier Diodes (First2 Positive and Sec2 Negative) 
+DR1 1 2 Default
+DR2 0 6 Default
+
+DR3 6 2 Default
+DR4 0 1 Default
+
+* Resistors (Set to 1kOhm - prob to change)
+R1 2 0 1k
+R2 2 3 1k 
+
+* Limiter Diodes
+DL1 3 4 Default
+DL2 4 5 Default
+DL3 5 0 Default
+
+* Capacitor from Envelope (Set to 1uF - prob to change)
+C1 2 0 1uF
+
+
+
+
+
+.model Default D
+.op
+.end
+
+
+.control 
+
+tran 1e-5 50e-3
+
+* makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+
+.endc
+
+
