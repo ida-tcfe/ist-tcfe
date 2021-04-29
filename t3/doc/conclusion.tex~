@@ -1,0 +1,38 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+This laboratory assignment had as the main objective the analysis of the circuit in Figure~\ref{circuit}. That goal was achieved by performing a theoretical analysis, using {\bf Octave}, and a simulation, using {\bf Ngspice}.
+
+In order to easily evaluate the study done, we considered all the parameters presented in previous tables and compared the values obtained by theoretical study and simulation. A very slight deviation is present in some values, but it is not apparent whether it has arised from miscalculations, and is therefore an error, or if it stems from the values being rounded when presented. Nevertheless, we determined, numerically, how significant the deviations are, as shown in Table~\ref{error_res}.
+
+%As one can see there's a very slight deviation in some of the values compared with previous calculations. We proceeded to determine, numerically, how significant these deviations are, as shown in Table~\ref{error_res}. Most of the values are exact ($0\%$) error, and those that aren't have very small errors.
+
+%The theoretical results ($V_t$) do not match perfectly the simulation results ($V_s$). However, the error is quite small, always less than $1\%$.
+
+The circuit is ``simple'' and contains only linear components, so large deviations were not anticipated. These can be due to any number of causes, including but not limited to:
+
+\begin{itemize}
+\item floating point arithmetics;
+\item different numerical precisions in the different tools employed;
+\item propagated errors made when solving the linear system of equations.
+\end{itemize}
+
+%The circuit is quite simple and it contains only linear components, so it was not expected that these errors would occur. They have probably arrived due to different number precision in calculations in the two tools used.
+
+%However this error is assumed to be caused by numerical propagated errors made when solving the linear system of equations or simply due to floating point arithmetics. %There's also a certain random error...
+
+All in all, the results obtained were very satisfactory.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        $V$ & $V_t$ & $V_s$ & $|V_t-V_s|$ & $Error (\%)$ \\
+        \hline
+        \hline
+        \input{errors}
+        \hline
+  \end{tabular}
+  \caption{Theoretical values ($V_t$) and Simulation values ($V_s$) (table produced with {\bf Python}) - The absolute deviation and error presented here are rounded up to one significant digit, for ease of interpretation.}
+  \label{error_res}
+\end{table}
