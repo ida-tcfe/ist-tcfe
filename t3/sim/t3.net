@@ -4,29 +4,39 @@
 * forces current values to be saved
 .options savecurrents
 
+* Notas:
+*1. O professor mete lá um exemplo no limiter com os diodos nos 2 sentidos.
+*2. Em geral usam-se capacitors mas em teoria pode ser outra coisa.
+*3.  
+
 * Declaring Componentes
 
 * Independent Src
-Vs 1 6 0 sin(0 12 50) 
+Vs 1 0 0 sin(0 12 50) 
 
 * Rectifier Diodes (First2 Positive and Sec2 Negative) 
 DR1 1 2 Default
-DR2 0 6 Default
+DR2 6 0 Default
 
-DR3 6 2 Default
-DR4 0 1 Default
+DR3 0 2 Default
+DR4 6 1 Default
 
 * Resistors (Set to 1kOhm - prob to change)
-R1 2 0 1k
-R2 2 3 1k 
+R1 2 6 1k
+R3 2 3 1k
 
 * Limiter Diodes
 DL1 3 4 Default
 DL2 4 5 Default
-DL3 5 0 Default
+DL3 5 6 Default
+*DL4 5 7 Default
+*DL5 7 6 Default
+*DL6 5 6 Default
+*DL8 5 6 Default
+
 
 * Capacitor from Envelope (Set to 1uF - prob to change)
-C1 2 0 1uF
+C1 2 6 1uF
 
 
 
@@ -39,7 +49,7 @@ C1 2 0 1uF
 
 .control 
 
-tran 1e-5 50e-3
+tran 1e-4 50e-3
 
 * makes plots in color
 set hcopypscolor=0
