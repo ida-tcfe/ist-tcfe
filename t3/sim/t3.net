@@ -14,7 +14,7 @@
 * Independent Src
 * n espiras no primário por cada espira no secundário
 * v2 = v1 / n
-Vs 1 0 0 sin(0 14.375 50) 
+Vs 1 0 0 sin(0 15.333 50) 
 
 * Rectifier Diodes (First2 Positive and Sec2 Negative) 
 DR1 1 2 Default
@@ -25,20 +25,40 @@ DR4 6 1 Default
 
 * Resistors (Set to 1kOhm - prob to change)
 R1 2 6 10k
-R3 2 3 5k
+R3 2 3 1k
 
 * Limiter Diodes
-DL1 3 4 Default
-DL2 4 5 Default
-DL3 5 6 Default
+*DL1 3 4 Default
+*DL2 4 5 Default
+*DL3 5 6 Default
 *DL4 5 7 Default
 *DL5 7 6 Default
 *DL6 5 6 Default
 *DL8 5 6 Default
 
+DL1 3 d1 Default
+DL2 d1 d2 Default
+DL3 d2 d3 Default
+DL4 d3 d4 Default
+DL5 d4 d5 Default
+DL6 d5 d6 Default
+DL7 d6 d7 Default
+DL8 d7 d8 Default
+DL9 d8 d9 Default
+DL10 d9 d10 Default
+DL11 d10 d11 Default
+DL12 d11 d12 Default
+DL13 d12 d13 Default
+DL14 d13 d14 Default
+DL15 d14 d15 Default
+DL16 d15 d16 Default
+DL17 d16 d17 Default
+DL18 d17 6 Default
+
 
 * Capacitor from Envelope (Set to 1uF - prob to change)
-C1 2 6 40uF
+C1 2 6 48uF
+*40 já dá, mas quanto maior menor o ripple
 
 .model Default D
 .op
@@ -62,16 +82,6 @@ op
 echo "********************************************"
 echo  "Operating point"
 echo "********************************************"
-
-echo "---------Debugging Values-----------"
-
-echo "Potential Difference"
-echo "Voltage at Nodes"
-
-echo  "op_TAB"
-* debugging values
-
-echo  "op_END"
 
 echo " ------------- Trasient Analysis --------------------
 
