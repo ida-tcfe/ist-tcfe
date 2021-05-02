@@ -2,3 +2,41 @@
 
 \section{Simulation Analysis}
 \label{sec:simulation}
+
+The basic template for a converter circuit is as follows:
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth, trim = 0 4cm 0 4cm, clip]{acdc.pdf}
+        \caption{Template}
+        \label{acdc}
+\end{figure}
+
+\subsection{Envelope Detector}
+
+An Envelope Detector is comprised of a rectifier and a capacitor.
+
+The rectifier can be either a half-wave rectifier or a full-wave rectifier. A half-wave rectifier only allows for the transfer of positive voltage, therefore resulting in null voltage if the input voltage is negative. The full-wave rectifier allows for the transfer of the absolute value of the voltage. For our circuit, we decided to employ a full-wave rectifier, so as to have as small a gap as possible between peaks in the voltage, and therefore make it easier to even out later in the circuit.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth, trim = 0 4cm 0 2cm, clip]{rectifier.pdf}
+        \caption{Full-wave rectifier}
+        \label{rectifier}
+\end{figure}
+
+We now have the module of the initial signal. In order to start bridging the oscillations, a capacitor is placed next to the rectifier, which discharges as the voltage drops, therefore bridging some of the gap.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth, trim = 0 4cm 0 4cm, clip]{envelope.pdf}
+        \caption{Envelope Detector}
+        \label{envelope}
+\end{figure}
+
+\subsection{Voltage Regulator}
+
+The purpose of the Voltage Regulador is, as the name suggests, to limit the voltage output.
+
+\subsection{Final result}
+        

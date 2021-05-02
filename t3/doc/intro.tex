@@ -3,14 +3,17 @@
 
 % state the learning objective
 
-%inicio conversa do t1
+The main objetive of this laboratory assignment is to design an ac/dc converter. This circuit should be able to convert 230 V of alternating current at a frequency of 50 Hz (standard domestic eletricity) to 12 V of direct current. To this purpose, three types of components will be employed: resistors, capacitors and diodes. The secondary goal is to achieve the best perfomance at the lowest cost. This is quantified by minimizing the following function:
 
-%The objective of this laboratory assignment was to study a circuit made up of a two voltage sources (one dependent), two current sources (one dependent) and seven resistors. It can be seen in the Figure ~\ref{circuit} below.
+\begin{equation}
+  M = \frac{1}{cost \cdot (ripple(v_o) + average(v_o-12) + 10^{-6})}
+\end{equation}
 
-%In Section~\ref{sec:analysis}, a theoretical analysis of the circuit is presented. It is followed by a simulation of the circuit, in Section~\ref{sec:simulation}, the results of which are compared to the theoretical results in the final section, Section~\ref{sec:conclusion}. Here, some  considerations are also made about this study, the results obtained and whether the goals were achieved.
+\begin{gather*}
+  cost = cost\;of\;resistors + cost\;of\;capacitors + cost\;of\;diodes \\
+  cost\;of\;resistors = 1 MU/k\Omega \\
+  cost\;of\;capacitors = 1 MU/\mu F \\
+  cost\;of\;diodes = 0.1 MU/diode
+\end{gather*}
 
-%In order to conduct the theoretical study, the tool {\bf Octave} was employed. The simulation was run in {\bf Ngspice}. In order to numerically assess the results, a {\bf Python} {\it script} was also used.
-
-%fim conversa do t1
-
-
+In Section~\ref{sec:simulation}, the converter and it's behaviour are presented. This is followed by a theoretical analysis of the circuit, in Section~\ref{sec:analysis}. Both are compared in the final section, Section ~\ref{sec:conclusion}. Here, $M$ is also presented, allowing for some considerations to be made about the circuit designed. The simulation was run by using {\bf Ngspice} and the theoretical calculations were performed with {\bf Octave}.
