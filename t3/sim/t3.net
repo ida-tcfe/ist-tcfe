@@ -12,7 +12,9 @@
 * Declaring Componentes
 
 * Independent Src
-Vs 1 0 0 sin(0 12 50) 
+* n espiras no primário por cada espira no secundário
+* v2 = v1 / n
+Vs 1 0 0 sin(0 14.375 50) 
 
 * Rectifier Diodes (First2 Positive and Sec2 Negative) 
 DR1 1 2 Default
@@ -22,8 +24,8 @@ DR3 0 2 Default
 DR4 6 1 Default
 
 * Resistors (Set to 1kOhm - prob to change)
-R1 2 6 1k
-R3 2 3 1k
+R1 2 6 10k
+R3 2 3 5k
 
 * Limiter Diodes
 DL1 3 4 Default
@@ -36,11 +38,7 @@ DL3 5 6 Default
 
 
 * Capacitor from Envelope (Set to 1uF - prob to change)
-C1 2 6 1uF
-
-
-
-
+C1 2 6 40uF
 
 .model Default D
 .op
@@ -48,8 +46,6 @@ C1 2 6 1uF
 
 
 .control 
-
-tran 1e-4 50e-3
 
 * makes plots in color
 set hcopypscolor=0
@@ -61,6 +57,28 @@ set color4=violet
 set color5=rgb:3/8/0
 set color6=rgb:4/0/0
 
+op
+
+echo "********************************************"
+echo  "Operating point"
+echo "********************************************"
+
+echo "---------Debugging Values-----------"
+
+echo "Potential Difference"
+echo "Voltage at Nodes"
+
+echo  "op_TAB"
+* debugging values
+
+echo  "op_END"
+
+echo " ------------- Trasient Analysis --------------------
+
+tran 1e-4 50e-3
+
+hardcopy trans.eps v(2,6) v(3,6)
+echo trans_FIG
 
 .endc
 
