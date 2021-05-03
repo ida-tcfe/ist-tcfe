@@ -14,11 +14,8 @@
 * Transformer 
 Vs n1 0 0 sin(0 230 50)
 Vaux naux 0 0 
-F1 0 n1 Vaux 15
-E1 1 naux n1 0 15	
-
-
-
+F1 0 n1 Vaux 0.0666
+E1 1 naux n1 0 0.0666	
 
 * n espiras no primário por cada espira no secundário
 * v2 = v1 / n
@@ -44,24 +41,24 @@ R3 2 3 1k
 *DL6 5 6 Default
 *DL8 5 6 Default
 
-DL1 3 6 Default
-*DL2 d1 d2 Default
-*DL3 d2 d3 Default
-*DL4 d3 d4 Default
-*DL5 d4 d5 Default
-*DL6 d5 d6 Default
-*DL7 d6 d7 Default
-*DL8 d7 d8 Default
-*DL9 d8 d9 Default
-*DL10 d9 d10 Default
-*DL11 d10 d11 Default
-*DL12 d11 d12 Default
-*DL13 d12 d13 Default
-*DL14 d13 d14 Default
-*DL15 d14 d15 Default
-*DL16 d15 d16 Default
-*DL17 d16 d17 Default
-*DL18 d17 6 Default
+DL1 3 d1 Default
+DL2 d1 d2 Default
+DL3 d2 d3 Default
+DL4 d3 d4 Default
+DL5 d4 d5 Default
+DL6 d5 d6 Default
+DL7 d6 d7 Default
+DL8 d7 d8 Default
+DL9 d8 d9 Default
+DL10 d9 d10 Default
+DL11 d10 d11 Default
+DL12 d11 d12 Default
+DL13 d12 d13 Default
+DL14 d13 d14 Default
+DL15 d14 d15 Default
+DL16 d15 d16 Default
+DL17 d16 d17 Default
+DL18 d17 6 Default
 
 
 * Capacitor from Envelope (Set to 1uF - prob to change)
@@ -93,9 +90,10 @@ echo "********************************************"
 
 echo " ------------- Trasient Analysis --------------------
 
-tran 1e-4 50e-3
+tran 1e-3 30e-3
 
 hardcopy trans.eps v(2,6) v(3,6)
+*v(1, naux)
 echo trans_FIG
 
 .endc
