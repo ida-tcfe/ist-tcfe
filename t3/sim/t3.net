@@ -70,9 +70,9 @@ C1 2 0 824uF
 
 .param a = 1
 
-.measure tran average avg v(3) from=10m to=30
-.measure tran max max_at v(3) from=10m to=30
-.measure tran min min_at v(3) from=10m to=30
+.measure tran average avg v(3) from=30m to=30
+.measure tran max max_at v(3) from=30m to=30
+.measure tran min min_at v(3) from=30m to=30
 
 .control 
 
@@ -94,9 +94,10 @@ echo "********************************************"
 
 echo " ------------- Trasient Analysis --------------------
 
-tran 1e-3 300e-3
+tran 1e-3 200e-3
 
-hardcopy trans.eps v(2,6) v(3,0)
+hardcopy trans.eps v(3) v(2) 
+hardcopy final.eps v(3)-12
 *v(1, naux)
 echo trans_FIG
 
