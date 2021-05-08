@@ -5,8 +5,30 @@ This laboratory assignment had as the main objective the construction and analys
 
 The merit figure of our circuit is: \input{../sim/merit}.
 
+Some deviations between the simulation and theoretical results were expected, due to the different model used by {\bf Ngspice} for diodes. In the theoretical analysis, we used quite simple models. On the other hand, {\bf Ngspice} uses a model of the diode with 15 parameters. Comparing graphs \ref{sim_res}, \ref{fig:acdcoc} and \ref{fig:vo-12} allows us to conclude that the output voltages have quite a similar behaviour, however, we can see that in the simulation, the Envelope Detector output voltage oscillates near 14V while in the theoretical analysis it oscillates near 15V. 
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../sim/out}
+        \hline
+  \end{tabular}
+  \caption{Average and ripple for the output voltage of the Voltage Regulator for the simulation}
+  \label{tab:acdcsim}
+\end{table}
 
-Some deviations between the simulation and theoretical results were expected. The same output average was obtained, and had to be obtained, since the diode's Von was determined from the {\bf Ngspice} voltage output average. Minor deviations were obtained in the ripple.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../mat/acdcoc}
+        \hline
+  \end{tabular}
+  \caption{Average and ripple for the theoretical output voltage of the Voltage Regulator}
+  \label{tab:acdcoc}
+\end{table}
+
+As it can be observed in the tables, the same output average was obtained, and had to be obtained, since the diode's $V_{ON}$ was determined from the {\bf Ngspice} voltage output average. Some deviations were obtained in the ripple. As it was possible to observe in the graphs, the theoretical ripple is smaller than the one obtained in the simulation. Both the average and the ripple were calculated excluding an initial time interval.
 
 All in all, the objetives were met. With more time and a lenghtier study, better results, especially in terms of reducing the ripple, could be obtained, and other solutions implemented.
