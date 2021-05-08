@@ -19,10 +19,10 @@ f = open("t3.net", "r")
 
 v = f.readlines()
 
-r1 = int(v[31].split()[3].replace("k",""))
-r3 = int(v[32].split()[3].replace("k",""))
+r1 = float(v[31].split()[3].replace("k",""))
+r3 = float(v[32].split()[3].replace("k",""))
 
-c = int(v[64].split()[3].replace("uF",""))
+c = float(v[63].split()[3].replace("uF",""))
 
 print("R1 = ", r1)
 print("R2 = ", r3)
@@ -34,7 +34,7 @@ print("Number of diodes = " +  str(n_diodes))
 
 f.close()
 
-cost = r1 + r3 + 0.1*n_diodes
+cost = r1 + r3 + 0.1*n_diodes + c
 
 merit = 1 / (cost * (ma-mi + abs(avg-12) + 10e-6))
 
