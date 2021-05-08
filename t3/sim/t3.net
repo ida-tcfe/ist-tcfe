@@ -29,8 +29,8 @@ DR3 6 2 Default
 DR4 0 1 Default
 
 * Resistors (Set to 1kOhm - prob to change)
-R1 2 0 10k
-R3 2 3 1k
+R1 2 0 10.82k
+R3 2 3 1.12k
 
 * Limiter Diodes
 *DL1 3 4 Default
@@ -58,8 +58,7 @@ DL14 d13 d14 Default
 DL15 d14 d15 Default
 DL16 d15 d16 Default
 DL17 d16 d17 Default
-DL18 d17 0 Default 
-
+DL18 d17 0 Default
 
 * Capacitor from Envelope (Set to 1uF - prob to change)
 C1 2 0 40uF
