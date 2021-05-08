@@ -45,20 +45,22 @@ The purpose of the Voltage Regulador is, as the name suggests, to limit the volt
         \label{envelope}
 \end{figure}
 
-It is known that (for the dc components):
+It is known that (for the DC components):
 
 \begin{equation}
-        V_o \leq N V_{ON}
+        v_O \leq N V_{ON}
         \label{max}
 \end{equation}
 
 By performing incremental analysis (that is, saying that each diode is equivalent to a resistor $r_d$):
 
 \begin{equation}
-        v_o = \frac{N\;r_d}{N\;r_d + R} v_s
+        v_o = \frac{N\;r_d}{N\;r_d + R} v_i
+        \label{vo}
 \end{equation}
 
-This implies that, if $R$ is much greater than $n\;r_d$, then the amplitude of $v_o$ (ac signal) is almost null, which is our goal. However, this must be balanced with the cost, as resistors are expensive (diodes, on the other hand, are not, so as many as needed may be added to cap $v_o$ at around 12V).
+%em baixo, onde está N\;r_d, estava n\;r_d. Corrigi, penso que era suposto ser N
+This implies that, if $R$ is much greater than $N\;r_d$, then the amplitude of $v_o$ (AC signal) is almost null, which is our goal. However, this must be balanced with the cost, as resistors are expensive (diodes, on the other hand, are not, so as many as needed may be added to cap $v_o$ at around 12V).
 
 \subsection{Final result}
 
