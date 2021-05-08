@@ -7,13 +7,13 @@
 * Notas:
 *1. O professor mete lá um exemplo no limiter com os diodos nos 2 sentidos.
 *2. Em geral usam-se capacitors mas em teoria pode ser outra coisa.
-*3.  
+*3. Não dá para colocar os valores com a precisão máxima (casas decimais)
 
 * Declaring Componentes
 
 * Transformer 
 Vs n1 0 0 sin(0 230 50)
-Vaux naux 0 0 
+Vaux naux 6 0 
 F1 0 n1 Vaux 0.0666
 E1 1 naux n1 0 0.0666	
 
@@ -23,13 +23,13 @@ E1 1 naux n1 0 0.0666
 
 * Rectifier Diodes (First2 Positive and Sec2 Negative) 
 DR1 1 2 Default
-DR2 6 0 Default
+DR2 0 6 Default
 
-DR3 0 2 Default
-DR4 6 1 Default
+DR3 6 2 Default
+DR4 0 1 Default
 
 * Resistors (Set to 1kOhm - prob to change)
-R1 2 6 10k
+R1 2 0 10k
 R3 2 3 1k
 
 * Limiter Diodes
@@ -58,17 +58,22 @@ DL14 d13 d14 Default
 DL15 d14 d15 Default
 DL16 d15 d16 Default
 DL17 d16 d17 Default
-DL18 d17 6 Default
+DL18 d17 0 Default 
 
 
 * Capacitor from Envelope (Set to 1uF - prob to change)
-C1 2 6 48uF
+C1 2 0 48uF
 *40 já dá, mas quanto maior menor o ripple
 
 .model Default D
 .op
 .end
 
+.param a = 1
+
+.measure tran average avg v(3) from=10m to=30
+.measure tran max max_at v(3) from=10m to=30
+.measure tran min min_at v(3) from=10m to=30
 
 .control 
 
@@ -90,7 +95,7 @@ echo "********************************************"
 
 echo " ------------- Trasient Analysis --------------------
 
-tran 1e-3 30e-3
+tran 1e-3 300e-3
 
 hardcopy trans.eps v(2,6) v(3,6)
 *v(1, naux)
