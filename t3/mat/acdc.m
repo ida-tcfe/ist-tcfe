@@ -7,9 +7,9 @@ Vin=230;
 % n transformador
 n = 15;
 w=2*pi*f;
-R1=10e3;
-R2=1e3;
-C=48e-6;
+R1=10.82e3;
+R2=1.12e3;
+C=40e-6;
 
 % amplitude apos transformador
 A = Vin/15;
@@ -89,7 +89,7 @@ mediaenv = mediaenv / pontos;
 vO = zeros(1, length(t));
 ndiodes = 18;
 % valor abaixo retirado ngspice
-VO = 12.02691;
+VO = 11.99949;
 VOn = VO/ndiodes;
 
 % utilizando modelo mais simples so com von
