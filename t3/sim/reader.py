@@ -43,7 +43,7 @@ print("Merit figure: " + str(merit))
 f = open("parameters.tex", "w")
 f.write("R1($k\Omega$) & " + str(r1) + "\\\\ \n")
 f.write("R2($k\Omega$) & " + str(r3) + "\\\\ \n")
-f.write("C(pF) & " + str(c) + "\\\\ \n")
+f.write("C(uF) & " + str(c) + "\\\\ \n")
 f.write("N & " + str(n_diodes) + "\\\\ \n")
 f.close()
 
