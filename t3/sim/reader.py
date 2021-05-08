@@ -39,3 +39,14 @@ cost = r1 + r3 + 0.1*n_diodes + c
 merit = 1 / (cost * (ma-mi + abs(avg-12) + 10e-6))
 
 print("Merit figure: " + str(merit))
+
+f = open("parameters.tex", "w")
+f.write("R1($k\Omega$) & " + str(r1) + "\\\\ \n")
+f.write("R2($k\Omega$) & " + str(r3) + "\\\\ \n")
+f.write("C(pF) & " + str(c) + "\\\\ \n")
+f.write("N & " + str(n_diodes) + "\\\\ \n")
+f.close()
+
+f = open("merit.tex", "w")
+f.write(str(merit))
+f.close()
