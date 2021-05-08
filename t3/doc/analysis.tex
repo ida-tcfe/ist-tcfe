@@ -1,9 +1,9 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-As already referred, to perform the theoretical analysis of the circuit in figure \ref{acdc_ours} it was used {\bf Octave}. With this tool, we simulated the sine wave of the circuit after going through the transformer. Then that wave goes to the full-wave rectifier. As already mentioned, this rectifier (using the ideal diode model) transforms the signal in its absolute value. Next, using the capacitor, the signal starts to really look like a DC voltage. In figure \ref{fig:acdcoc}, it is possible to observe the output voltage of the Envelope Detector. After a initial time, the voltage oscillates near 15V.
+As already mentioned, to perform the theoretical analysis of the circuit in figure \ref{acdc_ours} {\bf Octave} was used. With this tool, we simulated the sine wave of the circuit after going through the transformer. Then that wave goes through the full-wave rectifier. As already mentioned, this rectifier (using the ideal diode model) transforms the signal to its absolute value. Next, using the capacitor, the signal starts to really look like a DC voltage. In figure \ref{fig:acdcoc}, it is possible to observe the output voltage of the Envelope Detector. After an initial time, the voltage oscillates near 15V.
 
-After the envelope detector, the signal goes to the Voltage Regulator. To study this part of the circuit, we used incremental analysis, where the diodes can be considered resistors $r_d$.
+After the envelope detector, the signal goes through the Voltage Regulator. To study this part of the circuit, we used incremental analysis, where the diodes can be considered resistors $r_d$.
 
 \begin{equation}
         r_d = \frac{\eta V_T}{I_Se^{\frac{V_D}{\eta V_T}}}
@@ -14,7 +14,7 @@ The value of $V_D = V_{ON}$ was estimated to be the value of the average obtaine
 
 With equation \ref{vo}, obtained with voltage divider, we get the AC component of the final signal. The total signal will be the sum of the AC component with the DC component, $N V_{ON}$.
 
-At the end, we obtained the output voltage represented in figure \ref{fig:acdcoc} for the Voltage Regulator. After the initial period, this voltage is almost constant in 12V, as desired, that can be easily observed in figure \ref{fig:vo-12}. It can be observed that this voltage oscillates significantly less than the output voltage of the Envelope Detector. In table \ref{tab:acdcoc}, it's present the values obtained for the average and ripple of the output signal of the Voltage Regulator (calculated excluding an initial time interval) and we can see that the ripple is quite small and the average is near 12V.
+Finally, we obtained the output voltage represented in figure \ref{fig:acdcoc} for the Voltage Regulator. After the initial period, this voltage is almost constant at 12V, as desired, that which can be easily observed in figure \ref{fig:vo-12}. It is apparent that this voltage oscillates significantly less than the output voltage of the Envelope Detector. In table \ref{tab:acdcoc}, the values obtained for the average and ripple of the output signal of the Voltage Regulator (calculated excluding an initial time interval) are presented and we can see that the ripple is quite small and the average is near 12V.
 
 \begin{figure}[H]
   \centering
