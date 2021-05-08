@@ -48,5 +48,5 @@ f.write("N & " + str(n_diodes) + "\\\\ \n")
 f.close()
 
 f = open("merit.tex", "w")
-f.write(str(merit))
+f.write('{:5.4f}'.format(merit))
 f.close()
