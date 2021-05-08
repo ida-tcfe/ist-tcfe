@@ -34,7 +34,7 @@ print("Number of diodes = " +  str(n_diodes))
 
 f.close()
 
-cost = r1 + r3 + 0.1*n_diodes
+cost = r1 + r3 + 0.1*n_diodes + c
 
 merit = 1 / (cost * (ma-mi + abs(avg-12) + 10e-6))
 

@@ -62,7 +62,7 @@ DL18 d17 0 Default
 
 
 * Capacitor from Envelope (Set to 1uF - prob to change)
-C1 2 0 824uF
+C1 2 0 40uF
 
 .model Default D
 .op
