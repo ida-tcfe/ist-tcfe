@@ -1,7 +1,34 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-This laboratory assignment had as the main objective the construction and analysis of an AC/DC converter. The chosen design is present in figure Figure~\ref{acdc_ours}. The goal was to design a circuit capable of converting 230 V of AC with frequency of 50 Hz to 12 V of DC. The analysis of the circuit was achieved by performing a simulation, using {\bf Ngspice}, and a theoretical analysis, using {\bf Octave}. By analysing the results obtained, we conclude that we were able to achieve a good result, the output voltage is very near from 12V and as a small ripple. 
+This laboratory assignment had as the main objective the construction and analysis of an AC/DC converter. The chosen design is present in Figure~\ref{acdc_ours}. The goal was to design a circuit capable of converting 230 V of AC with frequency of 50 Hz to 12 V of DC. The analysis of the circuit was achieved by performing a simulation, using {\bf Ngspice}, and a theoretical analysis, using {\bf Octave}. By analysing the results obtained, we conclude that we were able to achieve a good result, the output voltage is very near from 12V and has a small ripple. 
 
 The merit figure of our circuit is: \input{../sim/merit}.
 
+Some deviations between the simulation and theoretical results were expected, due to the different model used by {\bf Ngspice} for diodes. In the theoretical analysis, we used very simple models. On the other hand, {\bf Ngspice} uses a model of the diode with 15 parameters. Comparing graphs \ref{sim_res}, \ref{fig:acdcoc} and \ref{fig:vo-12} allows us to conclude that the output voltages have a similar behaviour. However, we can see that, in the simulation, the Envelope Detector output voltage oscillates around 14V while in the theoretical analysis it oscillates around 15V. 
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../sim/out}
+        \hline
+  \end{tabular}
+  \caption{Average and ripple for the output voltage of the Voltage Regulator for the simulation}
+  \label{tab:acdcsim}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../mat/acdcoc}
+        \hline
+  \end{tabular}
+  \caption{Average and ripple for the theoretical output voltage of the Voltage Regulator}
+  \label{tab:acdcoc}
+\end{table}
+
+As it can be observed in the tables, the same output average was obtained, and had to be obtained, since the diode's $V_{ON}$ was determined from the {\bf Ngspice} voltage output average. Some deviations were obtained in the ripple. As it was possible to observe in the graphs, the theoretical ripple is smaller than the one obtained in the simulation. Both the average and the ripple were calculated excluding an initial time interval.
+
+All in all, the objetives were met. With more time and a lenghtier study, better results, especially in terms of reducing the ripple, could be obtained, and other solutions implemented.

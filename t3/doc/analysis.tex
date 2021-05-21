@@ -1,3 +1,4 @@
+\newpage
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
@@ -10,11 +11,13 @@ After the envelope detector, the signal goes through the Voltage Regulator. To s
         \label{rd}
 \end{equation}
 
-The value of $V_D = V_{ON}$ was estimated to be the value of the average obtained in {\bf Ngspice} divided by the $N$. We considered $V_T=25\;mV$, $\eta = 1$ and$I_S = 1.0 \times 10^{-14}$ (used by {\bf Ngspice}).
+The value of $V_D = V_{ON}$ was estimated to be the value of the average obtained in {\bf Ngspice} divided by $N$. We considered $V_T=25\;mV$, $\eta = 1$ and $I_S = 1.0 \times 10^{-14}$ (used by {\bf Ngspice}).
 
 With equation \ref{vo}, obtained with voltage divider, we get the AC component of the final signal. The total signal will be the sum of the AC component with the DC component, $N V_{ON}$.
 
-Finally, we obtained the output voltage represented in figure \ref{fig:acdcoc} for the Voltage Regulator. After the initial period, this voltage is almost constant at 12V, as desired, that which can be easily observed in figure \ref{fig:vo-12}. It is apparent that this voltage oscillates significantly less than the output voltage of the Envelope Detector. In table \ref{tab:acdcoc}, the values obtained for the average and ripple of the output signal of the Voltage Regulator (calculated excluding an initial time interval) are presented and we can see that the ripple is quite small and the average is near 12V.
+Finally, we obtained the output voltage represented in figure \ref{fig:acdcoc} for the Voltage Regulator. After the initial period, this voltage is almost constant at 12V, as desired, which can be easily observed in figure \ref{fig:vo-12}. It is apparent that this voltage oscillates significantly less than the output voltage of the Envelope Detector.
+
+%In table \ref{tab:acdcoc}, the values obtained for the average and ripple of the output signal of the Voltage Regulator (calculated excluding an initial time interval) are presented and we can see that the ripple is quite small and the average is near 12V.
 
 \begin{figure}[H]
   \centering
@@ -22,17 +25,6 @@ Finally, we obtained the output voltage represented in figure \ref{fig:acdcoc} f
   \caption{Output voltages of the Envelope Detector and of the Voltage Regulator}
   \label{fig:acdcoc}
 \end{figure}
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|}
-    \hline
-        \input{../mat/acdcoc}
-        \hline
-  \end{tabular}
-  \caption{Average and ripple for the theoretical output voltage of the Voltage Regulator}
-  \label{tab:acdcoc}
-\end{table}
 
 \begin{figure}[H]
   \centering
