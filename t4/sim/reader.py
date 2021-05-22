@@ -12,6 +12,24 @@ print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
+inp = v[54].split()[2]
+inp_r = float(inp.split(',')[0])
+inp_i = float(inp.split(',')[1])
+
+print("Input impedance: " + str(inp_r) + ", " + str(inp_i))
+
+f.close()
+
+f = open("ngspice2.log", "r")
+
+v = f.readlines()
+
+out = v[49].split()[2]
+out_r = float(out.split(',')[0])
+out_i = float(out.split(',')[1])
+
+print("Output impedance: " + str(out_r) + ", " + str(out_i))
+
 f.close()
 
 f = open("t4.net", "r")
@@ -52,14 +70,14 @@ merit = ma * (right-left) / (cost * left)
 print("Merit figure: " + str(merit))
 
 f = open("parameters.tex", "w")
-f.write("R1($k\Omega$) & " + str(r1) + "\\\\ \n")
-f.write("R2($k\Omega$) & " + str(r2) + "\\\\ \n")
-f.write("Rc($k\Omega$) & " + str(rc) + "\\\\ \n")
-f.write("Re($k\Omega$) & " + str(re) + "\\\\ \n")
-f.write("Rout($k\Omega$) & " + str(rout) + "\\\\ \n")
-f.write("Ci(uF) & " + str(ci) + "\\\\ \n")
-f.write("Cb(uF) & " + str(cb) + "\\\\ \n")
-f.write("Co(uF) & " + str(co) + "\\\\ \n")
+f.write("$R_1$($k\Omega$) & " + str(r1) + "\\\\ \n")
+f.write("$R_2$($k\Omega$) & " + str(r2) + "\\\\ \n")
+f.write("$R_c$($k\Omega$) & " + str(rc) + "\\\\ \n")
+f.write("$R_e$($k\Omega$) & " + str(re) + "\\\\ \n")
+f.write("$R_{out}$($k\Omega$) & " + str(rout) + "\\\\ \n")
+f.write("$C_i$($\mu F$) & " + str(ci) + "\\\\ \n")
+f.write("$C_b$($\mu F$) & " + str(cb) + "\\\\ \n")
+f.write("$C_o$($\mu F$) & " + str(co) + "\\\\ \n")
 f.close()
 
 f = open("merit.tex", "w")
@@ -72,4 +90,10 @@ f.write("\hline \n")
 f.write("Lower cutoff frequency & " + str(left) + "\\\\ \n")
 f.write("\hline \n")
 f.write("Bandwidth & " + str(right-left) + "\\\\ \n")
+f.close()
+
+f = open("impedances.tex", "w")
+f.write("Input & " + str(inp_r) + "+i" + str(inp_i) + "\\\\ \n")
+f.write("\hline \n")
+f.write("Output & " + str(out_r) + "+i" + str(out_i) + "\\\\ \n")
 f.close()

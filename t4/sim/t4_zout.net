@@ -61,6 +61,7 @@ hardcopy vo2f.ps vdb(out)
 *input impedance in kohm
 *print all
 
+echo ---- Output impedance ----
 plot abs(v(out)[40]/vout#branch[40]/(-1000))
 print v(out)[40]/vout#branch[40]/(-1000)
 

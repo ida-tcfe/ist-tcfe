@@ -6,10 +6,14 @@
 
 Vcc vcc 0 12.0
 Vin in 0 0 ac 1.0 sin(0 10m 1k)
-Rin in in2 100
+Rin in in2 0.1k
 
 * input coupling capacitor
+<<<<<<< HEAD
 Cin in2 base 1m
+=======
+Ci in2 base 1000uF
+>>>>>>> b16540f821e24ece04e20c5047d610732b8a827f
 
 * bias circuit
 R1 vcc base 80k
@@ -18,21 +22,21 @@ R2 base 0 20k
 * gain stage
 Q1 coll base emit BC547A
 Rc vcc coll 1k
-Re emit 0 100
+Re emit 0 0.1k
 
 * bypass capacitor
-Cb emit 0 1m
+Cb emit 0 1000uF
 
 
 * output stage
 Q2 0 coll emit2 BC557A
-Rout emit2 vcc 100
+Rout emit2 vcc 0.1k
 
 * output coupling capacitor
-Co emit2 out 1u
+Co emit2 out 1uF
 
 * load
-RL out 0 8
+RL out 0 0.008k
 
 .op
 .end
@@ -95,6 +99,7 @@ hardcopy vo2f.ps vdb(out)
 *input impedance in kohm
 *print all
 
+echo ---- Input impedance ----
 plot abs(v(in2)[40]/vin#branch[40]/(-1000))
 print v(in2)[40]/vin#branch[40]/(-1000)
 

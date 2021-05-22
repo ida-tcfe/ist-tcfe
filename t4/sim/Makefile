@@ -8,10 +8,13 @@ all: test
 ngspice.log: ../sim/t4.net
 	ngspice -b $< -o $@
 
+ngspice2.log: ../sim/t4_zout.net
+	ngspice -b $< -o $@
+
 clean:
 	@rm -f ngspice.log *.tex *.pdf *.ps *~ *.eps
 
 .PHONY: all clean
 
-test: ngspice.log
+test: ngspice.log ngspice2.log
 	sudo python3 reader.py
