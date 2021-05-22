@@ -12,6 +12,24 @@ print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
+inp = v[54].split()[2]
+inp_r = float(inp.split(',')[0])
+inp_i = float(inp.split(',')[1])
+
+print("Input impedance: " + str(inp_r) + ", " + str(inp_i))
+
+f.close()
+
+f = open("ngspice2.log", "r")
+
+v = f.readlines()
+
+out = v[49].split()[2]
+out_r = float(out.split(',')[0])
+out_i = float(out.split(',')[1])
+
+print("Output impedance: " + str(out_r) + ", " + str(out_i))
+
 f.close()
 
 f = open("t4.net", "r")
