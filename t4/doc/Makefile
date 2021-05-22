@@ -14,8 +14,8 @@ all: $(FILE).pdf
 $(FILE).pdf: $(wildcard *.tex) $(LODFIGS)
 	#python error.py
 	export TEXINPUTS=$(TEXINPUTS)
-	cp -f ../mat/*.eps .
-	cp -f ../sim/*.eps .
+	#cp -f ../mat/*.eps .
+	#cp -f ../sim/*.eps .
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
