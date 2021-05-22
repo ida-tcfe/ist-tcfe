@@ -51,6 +51,17 @@ merit = ma * (right-left) / (cost * left)
 
 print("Merit figure: " + str(merit))
 
+f = open("parameters.tex", "w")
+f.write("R1($k\Omega$) & " + str(r1) + "\\\\ \n")
+f.write("R2($k\Omega$) & " + str(r2) + "\\\\ \n")
+f.write("Rc($k\Omega$) & " + str(rc) + "\\\\ \n")
+f.write("Re($k\Omega$) & " + str(re) + "\\\\ \n")
+f.write("Rout($k\Omega$) & " + str(rout) + "\\\\ \n")
+f.write("Ci(uF) & " + str(ci) + "\\\\ \n")
+f.write("Cb(uF) & " + str(cb) + "\\\\ \n")
+f.write("Co(uF) & " + str(co) + "\\\\ \n")
+f.close()
+
 f = open("merit.tex", "w")
 f.write('{:5.4f}'.format(merit))
 f.close()
