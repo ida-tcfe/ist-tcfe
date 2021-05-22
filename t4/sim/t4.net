@@ -9,7 +9,11 @@ Vin in 0 0 ac 1.0 sin(0 10m 1k)
 Rin in in2 0.1k
 
 * input coupling capacitor
+<<<<<<< HEAD
+Cin in2 base 1m
+=======
 Ci in2 base 1000uF
+>>>>>>> b16540f821e24ece04e20c5047d610732b8a827f
 
 * bias circuit
 R1 vcc base 80k
@@ -45,6 +49,33 @@ RL out 0 0.008k
 *print bandwith
 
 .control
+
+
+* OP Analysis
+op
+
+echo  "op_TAB"
+print vcc
+print in 
+print in2
+print base
+print coll
+print emit
+print emit2
+print out
+print @Rin[i]
+print @R1[i]
+print @R2[i]
+print @Rc[i]
+print @Re[i]
+print @RL[i]
+print @Rout[i]
+print @Cin[i]
+print @Cb[i]
+print @Co[i]
+*print @Q1[i]
+*print @Q2[i]
+echo  "op_END"
 
 
 * time analysis
