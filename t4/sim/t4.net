@@ -9,11 +9,7 @@ Vin in 0 0 ac 1.0 sin(0 10m 1k)
 Rin in in2 0.1k
 
 * input coupling capacitor
-<<<<<<< HEAD
-Cin in2 base 1m
-=======
-Ci in2 base 1000uF
->>>>>>> b16540f821e24ece04e20c5047d610732b8a827f
+Cin in2 base 1000uF
 
 * bias circuit
 R1 vcc base 80k
