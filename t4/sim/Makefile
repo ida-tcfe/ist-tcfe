@@ -1,4 +1,4 @@
-all: ngspice.log
+all: test
 	#$(eval NGSFIGS=$(shell grep _FIG $< | sed 's/_FIG//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	#$(eval NGSFIGPS=$(addsuffix .ps, $(NGSFIGS)))
 	#$(foreach i, $(NGSFIGPS), ps2pdf $i;)
@@ -13,5 +13,5 @@ clean:
 
 .PHONY: all clean
 
-#test: ngspice.log
-#	sudo python3 reader.py
+test: ngspice.log
+	sudo python3 reader.py

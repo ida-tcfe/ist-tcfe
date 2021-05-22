@@ -9,7 +9,7 @@ Vin in 0 0 ac 1.0 sin(0 10m 1k)
 Rin in in2 100
 
 * input coupling capacitor
-Ci in2 base 1m
+Ci in2 base 1000uF
 
 * bias circuit
 R1 vcc base 80k
@@ -21,7 +21,7 @@ Rc vcc coll 1k
 Re emit 0 100
 
 * bypass capacitor
-Cb emit 0 1m
+Cb emit 0 1000uF
 
 
 * output stage
@@ -29,7 +29,7 @@ Q2 0 coll emit2 BC557A
 Rout emit2 vcc 100
 
 * output coupling capacitor
-Co emit2 out 1u
+Co emit2 out 1uF
 
 * load
 RL out 0 8
