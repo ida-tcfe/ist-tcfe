@@ -4,15 +4,15 @@ f = open("ngspice.log", "r")
 
 v = f.readlines()
 
-ma = float(v[35].split()[4])
-left = float(v[36].split()[2])
-right = float(v[37].split()[2])
+ma = float(v[61].split()[4]) / 0.01
+left = float(v[62].split()[2])
+right = float(v[63].split()[2])
 
 print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
-inp = v[54].split()[2]
+inp = v[80].split()[2]
 inp_r = float(inp.split(',')[0])
 inp_i = float(inp.split(',')[1])
 
