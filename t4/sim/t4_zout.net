@@ -43,20 +43,20 @@ Vout out 0 0 ac 1.0 sin(0 10m 1k)
 * time analysis
 tran 1e-5 1e-2
 plot v(coll) 
-hardcopy vo1.ps vdb(coll)
+hardcopy vo1.eps vdb(coll)
 
 
 * frequency analysis
 ac dec 10 10 100MEG
 plot vdb(coll)
 plot vp(coll)
-hardcopy vo1f.ps vdb(coll)
+hardcopy vo1f.eps vdb(coll)
 
 
 
 plot vdb(out)
 plot vp(out)
-hardcopy vo2f.ps vdb(out)
+hardcopy vo2f.eps vdb(out)
 
 *input impedance in kohm
 *print all

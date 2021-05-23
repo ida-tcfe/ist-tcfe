@@ -78,14 +78,14 @@ echo  "op_END"
 * time analysis
 tran 1e-5 1e-2
 plot v(collvv) 
-hardcopy vo1.ps vdb(collvv)
+hardcopy vo1.eps vdb(collvv)
 
 
 * frequency analysis
 ac dec 10 10 100MEG
 plot vdb(collvv)
 plot vp(collvv)
-hardcopy vo1f.ps vdb(collvv)
+hardcopy vo1f.eps vdb(collvv)
 
 * measure specific values for merit calculation
 meas ac max MAX vdb(outvv) from=10e3 to=10e7
@@ -97,7 +97,7 @@ meas ac right WHEN vdb(outvv)=lim CROSS=LAST
 
 plot vdb(outvv)
 plot vp(outvv)
-hardcopy vo2f.ps vdb(outvv)
+hardcopy vo2f.eps vdb(outvv)
 
 *input impedance in kohm
 *print all
