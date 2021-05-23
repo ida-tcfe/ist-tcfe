@@ -17,5 +17,19 @@ The merit figure of our circuit is: \input{../sim/merit}.
   \label{tab:res_sim}
 \end{table}
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        $V$ & $V_t$ & $V_s$ & $|V_t-V_s|$ & $Error (\%)$ \\
+        \hline
+        \hline
+        \input{comparison}
+        \hline
+  \end{tabular}
+  \caption{Theoretical values ($V_t$) and Simulation values ($V_s$) of the operating point analysis (table produced with {\bf Python}).}
+  \label{error1_res}
+\end{table}
+
 %Some deviations between the simulation and theoretical results were expected, due to the different model used by {\bf Ngspice} for diodes. In the theoretical analysis, we used very simple models. On the other hand, {\bf Ngspice} uses a model of the diode with 15 parameters. Comparing graphs \ref{sim_res}, \ref{fig:acdcoc} and \ref{fig:vo-12} allows us to conclude that the output voltages have a similar behaviour. However, we can see that, in the simulation, the Envelope Detector output voltage oscillates around 14V while in the theoretical analysis it oscillates around 15V. 
 %All in all, the objetives were met. With more time and a lenghtier study, better results, especially in terms of reducing the ripple, could be obtained, and other solutions implemented.
