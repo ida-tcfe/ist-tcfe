@@ -51,3 +51,42 @@ As derived in classes, the gain for the common emmiter is equal to:
 
 The common emmiter input impedance is the parallel of $R_{eq}$ and $r_{\pi}$ and its output impedance is the parallel of $r_o$ and $R_C$. Using {\bf Octave}, the following results were obtained for the common emmiter:
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../mat/emmiter}
+        \hline
+  \end{tabular}
+  \caption{Gain and impedances - Common emmiter}
+  \label{gainemmiter}
+\end{table}
+
+The gain for the common collector is easy to compute using the conductances:
+
+\begin{equation}
+        A_v = \frac{g_{\pi}+g_m}{g_{\pi}+g_m+g_o+g_{out}}
+\end{equation}
+
+The input and output impedances are calcutated using the following equations:
+
+\begin{equation}
+        Z_I = \frac{g_{\pi}+g_m+g_o+g_{out}}{(g_o+g_{out})g_{\pi}}
+\end{equation}
+
+\begin{equation}
+        Z_O = \frac{1}{g_{\pi}+g_m+g_o+g_{out}}
+\end{equation}
+
+The following results were obtained:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../mat/collector}
+        \hline
+  \end{tabular}
+  \caption{Gain and impedances - Common collector}
+  \label{gaincollector}
+\end{table}

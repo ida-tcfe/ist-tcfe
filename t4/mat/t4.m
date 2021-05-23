@@ -60,9 +60,15 @@ AVI_DB = 20*log10(abs(AV1))
 ZI1 = 1/(1/RB+1/rpi1) 
 ZO1 = 1/(1/ro1+1/RC1)
 
-%ft4 = fopen("ft4.tex", "w");
-%fprintf(ft4, "$V_{cc}$ (V) & %f \\\\ \n", VCC);
-%fprintf(ft4, "\\hline\n");
+fcomem = fopen("emmiter.tex", "w");
+fprintf(fcomem, "Gain & %f \\\\ \n", AV1);
+fprintf(fcomem, "\\hline\n");
+fprintf(fcomem, "Input Impedance & %f \\\\ \n", ZI1);
+fprintf(fcomem, "\\hline\n");
+fprintf(fcomem, "Output Impedance & %f \\\\ \n", ZO1);
+fprintf(fcomem, "\\hline\n");
+
+fclose(fcomem);
 
 %ouput stage
 BFP = 227.3
@@ -85,6 +91,15 @@ AV2 = (gm2+gpi2)/(gm2+gpi2+go2+ge2)
 ZI2 = (gm2+gpi2+go2+ge2)/gpi2/(go2+ge2)
 ZO2 = 1/(gm2+gpi2+go2+ge2)
 
+fcomco = fopen("collector.tex", "w");
+fprintf(fcomco, "Gain & %f \\\\ \n", AV2);
+fprintf(fcomco, "\\hline\n");
+fprintf(fcomco, "Input Impedance & %f \\\\ \n", ZI2);
+fprintf(fcomco, "\\hline\n");
+fprintf(fcomco, "Output Impedance & %f \\\\ \n", ZO2);
+fprintf(fcomco, "\\hline\n");
+
+fclose(fcomco);
 
 %total
 gB = 1/(1/gpi2+ZO1)
