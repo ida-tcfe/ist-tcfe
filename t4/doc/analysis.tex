@@ -5,3 +5,30 @@
 %inicio analise t3
 %As already mentioned, to perform the theoretical analysis of the circuit {\bf Octave} was used. With this tool, we simulated the sine wave of the circuit after going through the transformer. Then that wave goes through the full-wave rectifier. As already mentioned, this rectifier (using the ideal diode model) transforms the signal to its absolute value. Next, using the capacitor, the signal starts to really look like a DC voltage. In figure \ref{fig:acdcoc}, it is possible to observe the output voltage of the Envelope Detector. After an initial time, the voltage oscillates near 15V.
 
+To study the circuit in figure \ref{circuit}, it was first performed an operating point analysis, OP. In this DC analysis (the source is like a short-circuit), the capacitors have infinite impedance, so they behave like an open circuit. As a consequence, the capacitors and $R_{in}$ can be removed from the OP analysis. Using a Thévenin's equivalent for the bias circuit makes the OP analysis quite simple. Considering first the common emmiter, with the mesh analysis it is possible to observe that:
+
+\begin{equation}
+        -V_{eq}+R_{eq}I_B+V_{BEON}+R_EI_E = 0
+\end{equation}
+
+In the equation above, $I_B$ is the base current and $I_E$ is the emmiter current of the considered transistor. $V_{BEON}$ was estimated to be $0.7\;V$. By using the equation $I_E=(1+\beta_F)I_B ~\refstepcounter{equation}(\theequation) \label{fluxomagnetico}$, the following is obtained:
+
+\begin{equation}
+        I_B = \frac{V_{eq}-V_{BEON}}{R_{eq}+(1+\beta_F)R_E}
+\end{equation}
+
+With other transistor equation that gives the collector current, $I_C=\beta_FI_B ~\refstepcounter{equation}(\theequation) \label{fluxomagnetico}$, it is possible to compute all DC voltages and currents in the common emmiter circuit. The output voltage of this stage will simply be $V_O = V_{CC}-R_CI_C ~\refstepcounter{equation}(\theequation) \label{fluxomagnetico}$.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        {\bf Name} & {\bf Value} \\
+        \hline
+        \hline
+        \input{../mat/ft4}
+        \hline
+  \end{tabular}
+  \caption{Theoretical results OP}
+  \label{opteorico}
+\end{table}

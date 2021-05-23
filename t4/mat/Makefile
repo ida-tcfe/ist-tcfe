@@ -1,7 +1,7 @@
-all: #acdc
+all: t4
 
-#acdc: acdc.m
-#	octave $<
+t4: t4.m
+	octave $<
 
 clean:
 	@rm -f octave.log octave-workspace *.eps *~ *.tex
