@@ -4,15 +4,16 @@ f = open("ngspice.log", "r")
 
 v = f.readlines()
 
-ma = float(v[61].split()[4]) / 0.01
-left = float(v[62].split()[2])
-right = float(v[63].split()[2])
+ma = float(v[65].split()[2])
+ma = pow(10, ma/20.) / 0.01
+left = float(v[66].split()[2])
+right = float(v[67].split()[2])
 
 print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
-inp = v[80].split()[2]
+inp = v[77].split()[2]
 inp_r = float(inp.split(',')[0])
 inp_i = float(inp.split(',')[1])
 
@@ -52,18 +53,21 @@ rout = float(v[28].split()[3].replace("k",""))
 
 co = float(v[31].split()[3].replace("uF",""))
 
+rl = float(v[34].split()[3].replace("k",""))
+
 print("R1 = ", r1)
 print("R2 = ", r2)
 print("Rc = ", rc)
 print("Re = ", re)
 print("Rout = ", rout)
+print("Rl = ", rl)
 print("Cin = ", ci)
 print("Cb = ", cb)
 print("Co = ", co)
 
 f.close()
 
-cost = r1 + r2 + rc+ re + rout + ci + cb + co + 0.2
+cost = r1 + r2 + rc+ re + rout + rl + ci + cb + co + 0.2
 
 merit = ma * (right-left) / (cost * left)
 
@@ -75,13 +79,14 @@ f.write("$R_2$($k\Omega$) & " + str(r2) + "\\\\ \n")
 f.write("$R_c$($k\Omega$) & " + str(rc) + "\\\\ \n")
 f.write("$R_e$($k\Omega$) & " + str(re) + "\\\\ \n")
 f.write("$R_{out}$($k\Omega$) & " + str(rout) + "\\\\ \n")
+f.write("$R_l$($k\Omega$) & " + str(rl) + "\\\\ \n")
 f.write("$C_i$($\mu F$) & " + str(ci) + "\\\\ \n")
 f.write("$C_b$($\mu F$) & " + str(cb) + "\\\\ \n")
 f.write("$C_o$($\mu F$) & " + str(co) + "\\\\ \n")
 f.close()
 
 f = open("merit.tex", "w")
-f.write('{:5.4f}'.format(merit))
+f.write('{:.0f}'.format(merit))
 f.close()
 
 f = open("out.tex", "w")

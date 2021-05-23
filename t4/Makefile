@@ -4,7 +4,7 @@
 # type "make clean" to delete all generated files
 # ------------------------------------------------------------
 
-all:
+all: clean
 	make -C mat
 	make -C sim
 	make -C doc
