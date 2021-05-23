@@ -138,7 +138,7 @@ print("Output impedance: " + str(out_r) + ", " + str(out_i))
 
 f.close()
 
-f = open("t4.net", "r")
+f = open("t4_mb.net", "r")
 
 v = f.readlines()
 
