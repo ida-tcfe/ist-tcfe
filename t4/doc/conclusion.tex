@@ -1,8 +1,9 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-%parte da conversa do t3
-%This laboratory assignment had as the main objective the construction and analysis of an AC/DC converter. The chosen design is present in Figure~\ref{acdc_ours}. The goal was to design a circuit capable of converting 230 V of AC with frequency of 50 Hz to 12 V of DC. The analysis of the circuit was achieved by performing a simulation, using {\bf Ngspice}, and a theoretical analysis, using {\bf Octave}. By analysing the results obtained, we conclude that we were able to achieve a good result, the output voltage is very near from 12V and has a small ripple.
+This laboratory assignment had as the main objective the construction and analysis of an audio amplifier. The chosen design is present in \ref{circuit}. The goal was to maximise the voltage gain and the bandwidth at which the circuit operates at ``full capacity'', while minimising the cost and the lower cutoff frequency, preferably to less than $20\;Hz$, the lower limit of the audible range.
+
+We designed two circuits, as explained in \ref{sec:simulation}, with two objectives in mind. By analysing the results obtained, we conclude that we were able to achieve a good result in either of the circuits designed, with high gain and low cost. Unfortunately we were not able to lessen the lower cutoff limit any more without lessening the merit. We also tried to lessen the output impedance, but this was not possible for the same reason.
 
 The merit figure of our first circuit is: \input{../sim/merit}. For our second circuit, it's \input{../sim/merit_mb}.
 
@@ -21,5 +22,7 @@ The merit figure of our first circuit is: \input{../sim/merit}. For our second c
   \label{error1_res}
 \end{table}
 
-%Some deviations between the simulation and theoretical results were expected, due to the different model used by {\bf Ngspice} for diodes. In the theoretical analysis, we used very simple models. On the other hand, {\bf Ngspice} uses a model of the diode with 15 parameters. Comparing graphs \ref{sim_res}, \ref{fig:acdcoc} and \ref{fig:vo-12} allows us to conclude that the output voltages have a similar behaviour. However, we can see that, in the simulation, the Envelope Detector output voltage oscillates around 14V while in the theoretical analysis it oscillates around 15V. 
-%All in all, the objetives were met. With more time and a lenghtier study, better results, especially in terms of reducing the ripple, could be obtained, and other solutions implemented.
+
+Some deviations between the simulation and theoretical results were expected, due to the different model used by {\bf Ngspice} for transistors. In the theoretical analysis, we used very simple models.
+. 
+All in all, the objetives were met. With more time and a lenghtier study, better results could be obtained, and other solutions implemented.
