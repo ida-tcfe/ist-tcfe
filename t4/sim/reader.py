@@ -5,7 +5,7 @@ f = open("ngspice.log", "r")
 v = f.readlines()
 
 ma = float(v[77].split()[2])
-ma = pow(10, ma/20.) / 0.01
+ma = pow(10, ma/20.)
 left = float(v[78].split()[2])
 right = float(v[79].split()[2])
 
@@ -110,7 +110,7 @@ f = open("ngspice_mb.log", "r")
 v = f.readlines()
 
 ma = float(v[77].split()[2])
-ma = pow(10, ma/20.) / 0.01
+ma = pow(10, ma/20.)
 left = float(v[78].split()[2])
 right = float(v[79].split()[2])
 
