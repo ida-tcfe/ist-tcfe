@@ -4,16 +4,16 @@ f = open("ngspice.log", "r")
 
 v = f.readlines()
 
-ma = float(v[65].split()[2])
+ma = float(v[77].split()[2])
 ma = pow(10, ma/20.) / 0.01
-left = float(v[66].split()[2])
-right = float(v[67].split()[2])
+left = float(v[78].split()[2])
+right = float(v[79].split()[2])
 
 print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
-inp = v[77].split()[2]
+inp = v[89].split()[2]
 inp_r = float(inp.split(',')[0])
 inp_i = float(inp.split(',')[1])
 
@@ -44,14 +44,14 @@ ci = float(v[11].split()[3].replace("uF",""))
 r1 = float(v[14].split()[3].replace("k",""))
 r2 = float(v[15].split()[3].replace("k",""))
 
-rc = float(v[19].split()[3].replace("k",""))
-re = float(v[20].split()[3].replace("k",""))
+rc = float(v[23].split()[3].replace("k",""))
+re = float(v[24].split()[3].replace("k",""))
 
-cb = float(v[23].split()[3].replace("uF",""))
+cb = float(v[27].split()[3].replace("uF",""))
 
-rout = float(v[28].split()[3].replace("k",""))
+rout = float(v[32].split()[3].replace("k",""))
 
-co = float(v[31].split()[3].replace("uF",""))
+co = float(v[35].split()[3].replace("uF",""))
 
 #rl = float(v[34].split()[3].replace("k",""))
 

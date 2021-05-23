@@ -9,23 +9,27 @@ Vin invv 0 0 ac 1.0 sin(0 10m 1k)
 Rin invv in2vv 0.1k
 
 * input coupling capacitor
-Cin in2vv basevv 30uF
+Cin in2vv basevv1 30uF
 
 * bias circuit
-R1 vccvv basevv 90k
-R2 basevv 0 21k
+R1 vccvv basevv1 90k
+R2 basevv1 0 21k
+
+vb1 basevv1 basevv 0 dc 0
 
 * gain stage
-Q1 collvv basevv emitvv BC547A
+Q1 collvv1 basevv emitvv1 BC547A
+vc1 collvv1 collvv 0 dc 0
+ve1 emitvv1 emitvv 0 dc 0
 Rc vccvv collvv 0.1k
 Re emitvv 0 0.1k
 
 * bypass capacitor
 Cb emitvv 0 400uF
 
-
 * output stage
-Q2 0 collvv emit2vv BC557A
+Q2 0 collvv emit2vv1 BC557A
+ve2 emit2vv1 emit2vv 0 dc 0
 Rout emit2vv vccvv 0.001k
 
 * output coupling capacitor
@@ -62,6 +66,10 @@ print @Rout[i]
 print @Cin[i]
 print @Cb[i]
 print @Co[i]
+print @vb1[i]
+print @ve1[i]
+print @vc1[i]
+print @ve2[i]
 *print @Q1[i]
 *print @Q2[i]
 echo  "op_END"
