@@ -37,15 +37,7 @@ RL outvv 0 10k
 .op
 .end
 
-* measure specific values for merit calculation
-.measure ac max max_at vdb(outvv) from=10e3 to=10e7
-.measure ac left WHEN vdb(outvv)=3.490405e+01 CROSS=1
-.measure ac right WHEN vdb(outvv)=3.490405e+01-3 CROSS=LAST
-*.param bandwith = {right-left}
-*print bandwith
-
 .control
-
 
 * OP Analysis
 op
@@ -86,7 +78,13 @@ plot vdb(collvv)
 plot vp(collvv)
 hardcopy vo1f.ps vdb(collvv)
 
-
+* measure specific values for merit calculation
+meas ac max MAX vdb(outvv) from=10e3 to=10e7
+let lim = {max-3}
+meas ac left WHEN vdb(outvv)=lim CROSS=1
+meas ac right WHEN vdb(outvv)=lim CROSS=LAST
+*.param bandwith = {right-left}
+*print bandwith
 
 plot vdb(outvv)
 plot vp(outvv)
