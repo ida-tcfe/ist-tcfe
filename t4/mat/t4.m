@@ -164,10 +164,19 @@ CO = 0.000310;
 RL = 8;
 rpi2 = 1/gpi2;
 ro2 = 1/go2;
+Cpi = 0.000000000002;
 
 for i=1:length(w)
   %printf("%f",w(i)/2/pi);
   A = [1,0,0,0,0,0;-1/(Rin+1/(j*w(i)*Cin)),1/RB1+1/RB2+1/rpi1+1/(Rin+1/(j*w(i)*Cin)),-1/rpi1,0,0,0;0,-1/rpi1-gm1,1/rpi1+gm1+1/RE1+j*w(i)*CB+1/ro1,-1/ro1,0,0;0,gm1,-gm1-1/ro1,1/ro1+1/RC1+1/rpi2,-1/rpi2,0;0,0,0,-1/rpi2-gm2,1/rpi2+gm2+1/ro2+1/RE2+j*w(i)*CO,-j*w(i)*CO;0,0,0,0,-j*w(i)*CO,j*w(i)*CO+1/RL];
+  b = [Vin;0;0;0;0;0];
+  c = A\b;
+  VV(i) = abs(c(6)/Vin);
+endfor
+
+for i=1:length(w)
+  %printf("%f",w(i)/2/pi);
+  A = [1,0,0,0,0,0;-1/(Rin+1/(j*w(i)*Cin)),j*w(i)*Cpi+1/RB1+1/RB2+1/rpi1+j*w(i)*Cpi+1/(Rin+1/(j*w(i)*Cin)),-1/rpi1-j*w(i)*Cpi,-j*w(i)*Cpi,0,0;0,-1/rpi1-j*w(i)*Cpi-gm1,1/rpi1+j*w(i)*Cpi+gm1+1/RE1+j*w(i)*CB+1/ro1,-1/ro1,0,0;0,gm1-j*w(i)*Cpi,-gm1-1/ro1,2*j*w(i)*Cpi+1/ro1+1/RC1+1/rpi2+j*w(i)*Cpi,-1/rpi2-j*w(i)*Cpi,0;0,0,0,-1/rpi2-j*w(i)*Cpi-gm2,1/rpi2+j*w(i)*Cpi+gm2+1/ro2+1/RE2+j*w(i)*CO,-j*w(i)*CO;0,0,0,0,-j*w(i)*CO,j*w(i)*CO+1/RL];
   b = [Vin;0;0;0;0;0];
   c = A\b;
   VV(i) = abs(c(6)/Vin);

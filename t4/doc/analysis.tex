@@ -116,7 +116,18 @@ The gain and impedances obtained for the complete circuit are presented in the t
   \label{gaintotal}
 \end{table}
 
-Incremental analysis allowed also to make the following graph were it can be observed the frequency response. 
+Incremental analysis allowed also to make a graph of the frequency response. However, with the model studied in classes for the transistor in incremental analysis, the frequency response stabilized until infinity, instead of going down eventually like it happens in the simulation.
+
+{\bf Ngspice} uses a quite complex model for the transistor, with lots of parameters, including capacitances. To try to have a theoretical frequency response more similar to the one provided by {\bf Ngspice}, the following model was considered for the transistor, where two capacitors were added to the original model. 
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth, trim = 0 5cm 0 5cm, clip]{transistor.pdf}
+        \caption{Transistor incremental model}
+        \label{transistorinc}
+\end{figure}
+
+With the model presented, the following graph was obtained for the frequency response.
 
 \begin{figure}[H]
   \centering
