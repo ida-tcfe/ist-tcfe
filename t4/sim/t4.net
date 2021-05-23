@@ -9,7 +9,7 @@ Vin invv 0 0 ac 1.0 sin(0 10m 1k)
 Rin invv in2vv 0.1k
 
 * input coupling capacitor
-Cin in2vv basevv 42uF
+Cin in2vv basevv 30uF
 
 * bias circuit
 R1 vccvv basevv 90k
