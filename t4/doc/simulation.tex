@@ -60,8 +60,6 @@ By a lengthy process of trial and error, attempting to maximize the merit figure
         \label{param}
 \end{table}
 
-
-
 \begin{table}[H]
   \centering
   \begin{tabular}{|c|c|}
@@ -84,4 +82,66 @@ By a lengthy process of trial and error, attempting to maximize the merit figure
         \hline
   \end{tabular}
   \caption{Simulation results}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{vo2f.eps}
+\caption{Voltage gain}
+\label{vg}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../sim/out}
+        \hline
+  \end{tabular}
+  \caption{Voltage gain, lower cutoff frequency and bandwidth}
+  \label{tab:res_sim}
+\end{table}
+
+Afterwards, we also designed a second circuit, with only merit maximisation in mind:
+
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|}
+        \hline
+        Parameter & Value \\
+        \hline
+        \input{../sim/parameters_mb}
+        \hline
+        \end{tabular}
+        \caption{Parameters}
+        \label{param_mb}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../sim/impedances_mb}
+        \hline
+  \end{tabular}
+  \caption{Impedances}
+  \label{tab:sim_imp_mb}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{vo2f_mb.eps}
+\caption{Voltage gain}
+\label{vg_mb}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../sim/out_mb}
+        \hline
+  \end{tabular}
+  \caption{Voltage gain, lower cutoff frequency and bandwidth}
+  \label{tab:res_sim_mb}
 \end{table}

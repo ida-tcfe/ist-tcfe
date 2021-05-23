@@ -9,11 +9,11 @@ Vin invv 0 0 ac 1.0 sin(0 10m 1k)
 Rin invv in2vv 0.1k
 
 * input coupling capacitor
-Cin in2vv basevv1 30uF
+Cin in2vv basevv1 55uF
 
 * bias circuit
-R1 vccvv basevv1 90k
-R2 basevv1 0 21k
+R1 vccvv basevv1 220k
+R2 basevv1 0 42k
 
 vb1 basevv1 basevv 0 dc 0
 
@@ -21,19 +21,19 @@ vb1 basevv1 basevv 0 dc 0
 Q1 collvv1 basevv emitvv1 BC547A
 vc1 collvv collvv1 0 dc 0
 ve1 emitvv1 emitvv 0 dc 0
-Rc vccvv collvv 0.1k
-Re emitvv 0 0.1k
+Rc vccvv collvv 1k
+Re emitvv 0 0.02k
 
 * bypass capacitor
-Cb emitvv 0 400uF
+Cb emitvv 0 780uF
 
 * output stage
 Q2 0 collvv emit2vv1 BC557A
 ve2 emit2vv emit2vv1 0 dc 0
-Rout emit2vv vccvv 0.001k
+Rout emit2vv vccvv 0.2k
 
 * output coupling capacitor
-Co emit2vv outvv 310uF
+Co emit2vv outvv 570uF
 
 * load
 RL outvv 0 0.008k
@@ -78,14 +78,14 @@ echo  "op_END"
 * time analysis
 tran 1e-5 1e-2
 plot v(collvv) 
-hardcopy vo1.eps vdb(collvv)
+hardcopy vo1_mb.eps vdb(collvv)
 
 
 * frequency analysis
 ac dec 10 10 100MEG
 plot vdb(collvv)
 plot vp(collvv)
-hardcopy vo1f.eps vdb(collvv)
+hardcopy vo1f_mb.eps vdb(collvv)
 
 * measure specific values for merit calculation
 meas ac max MAX vdb(outvv) from=10e3 to=10e7
@@ -97,7 +97,7 @@ meas ac right WHEN vdb(outvv)=lim CROSS=LAST
 
 plot vdb(outvv)
 plot vp(outvv)
-hardcopy vo2f.eps vdb(outvv)
+hardcopy vo2f_mb.eps vdb(outvv)
 
 *input impedance in kohm
 *print all
