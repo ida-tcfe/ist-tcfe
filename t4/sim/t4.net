@@ -12,8 +12,8 @@ Rin invv in2vv 0.1k
 Cin in2vv basevv1 30uF
 
 * bias circuit
-R1 vccvv basevv1 90k
-R2 basevv1 0 21k
+R1 vccvv basevv1 80k
+R2 basevv1 0 20k
 
 vb1 basevv1 basevv 0 dc 0
 
@@ -21,7 +21,7 @@ vb1 basevv1 basevv 0 dc 0
 Q1 collvv1 basevv emitvv1 BC547A
 vc1 collvv collvv1 0 dc 0
 ve1 emitvv1 emitvv 0 dc 0
-Rc vccvv collvv 0.1k
+Rc vccvv collvv 1k
 Re emitvv 0 0.1k
 
 * bypass capacitor
@@ -30,7 +30,7 @@ Cb emitvv 0 400uF
 * output stage
 Q2 0 collvv emit2vv1 BC557A
 ve2 emit2vv emit2vv1 0 dc 0
-Rout emit2vv vccvv 0.001k
+Rout emit2vv vccvv 0.1k
 
 * output coupling capacitor
 Co emit2vv outvv 310uF
