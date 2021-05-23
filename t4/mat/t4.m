@@ -8,14 +8,14 @@ BFN=178.7;
 VAFN=69.7;
    
 %resistance E
-RE1=100;
+RE1=20;
    
 %resistance c
 RC1=1000;
 
 %bias circuit
-RB1=80000;
-RB2=20000;
+RB1=220000;
+RB2=42000;
    
 VBEON=0.7;
 VCC=12;
@@ -73,7 +73,7 @@ fclose(fcomem);
 %ouput stage
 BFP = 227.3
 VAFP = 37.2
-RE2 = 100
+RE2 = 200
 VEBON = 0.7
 VI2 = VO1
 IE2 = (VCC-VEBON-VI2)/RE2
@@ -158,9 +158,9 @@ VV=linspace(log10(10), log10(100000000), 70);
 Vin = 0.01*exp(-j*pi/2);
 
 Rin = 100;
-Cin = 0.000030;
-CB = 0.000400;
-CO = 0.000310;
+Cin = 0.000055;
+CB = 0.000780;
+CO = 0.000570;
 RL = 8;
 rpi2 = 1/gpi2;
 ro2 = 1/go2;
