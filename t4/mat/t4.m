@@ -11,11 +11,11 @@ VAFN=69.7;
 RE1=100;
    
 %resistance c
-RC1=1100;
+RC1=100;
 
 %bias circuit
-RB1=239000;
-RB2=20000;
+RB1=90000;
+RB2=21000;
    
 VBEON=0.7;
 VCC=12;
@@ -60,14 +60,19 @@ AVI_DB = 20*log10(abs(AV1))
 ZI1 = 1/(1/RB+1/rpi1) 
 ZO1 = 1/(1/ro1+1/RC1)
 
+%ft4 = fopen("ft4.tex", "w");
+%fprintf(ft4, "$V_{cc}$ (V) & %f \\\\ \n", VCC);
+%fprintf(ft4, "\\hline\n");
+
 %ouput stage
 BFP = 227.3
 VAFP = 37.2
-RE2 = 3000
+RE2 = 1
 VEBON = 0.7
 VI2 = VO1
 IE2 = (VCC-VEBON-VI2)/RE2
 IC2 = BFP/(BFP+1)*IE2
+IB2 = IC2/BFP
 VO2 = VCC - RE2*IE2
 
 gm2 = IC2/VT
@@ -121,3 +126,30 @@ fprintf(ft4, "$I_{C2}$ (mA) & %f \\\\ \n", IC2*1000);
 fprintf(ft4, "\\hline\n");
 
 fclose(ft4);
+
+w=linspace(log10(10), log10(100000000), 70);
+w=2*pi*10 .^(w);
+VV=linspace(log10(10), log10(100000000), 70);
+Vin = 0.01*exp(-j*pi/2);
+
+Rin = 100;
+Cin = 0.000030;
+CB = 0.000400;
+CO = 0.000310;
+RL = 8;
+rpi2 = 1/gpi2;
+ro2 = 1/go2;
+
+for i=1:length(w)
+  %printf("%f",w(i)/2/pi);
+  A = [1,0,0,0,0,0;-1/(Rin+1/(j*w(i)*Cin)),1/RB1+1/RB2+1/rpi1+1/(Rin+1/(j*w(i)*Cin)),-1/rpi1,0,0,0;0,-1/rpi1-gm1,1/rpi1+gm1+1/RE1+j*w(i)*CB+1/ro1,-1/ro1,0,0;0,gm1,-gm1-1/ro1,1/ro1+1/RC1+1/rpi2,-1/rpi2,0;0,0,0,-1/rpi2-gm2,1/rpi2+gm2+1/ro2+1/RE2+j*w(i)*CO,-j*w(i)*CO;0,0,0,0,-j*w(i)*CO,j*w(i)*CO+1/RL];
+  b = [Vin;0;0;0;0;0];
+  c = A\b;
+  VV(i) = abs(c(6)/Vin);
+endfor
+
+figure
+plot (log10(w/2/pi), 20*log10(VV));
+xlabel ("log10(f) [Hz]");
+ylabel ("|T| dB");
+print ("Vo_Vi.png", "-dpng");
