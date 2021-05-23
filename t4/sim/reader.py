@@ -25,7 +25,7 @@ f = open("ngspice2.log", "r")
 
 v = f.readlines()
 
-out = v[49].split()[2]
+out = v[31].split()[2]
 out_r = float(out.split(',')[0])
 out_i = float(out.split(',')[1])
 
@@ -130,7 +130,7 @@ f = open("ngspice2_mb.log", "r")
 
 v = f.readlines()
 
-out = v[49].split()[2]
+out = v[31].split()[2]
 out_r = float(out.split(',')[0])
 out_i = float(out.split(',')[1])
 
