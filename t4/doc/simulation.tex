@@ -14,6 +14,8 @@ The basic template for an amplifier is as follows:
 
 \subsection{Common emmiter stage}
 
+The purpose of the common emmiter amplifier is to amplify the singal with linear DC gain. To this purpose the following circuit can be employed:
+
 \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth, trim = 0cm 2cm 0cm 2cm, clip]{ces.pdf}
@@ -22,6 +24,8 @@ The basic template for an amplifier is as follows:
 \end{figure}
 
 \subsection{Common collector stage}
+
+The purpose of the common collector amplifier is to supply enough current to the load. To this purpose the following circuit can be employed:
 
 \begin{figure}[H]
         \centering
@@ -32,12 +36,16 @@ The basic template for an amplifier is as follows:
 
 \subsection{Final result}
 
+Combining these two circuits, a very good amplifier can be designed:
+
 \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth, trim = 0cm 0cm 0cm 0cm, clip]{circuit.pdf}
         \caption{Amplifier}
         \label{circuit}
 \end{figure}
+
+By a lengthy process of trial and error, attempting to maximize the merit figure gave us the following parameters:
 
 \begin{table}[H]
         \centering
@@ -51,6 +59,8 @@ The basic template for an amplifier is as follows:
         \caption{Parameters}
         \label{param}
 \end{table}
+
+
 
 \begin{table}[H]
   \centering

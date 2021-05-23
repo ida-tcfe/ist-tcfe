@@ -32,7 +32,8 @@ Rout emit2vv vccvv 3k
 Co emit2vv outvv 8uF
 
 * load
-RL outvv 0 10k
+RL outvv 0 0.008k
+* optimal value is 10k
 
 .op
 .end
