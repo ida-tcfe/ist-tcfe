@@ -60,7 +60,7 @@ AVI_DB = 20*log10(abs(AV1))
 ZI1 = 1/(1/RB+1/rpi1) 
 ZO1 = 1/(1/ro1+1/RC1)
 
-fcomem = fopen("emmiter.tex", "w");
+fcomem = fopen("emitter.tex", "w");
 fprintf(fcomem, "Gain & %f \\\\ \n", AV1);
 fprintf(fcomem, "\\hline\n");
 fprintf(fcomem, "Input Impedance & %f \\\\ \n", ZI1);
