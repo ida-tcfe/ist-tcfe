@@ -9,11 +9,11 @@ Vin invv 0 0 ac 1.0 sin(0 10m 1k)
 Rin invv in2vv 0.1k
 
 * input coupling capacitor
-Cin in2vv basevv 119uF
+Cin in2vv basevv 6.5uF
 
 * bias circuit
-R1 vccvv basevv 239k
-R2 basevv 0 20k
+R1 vccvv basevv 92.5k
+R2 basevv 0 18k
 
 * gain stage
 Q1 collvv basevv emitvv BC547A
@@ -29,7 +29,7 @@ Q2 0 collvv emit2vv BC557A
 Rout emit2vv vccvv 3k
 
 * output coupling capacitor
-Co emit2vv outvv 8uF
+Co emit2vv outvv 310uF
 
 * load
 RL outvv 0 0.008k
