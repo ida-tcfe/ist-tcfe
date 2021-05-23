@@ -9,27 +9,27 @@ Vin in 0 0
 
 
 * input coupling capacitor
-Ci in base 55uF
+Ci in base 64uF
 
 * bias circuit
-R1 vcc base 220k
+R1 vcc base 204k
 R2 base 0 42k
 
 * gain stage
 Q1 coll base emit BC547A
-Rc vcc coll 1k
-Re emit 0 0.02k
+Rc vcc coll 2.7k
+Re emit 0 0.3k
 
 * bypass capacitor
-Cb emit 0 780uF
+Cb emit 0 790uF
 
 
 * output stage
 Q2 0 coll emit2 BC557A
-Rout emit2 vcc 0.2k
+Rout emit2 vcc 0.32k
 
 * output coupling capacitor
-Co emit2 out 570uF
+Co emit2 out 578uF
 
 * load to voltage src
 Vout out 0 0 ac 1.0 sin(0 10m 1k)
