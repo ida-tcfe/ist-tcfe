@@ -9,12 +9,12 @@ vc1 = float(v[6].split()[3])
 ve1 = float(v[8].split()[3])
 ve2 = float(v[10].split()[3])
 
-ib1 = float(v[12].split()[3])
-ir1 = float(v[14].split()[3])
-ir2 = float(v[16].split()[3])
-ic1 = float(v[18].split()[3])
-ie1 = float(v[20].split()[3])
-ie2 = float(v[22].split()[3])
+ib1 = float(v[12].split()[3]) /1000
+ir1 = float(v[14].split()[3]) /1000
+ir2 = float(v[16].split()[3]) /1000
+ic1 = float(v[18].split()[3]) /1000
+ie1 = float(v[20].split()[3]) /1000
+ie2 = float(v[22].split()[3]) /1000
 
 f.close()
 
