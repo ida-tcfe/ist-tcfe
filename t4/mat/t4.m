@@ -11,11 +11,11 @@ VAFN=69.7;
 RE1=100;
    
 %resistance c
-RC1=100;
+RC1=1000;
 
 %bias circuit
-RB1=90000;
-RB2=21000;
+RB1=80000;
+RB2=20000;
    
 VBEON=0.7;
 VCC=12;
@@ -73,7 +73,7 @@ fclose(fcomem);
 %ouput stage
 BFP = 227.3
 VAFP = 37.2
-RE2 = 1
+RE2 = 100
 VEBON = 0.7
 VI2 = VO1
 IE2 = (VCC-VEBON-VI2)/RE2
@@ -107,6 +107,16 @@ AV = (gB+gm2/gpi2*gB)/(gB+ge2+go2+gm2/gpi2*gB)*AV1
 AV_DB = 20*log10(abs(AV))
 ZI=ZI1
 ZO=1/(go2+gm2/gpi2*gB+ge2+gB)
+
+ftotal = fopen("total.tex", "w");
+fprintf(ftotal, "Gain & %f \\\\ \n", AV);
+fprintf(ftotal, "\\hline\n");
+fprintf(ftotal, "Input Impedance & %f \\\\ \n", ZI);
+fprintf(ftotal, "\\hline\n");
+fprintf(ftotal, "Output Impedance & %f \\\\ \n", ZO);
+fprintf(ftotal, "\\hline\n");
+
+fclose(ftotal);
 
 ft4 = fopen("ft4.tex", "w");
 fprintf(ft4, "$V_{cc}$ (V) & %f \\\\ \n", VCC);
@@ -165,6 +175,7 @@ endfor
 
 figure
 plot (log10(w/2/pi), 20*log10(VV));
+title("Frequency response")
 xlabel ("log10(f) [Hz]");
-ylabel ("|T| dB");
-print ("Vo_Vi.png", "-dpng");
+ylabel ("Vo(f)/Vi(f) dB");
+print ("Vo_Vi.eps", "-depsc");

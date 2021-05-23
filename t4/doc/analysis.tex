@@ -62,6 +62,8 @@ The common emmiter input impedance is the parallel of $R_{eq}$ and $r_{\pi}$ and
   \label{gainemmiter}
 \end{table}
 
+As desired, the input impedance is bigger than $R_{in}$, however it would be better if the input impedance was bigger.
+
 The gain for the common collector is easy to compute using the conductances:
 
 \begin{equation}
@@ -90,3 +92,35 @@ The following results were obtained:
   \caption{Gain and impedances - Common collector}
   \label{gaincollector}
 \end{table}
+
+By observing the two last tables we can conclude that the two stages can be connected without significant signal loss, because the output impedance of the common emmiter is small when compared with the input impedance of the common collector. It is also worth refering that the output impedance of the common collector is, as desidared, quite small.
+
+The gain and impedances obtained for the complete circuit are presented in the table \ref{gaintotal}. The input impedance is igual to the input impedance of the common emmiter, $Z_{O1}$. The gain and the output impedance are calculated with these equations, where the parameters with index 1 correspond to the common collector and the parameters with index 2 correspond to the common collector:
+
+\begin{equation}
+        A_v = \frac{\frac{1}{r_{\pi2}+Z_{O1}}+\frac{g_{m2}r_{\pi2}}{r_{\pi2}+Z_{O1}}}{\frac{1}{r_{\pi2}+Z_{O1}}+\frac{1}{R_{out}}+\frac{1}{r_{o2}}+\frac{g_{m2}r_{\pi2}}{r_{\pi2}+Z_{O1}}} A_{v1}
+\end{equation}
+
+\begin{equation}
+        Z_O = \frac{1}{\frac{g_{m2}r_{\pi2}}{r_{\pi2}+Z_{O1}}+g_{o2}+g_{out}+\frac{1}{r_{\pi2}+Z_{O1}}}
+\end{equation}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        \input{../mat/total}
+        \hline
+  \end{tabular}
+  \caption{Gain and impedances - Complete circuit}
+  \label{gaintotal}
+\end{table}
+
+Incremental analysis allowed also to make the following graph were it can be observed the frequency response. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{Vo_Vi.eps}
+  \caption{Theoretical frequency response}
+  \label{fig:frequencyresp}
+\end{figure}
