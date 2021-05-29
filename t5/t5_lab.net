@@ -52,7 +52,7 @@
 * Sources
 Vcc vcc 0 10.0
 Vee vee 0 -10.0
-Vin in 0 0 ac 1.0 sin(0 10m 1k)
+Vin in 0 0 ac 1.0 sin(0 0.1 1k)
 
 X1 ninv_in inv_in vcc vee amp_out uA741
 
@@ -84,7 +84,7 @@ hardcopy vo1.ps vdb(out)
 
 
 * frequency analysis
-ac dec 10 10 100MEG
+ac dec 10 10 10k
 plot v(out)
 plot vp(out)
 hardcopy vo1f.ps vdb(out)
