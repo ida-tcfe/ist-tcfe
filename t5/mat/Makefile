@@ -1,7 +1,7 @@
-#all: t4
+all: real
 
-#t4: t4.m
-#	octave $<
+real: real.m
+	octave $<
 
 clean:
 	@rm -f octave.log octave-workspace *.eps *~ *.tex

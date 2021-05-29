@@ -2,3 +2,65 @@
 
 \section{Real circuit}
 \label{sec:laboratory}
+
+For the purpose of trying out this circuit, we chose the following parameters:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+        \hline
+        Parameter & Value \\
+        \hline
+        $C_1 (nF)$ & 220 \\
+        $R_1 (k\Omega)$ & 1 \\
+        $C_2 (nF)$ & 220 \\
+        $R_2 (k\Omega)$ & 0.5 \\
+        $R_4 (k\Omega)$ & 1 \\
+        $R_5 (k\Omega)$ & 100 \\
+        \hline
+\end{tabular}
+\caption{Parameters for the simple circuit}
+\label{simple_par}
+\end{table}
+
+By varying the frequency using a signal generator and measuring the peak to peak amplitudes of $v_i$ and $v_o$, the gain as a function of the frequency could be determined. Below is a table which includes the data we retrieved ($f$, $2|v_1|$ and $2|v_2|$) and the calculated gain, in $dB$.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+        \hline
+        $f\;(Hz)$ & $2|v_1|\;(V)$ & $2|v_2|\;(V)$ & $(\frac{v_2}{v_1})_{dB}$ \\
+        \hline
+        500 & 0.105 & 5.5 & 34.28 \\
+        600 & 0.105 & 5.9 & 34.99 \\
+        700 & 0.105 & 6.2 & 35.42 \\
+        800 & 0.105 & 6.2 & 35.42 \\
+        900 & 0.105 & 6.2 & 35.42 \\
+        1000 & 0.105 & 6.2 & 35.42 \\
+        1100 & 0.105 & 6 & 35.14 \\
+        1200 & 0.104 & 5.9 & 35.08 \\
+        1300 & 0.104 & 5.7 & 34.78 \\
+        1400 & 0.104 & 5.55 & 34.55 \\
+        1500 & 0.104 & 5.4 & 34.31 \\
+        2000 & 0.104 & 4.6 & 32.91 \\
+        2500 & 0.104 & 3.9 & 31.48 \\
+        3000 & 0.104 & 3.35 & 30.16 \\
+        3500 & 0.104 & 2.9 & 28.91 \\
+        4000 & 0.104 & 2.6 & 27.96 \\
+        4500 & 0.104 & 2.3 & 26.89 \\
+        5000 & 0.104 & 2 & 25.68 \\
+        5500 & 0.104 & 1.8 & 24.76 \\
+        6000 & 0.104 & 1.6 & 23.74 \\
+        10000 & 0.103 & 1 & 19.74 \\
+        \hline
+\end{tabular}
+\caption{Data collected}
+\label{data}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{gain}
+\caption{Data collected}
+\label{data_graph}
+\end{figure}
