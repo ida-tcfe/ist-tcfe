@@ -85,9 +85,37 @@ hardcopy vo1.ps vdb(out)
 
 * frequency analysis
 ac dec 10 10 100MEG
-plot vdb(out)
+plot v(out)
 plot vp(out)
 hardcopy vo1f.ps vdb(out)
+
+* Output Specific Frequencies
+*meas ac max MAX vdb(outvv) from=10e3 to=10e7
+*let lim = {max-3}
+meas ac p1 FIND vdb(out) AT=500
+meas ac p2 FIND vdb(out) AT=600
+meas ac p3 FIND vdb(out) AT=700
+meas ac p4 FIND vdb(out) AT=800
+meas ac p5 FIND vdb(out) AT=900
+meas ac p6 FIND vdb(out) AT=1000
+meas ac p7 FIND vdb(out) AT=1100
+meas ac p8 FIND vdb(out) AT=1200
+meas ac p9 FIND vdb(out) AT=1300
+meas ac p10 FIND vdb(out) AT=1400
+meas ac p11 FIND vdb(out) AT=1500
+meas ac p12 FIND vdb(out) AT=2000
+meas ac p13 FIND vdb(out) AT=2500
+meas ac p14 FIND vdb(out) AT=3000
+meas ac p15 FIND vdb(out) AT=3500
+meas ac p16 FIND vdb(out) AT=4000
+meas ac p17 FIND vdb(out) AT=4500
+meas ac p18 FIND vdb(out) AT=5000
+meas ac p19 FIND vdb(out) AT=5500
+meas ac p20 FIND vdb(out) AT=6000
+meas ac p21 FIND vdb(out) AT=10000
+
+
+
 
 *input impedance in kohm
 print v(in)[40]/R1[i]/1000
