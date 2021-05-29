@@ -24,7 +24,7 @@ close(g);
 a = textread("../sim/lab.log", "%s")
 values = [];
 
-zero = 251;
+zero = 256;
 
 gain2 = [];
 
