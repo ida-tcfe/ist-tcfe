@@ -32,7 +32,7 @@ for i = 0:20
 	  gain2 = [gain2; str2double(a{zero+3*i,1})]
 endfor
 
-g = figure(2);
+g2 = figure(2);
 semilogx(f, gain, "xb");
 hold on
 semilogx(f, gain2, "or");
@@ -40,5 +40,5 @@ xlabel("f (Hz)");
 ylabel("gain (dB)");
 legend({"Real circuit", "Simulated circuit"})
 title("Data retrieved in the laboratory vs simulated data");
-print(g, "gain_sim.eps", "-depsc");
-close(g);
+print(g2, "gain_sim.eps", "-depsc");
+close(g2);

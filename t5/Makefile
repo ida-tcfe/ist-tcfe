@@ -5,8 +5,8 @@
 # ------------------------------------------------------------
 
 all: clean
-	make -C mat
 	make -C sim
+	make -C mat
 	#python compare.py
 	make -C doc
 	cp doc/report.pdf .
