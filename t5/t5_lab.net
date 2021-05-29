@@ -60,7 +60,7 @@ X1 ninv_in inv_in vcc vee amp_out uA741
 * Resistors
 R1 ninv_in 0 1k
 R4 inv_in 0 1k
-R5 inv_in amp_out 1k
+R5 inv_in amp_out 100k
 R2 amp_out out 0.5k 
 
 * Capacitors
@@ -85,7 +85,7 @@ hardcopy vo1.ps vdb(out)
 
 * frequency analysis
 ac dec 10 10 10k
-plot v(out)
+plot vdb(out)
 plot vp(out)
 hardcopy vo1f.ps vdb(out)
 
