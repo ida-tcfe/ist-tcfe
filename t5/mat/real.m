@@ -20,3 +20,25 @@ ylabel("gain (dB)");
 title("Data retrieved in the laboratory");
 print(g, "gain.eps", "-depsc");
 close(g);
+
+a = textread("../sim/lab.log", "%s")
+values = [];
+
+zero = 251;
+
+gain2 = [];
+
+for i = 0:20
+	  gain2 = [gain2; str2double(a{zero+3*i,1})]
+endfor
+
+g = figure(2);
+semilogx(f, gain, "xb");
+hold on
+semilogx(f, gain2, "or");
+xlabel("f (Hz)");
+ylabel("gain (dB)");
+legend({"Real circuit", "Simulated circuit"})
+title("Data retrieved in the laboratory vs simulated data");
+print(g, "gain_sim.eps", "-depsc");
+close(g);
