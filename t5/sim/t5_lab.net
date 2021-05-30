@@ -87,7 +87,7 @@ hardcopy vo1.ps vdb(out)
 ac dec 10 10 10k
 plot vdb(out)
 plot vp(out)
-hardcopy vo1f.ps vdb(out)
+hardcopy vo1f.eps vdb(out)
 
 * Output Specific Frequencies
 meas ac max MAX vdb(out) from=500 to=10000
@@ -115,7 +115,7 @@ meas ac p20 FIND vdb(out) AT=6000
 meas ac p21 FIND vdb(out) AT=10000
 
 *input impedance in kohm
-print v(in)[40]/R1[i]/1000
+print v(in)/vin#branch/(1000)
 
 *need a different setup to measure output impedance
 
