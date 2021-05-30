@@ -35,3 +35,5 @@ f = open("../doc/lab.tex", "w")
 
 f.write("$f_c\; (Hz)$ & " + str(central_freq) + "\\\\ \n")
 f.write("$gain(f_c)\; (dB)$ & " + str(max_gain) + "\\\\ \n")
+
+f.close()
