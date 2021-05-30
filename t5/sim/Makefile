@@ -1,4 +1,4 @@
-all: clean | lab.log #test
+all: clean | lab.log test
 	#$(eval NGSFIGS=$(shell grep _FIG ngspice.log | sed 's/_FIG//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	#$(eval NGSFIGPS=$(addsuffix .ps, $(NGSFIGS)))
 	#$(foreach i, $(NGSFIGPS), ps2pdf $i;)

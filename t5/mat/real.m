@@ -21,15 +21,13 @@ title("Data retrieved in the laboratory");
 print(g, "gain.eps", "-depsc");
 close(g);
 
-a = textread("../sim/lab.log", "%s")
+a = textread("sim_data.txt", "%s")
 values = [];
-
-zero = 256;
 
 gain2 = [];
 
-for i = 0:20
-	  gain2 = [gain2; str2double(a{zero+3*i,1})]
+for i = 1:21
+	  gain2 = [gain2; str2double(a{i,1})]
 endfor
 
 g2 = figure(2);
