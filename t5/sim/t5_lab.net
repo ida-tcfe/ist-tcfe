@@ -84,11 +84,11 @@ hardcopy vo1.ps vdb(out)
 
 
 * frequency analysis
-ac dec 10 10 10k
+ac dec 10 10 99k
 plot vdb(out)
 plot vp(out)
 hardcopy vo1f.eps vdb(out)
-hardcopy vo1f_phase.eps vdb(out)
+hardcopy vo1f_phase.eps vp(out)
 
 * Output Specific Frequencies
 meas ac max MAX vdb(out) from=500 to=10000
