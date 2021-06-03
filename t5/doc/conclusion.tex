@@ -6,3 +6,17 @@
 %The merit figure of our first circuit is: \input{../sim/merit}. For our second circuit, it's \input{../sim/merit_mb}.
 %Some deviations between the simulation and theoretical results were expected, due to the different model used by {\bf Ngspice} for transistors. In the theoretical analysis, we used very simple models. These deviations can be observed not only in table \ref{error1_res}, but also by comparing figures \ref{vg} and \ref{fig:frequencyresp} and the gains and impedances computed.
 %All in all, the objectives were met. With more time and a lengthier study, better results could be obtained, and other solutions implemented.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        $V$ & $V_t$ & $V_s$ & $|V_t-V_s|$ & $Error (\%)$ \\
+        \hline
+        \hline
+        \input{comparison}
+        \hline
+  \end{tabular}
+  \caption{Theoretical values ($V_t$) and Simulation values ($V_s$) of the operating point analysis (table produced with {\bf Python})  - The absolute deviation and error presented here are rounded up to one significant digit, for ease of interpretation.}
+  \label{error1_res}
+\end{table}
