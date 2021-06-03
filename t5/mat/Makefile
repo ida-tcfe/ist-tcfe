@@ -1,6 +1,9 @@
-all: real
+all: lab t5
 
-real: real.m
+lab: lab.m
+	octave $<
+
+t5: t5.m
 	octave $<
 
 clean:
