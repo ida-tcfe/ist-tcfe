@@ -63,7 +63,7 @@ f = open("../doc/lab.tex", "w")
 
 f.write("$f_c\; (Hz)$ & " + str(central_freq) + "\\\\ \n")
 f.write("$gain(f_c)\; (dB)$ & " + str(max_gain) + "\\\\ \n")
-f.write("$z_{in}$ & " + str(inp_r) + " + i " + str(inp_i) + "\\\\ \n")
-f.write("$z_{out}$ & " + str(out_r) + " + i " + str(out_i) + "\\\\ \n")
+f.write("$z_{in}$ & " + str(inp_r) + " + i ( " + str(inp_i) + " )\\\\ \n")
+f.write("$z_{out}$ & " + str(out_r) + " + i ( " + str(out_i) + " )\\\\ \n")
 
 f.close()
