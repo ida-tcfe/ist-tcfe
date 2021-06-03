@@ -19,7 +19,9 @@ A = [0,j*w*C1+1/R1,0,0;-1,1,0,0;1,0,-R4/(R4+R5),0;0,0,-1/R2,1/R2+j*w*C2];
 b = [Vin*j*w*C1;0;0;0];
 c = A\b;
 
+%antes = c(4)/Vin
 Gain = abs(c(4)/Vin)
+%p=angle(c(4)/Vin)
 GaindB = 20*log10(Gain)
 
 Rin = Vin/((Vin-c(2))*j*w*C1)
@@ -49,7 +51,7 @@ for i=1:length(w)
   b = [Vin*j*w(i)*C1;0;0;0];
   c = A\b;
   VV(i) = abs(c(4)/Vin);
-  pha = angle(c(4)/Vin);
+  pha(i) = angle(c(4)/Vin);
 endfor
 
 figure
