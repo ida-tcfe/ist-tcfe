@@ -32,9 +32,9 @@ fprintf(fi, "$f_c\\; (Hz)$ & %f \\\\ \n", f);
 fprintf(fi, "\\hline\n");
 fprintf(fi, "$gain(f_c)\\; (dB)$ & %f \\\\ \n", GaindB);
 fprintf(fi, "\\hline\n");
-fprintf(fi, "$z_{in}$ & %f + i (%f) \\\\ \n", real(Rin), imag(Rin));
+fprintf(fi, "$z_{in}$ & %f + i ( %f ) \\\\ \n", real(Rin), imag(Rin));
 fprintf(fi, "\\hline\n");
-fprintf(fi, "$z_{out}$ & %f + i (%f) \\\\ \n", real(Rout), imag(Rout));
+fprintf(fi, "$z_{out}$ & %f + i ( %f ) \\\\ \n", real(Rout), imag(Rout));
 fprintf(fi, "\\hline\n");
 
 fclose(fi);
@@ -42,17 +42,28 @@ fclose(fi);
 w=linspace(log10(10), log10(100000000), 70);
 w=2*pi*10 .^(w);
 VV=linspace(log10(10), log10(100000000), 70);
+pha=linspace(log10(10), log10(100000000), 70);
 
 for i=1:length(w)
   A = [0,j*w(i)*C1+1/R1,0,0;-1,1,0,0;1,0,-R4/(R4+R5),0;0,0,-1/R2,1/R2+j*w(i)*C2];
   b = [Vin*j*w(i)*C1;0;0;0];
   c = A\b;
   VV(i) = abs(c(4)/Vin);
+  pha = angle(c(4)/Vin);
 endfor
 
 figure
+plot (log10(w/2/pi), pha);
+title("Frequency response - Phase")
+xlabel ("log10(f) [Hz]");
+ylabel ("Phase (rad)");
+print ("phase.eps", "-depsc");
+
+figure
 plot (log10(w/2/pi), 20*log10(VV));
-title("Frequency response")
+title("Frequency response - Gain")
 xlabel ("log10(f) [Hz]");
 ylabel ("Vo(f)/Vi(f) dB");
 print ("Vo_Vi.eps", "-depsc");
+
+
