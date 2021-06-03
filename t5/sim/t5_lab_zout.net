@@ -89,7 +89,7 @@ plot vdb(out)
 plot vp(out)
 
 *output impedance
-print v(out)[20]/vout#branch[20]/(1000)
+print v(out)[20]/vout#branch[20]/(-1000)
 
 .endc 
 

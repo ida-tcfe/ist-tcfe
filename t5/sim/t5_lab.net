@@ -116,7 +116,7 @@ meas ac p20 FIND vdb(out) AT=6000
 meas ac p21 FIND vdb(out) AT=10000
 
 *input impedance in kohm
-print v(in)[20]/vin#branch[20]/(1000)
+print v(in)[20]/vin#branch[20]/(-1000)
 
 *need a different setup to measure output impedance
 

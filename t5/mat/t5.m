@@ -55,16 +55,16 @@ for i=1:length(w)
 endfor
 
 figure
-plot (log10(w/2/pi), pha);
+semilogx(w/2/pi, pha);
 title("Frequency response - Phase")
-xlabel ("log10(f) [Hz]");
+xlabel ("f (Hz)");
 ylabel ("Phase (rad)");
 print ("phase.eps", "-depsc");
 
 figure
-plot (log10(w/2/pi), 20*log10(VV));
+semilogx(w/2/pi, 20*log10(VV));
 title("Frequency response - Gain")
-xlabel ("log10(f) [Hz]");
+xlabel ("f (Hz)");
 ylabel ("Vo(f)/Vi(f) dB");
 print ("Vo_Vi.eps", "-depsc");
 
