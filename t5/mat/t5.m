@@ -27,7 +27,7 @@ Rin = Vin/((Vin-c(2))*j*w*C1)
 %R2 em paralelo com C2
 Rout = 1/(1/R2+j*w*C2)
 
-fi = fopen("centralf.tex", "w");
+fi = fopen("../doc/centralf.tex", "w");
 fprintf(fi, "$f_c\\; (Hz)$ & %f \\\\ \n", f);
 fprintf(fi, "\\hline\n");
 fprintf(fi, "$gain(f_c)\\; (dB)$ & %f \\\\ \n", GaindB);
