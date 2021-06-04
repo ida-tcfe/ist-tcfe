@@ -62,7 +62,8 @@ ac dec 10 10 100MEG
 
 echo ---- Output impedance ----
 *plot abs(v(out)[40]/vin#branch[40]/(-1000))
-print v(out)[40]/vin#branch[40]/(-1000)
+let zout = v(out)[40]/vin#branch[40]/(-1000)
+print zout
 
 *need a different setup to measure output impedance
 

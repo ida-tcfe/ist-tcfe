@@ -104,7 +104,8 @@ hardcopy vo2f_mb.eps vdb(outvv)
 
 echo ---- Input impedance ----
 plot abs(v(in2vv)[40]/vin#branch[40]/(-1000))
-print v(in2vv)[40]/vin#branch[40]/(-1000)
+let zin_mb = v(in2vv)[40]/vin#branch[40]/(-1000)
+print zin_mb
 
 *need a different setup to measure output impedance
 
