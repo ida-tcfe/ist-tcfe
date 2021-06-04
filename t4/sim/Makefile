@@ -23,4 +23,4 @@ clean:
 .PHONY: all clean
 
 test:
-	sudo python3 reader.py
+	python2.7 reader.py

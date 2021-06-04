@@ -1,21 +1,50 @@
+v = []
+
+def read(s, n):
+    i = 0
+    while (1):
+        if (v[i] != "\n"):
+            if(v[i].split()[0] == s):
+                break
+        i += 1
+    return float(v[i].split()[n])
+
+def read2(s, n, rep):
+    i = 0
+    while (1):
+        if (v[i] != "\n"):
+            if(v[i].split()[0] == s):
+                break
+        i += 1
+    return float(v[i].split()[n].replace(rep,""))
+
+def read3(s, n):
+    i = 0
+    while (1):
+        if (v[i] != "\n"):
+            if(v[i].split()[0] == s):
+                break
+        i += 1
+    return [float(v[i].split()[n].split(",")[0]), float(v[i].split()[n].split(",")[1])]
+
 print("\n---- Circuit 1 ----\n")
 
 f = open("ngspice.log", "r")
 
 v = f.readlines()
 
-ma = float(v[77].split()[2])
+ma = read("max", 2)
 ma = pow(10, ma/20.)
-left = float(v[78].split()[2])
-right = float(v[79].split()[2])
+left = read("left", 2)
+right = read("right", 2)
 
 print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
-inp = v[89].split()[2]
-inp_r = float(inp.split(',')[0])
-inp_i = float(inp.split(',')[1])
+inp = read3("v(in2vv)[40]/vin#branch[40]/(-1000)", 2)
+inp_r = inp[0]
+inp_i = inp[1]
 
 print("Input impedance: " + str(inp_r) + ", " + str(inp_i))
 
@@ -25,9 +54,9 @@ f = open("ngspice2.log", "r")
 
 v = f.readlines()
 
-out = v[31].split()[2]
-out_r = float(out.split(',')[0])
-out_i = float(out.split(',')[1])
+out = read3("v(out)[40]/vin#branch[40]/(-1000)", 2)
+out_r = out[0]
+out_i = out[1]
 
 print("Output impedance: " + str(out_r) + ", " + str(out_i))
 
@@ -109,18 +138,18 @@ f = open("ngspice_mb.log", "r")
 
 v = f.readlines()
 
-ma = float(v[77].split()[2])
+ma = read("max", 2)
 ma = pow(10, ma/20.)
-left = float(v[78].split()[2])
-right = float(v[79].split()[2])
+left = read("left", 2)
+right = read("right", 2)
 
 print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
-inp = v[89].split()[2]
-inp_r = float(inp.split(',')[0])
-inp_i = float(inp.split(',')[1])
+inp = read3("v(in2vv)[40]/vin#branch[40]/(-1000)", 2)
+inp_r = inp[0]
+inp_i = inp[1]
 
 print("Input impedance: " + str(inp_r) + ", " + str(inp_i))
 
@@ -130,9 +159,9 @@ f = open("ngspice2_mb.log", "r")
 
 v = f.readlines()
 
-out = v[31].split()[2]
-out_r = float(out.split(',')[0])
-out_i = float(out.split(',')[1])
+out = read3("v(out)[40]/vout#branch[40]/(-1000)", 2)
+out_r = out[0]
+out_i = out[1]
 
 print("Output impedance: " + str(out_r) + ", " + str(out_i))
 
