@@ -10,8 +10,13 @@ R2=500;
 R4=1000;
 R5=100000;
 
-f = 1000;
-w = 2*pi*f;
+%f = 1000;
+%w = 2*pi*f;
+
+wL=1/(R1*C1);
+wH=1/(R2*C2);
+
+w=sqrt(wL*wH);
 
 Vin = 1*exp(-j*pi/2);
 
@@ -21,6 +26,7 @@ c = A\b;
 
 %antes = c(4)/Vin
 Gain = abs(c(4)/Vin)
+%Gain = abs(R1*C1*j*w*(1+R5/R4)/(1+R1*C1*j*w)/(1+R2*C2*j*w))
 %p=angle(c(4)/Vin)
 GaindB = 20*log10(Gain)
 
@@ -30,7 +36,7 @@ Rin = Vin/((Vin-c(2))*j*w*C1)
 Rout = 1/(1/R2+j*w*C2)
 
 fi = fopen("../doc/centralf.tex", "w");
-fprintf(fi, "$f_c\\; (Hz)$ & %f \\\\ \n", f);
+fprintf(fi, "$f_c\\; (Hz)$ & %f \\\\ \n", w/(2*pi));
 fprintf(fi, "\\hline\n");
 fprintf(fi, "$gain(f_c)\\; (dB)$ & %f \\\\ \n", GaindB);
 fprintf(fi, "\\hline\n");
