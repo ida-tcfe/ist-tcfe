@@ -1,14 +1,34 @@
 print("hello\n")
 
+v = []
+
+def read(s, n):
+    i = 0
+    while (1):
+        if (v[i] != "\n"):
+            if(v[i].split()[0] == s):
+                break
+        i += 1
+    return float(v[i].split()[n])
+
+def read2(s, n, rep):
+    i = 0
+    while (1):
+        if (v[i] != "\n"):
+            if(v[i].split()[0] == s):
+                break
+        i += 1
+    return float(v[i].split()[n].replace(rep,""))
+
 f = open("ngspice.log", "r")
 
 v = f.readlines()
 
 #print(v[57], v[58], v[59])
 
-avg = float(v[57].split()[2])
-ma = float(v[58].split()[4])
-mi = float(v[59].split()[4])
+avg = read("average", 2)
+ma = read("max", 4)
+mi = read("min", 4)
 
 print("Average: " + str(avg) + " V")
 print("Ripple: " + str(ma-mi) + " V")
@@ -19,10 +39,10 @@ f = open("t3.net", "r")
 
 v = f.readlines()
 
-r1 = float(v[31].split()[3].replace("k",""))
-r3 = float(v[32].split()[3].replace("k",""))
+r1 = read2("R1", 3, "k")
+r3 = read2("R3", 3, "k")
 
-c = float(v[63].split()[3].replace("uF",""))
+c = read2("C1", 3, "uF")
 
 print("R1 = ", r1)
 print("R2 = ", r3)

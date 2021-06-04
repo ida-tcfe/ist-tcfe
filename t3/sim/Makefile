@@ -14,4 +14,4 @@ clean:
 .PHONY: all clean
 
 test: ngspice.log
-	sudo python3 reader.py
+	python2.7 reader.py
