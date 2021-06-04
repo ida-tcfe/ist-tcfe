@@ -68,21 +68,19 @@ v = f.readlines()
 
 rin = 0.1
 
-ci = float(v[11].split()[3].replace("uF",""))
+ci = read2("Cin", 3, "uF")
 
-r1 = float(v[14].split()[3].replace("k",""))
-r2 = float(v[15].split()[3].replace("k",""))
+r1 = read2("R1", 3, "k")
+r2 = read2("R2", 3, "k")
 
-rc = float(v[23].split()[3].replace("k",""))
-re = float(v[24].split()[3].replace("k",""))
+rc = read2("Rc", 3, "k")
+re = read2("Re", 3, "k")
 
-cb = float(v[27].split()[3].replace("uF",""))
+cb = read2("Cb", 3, "uF")
 
-rout = float(v[32].split()[3].replace("k",""))
+rout = read2("Rout", 3, "k")
 
-co = float(v[35].split()[3].replace("uF",""))
-
-#rl = float(v[34].split()[3].replace("k",""))
+co = read2("Co", 3, "uF")
 
 print("R1 = ", r1)
 print("R2 = ", r2)
@@ -173,21 +171,19 @@ v = f.readlines()
 
 rin = 0.1
 
-ci = float(v[11].split()[3].replace("uF",""))
+ci = read2("Cin", 3, "uF")
 
-r1 = float(v[14].split()[3].replace("k",""))
-r2 = float(v[15].split()[3].replace("k",""))
+r1 = read2("R1", 3, "k")
+r2 = read2("R2", 3, "k")
 
-rc = float(v[23].split()[3].replace("k",""))
-re = float(v[24].split()[3].replace("k",""))
+rc = read2("Rc", 3, "k")
+re = read2("Re", 3, "k")
 
-cb = float(v[27].split()[3].replace("uF",""))
+cb = read2("Cb", 3, "uF")
 
-rout = float(v[32].split()[3].replace("k",""))
+rout = read2("Rout", 3, "k")
 
-co = float(v[35].split()[3].replace("uF",""))
-
-#rl = float(v[34].split()[3].replace("k",""))
+co = read2("Co", 3, "uF")
 
 print("R1 = ", r1)
 print("R2 = ", r2)
