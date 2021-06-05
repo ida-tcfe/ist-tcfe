@@ -79,7 +79,7 @@ f.write("$z_{out}$ & " + str(out_r) + " + i ( " + str(out_i) + " ) \\\\ \n \hlin
 
 f.close()
 
-# ---------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 f = open("mb.log", "r")
 
@@ -156,5 +156,5 @@ print("Merit: " + str(merit))
 f.close()
 
 f = open("merit_mb.tex", "w")
-f.write('{:.0f}'.format(merit))
+f.write(str(merit))
 f.close()

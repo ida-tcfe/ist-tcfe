@@ -56,3 +56,42 @@ f.write("$Re(z_{out})$ & " + str(zoutr) + " & " + str(zoutr_sim) + " & " + err(a
 f.write("$Im(z_{out})$ & " + str(zouti) + " & " + str(zouti_sim) + " & " + err(abs(zouti_sim-zouti)) + " & " + err(abs(zouti_sim-zouti)/abs(zouti_sim)*100) + " \\\\ \n \hline \n")
 
 f.close()
+
+# ------------------------------------------------------------------------------
+
+f = open("doc/centralf_opt.tex", "r")
+
+v = f.readlines()
+
+fc = float(v[0].split()[3])
+gain = float(v[2].split()[3])
+zinr = float(v[4].split()[2])
+zini = float(v[4].split()[6])
+zoutr = float(v[6].split()[2])
+zouti = float(v[6].split()[6])
+
+f.close()
+
+f = open("doc/mb.tex", "r")
+
+v = f.readlines()
+
+fc_sim = float(v[0].split()[3])
+gain_sim = float(v[2].split()[3])
+zinr_sim = float(v[4].split()[2])
+zini_sim = float(v[4].split()[6])
+zoutr_sim = float(v[6].split()[2])
+zouti_sim = float(v[6].split()[6])
+
+f.close()
+
+f = open("doc/comparison_mb.tex", "w")
+
+f.write("$f_c\; (Hz)$ & " + str(fc) + " & " + str(fc_sim) + " & " + err(abs(fc_sim-fc)) + " & " + err(abs(fc_sim-fc)/abs(fc_sim)*100) + " \\\\ \n \hline \n")
+f.write("$gain(1000\;Hz)\; (V)$ & " + str(gain) + " & " + str(gain_sim) + " & " + err(abs(gain_sim-gain)) + " & " + err(abs(gain_sim-gain)/abs(gain_sim)*100) + " \\\\ \n \hline \n")
+f.write("$Re(z_{in})$ & " + str(zinr) + " & " + str(zinr_sim) + " & " + err(abs(zinr_sim-zinr)) + " & " + err(abs(zinr_sim-zinr)/abs(zinr_sim)*100) + " \\\\ \n \hline \n")
+f.write("$Im(z_{in})$ & " + str(zini) + " & " + str(zini_sim) + " & " + err(abs(zini_sim-zini)) + " & " + err(abs(zini_sim-zini)/abs(zini_sim)*100) + " \\\\ \n \hline \n")
+f.write("$Re(z_{out})$ & " + str(zoutr) + " & " + str(zoutr_sim) + " & " + err(abs(zoutr_sim-zoutr)) + " & " + err(abs(zoutr_sim-zoutr)/abs(zoutr_sim)*100) + " \\\\ \n \hline \n")
+f.write("$Im(z_{out})$ & " + str(zouti) + " & " + str(zouti_sim) + " & " + err(abs(zouti_sim-zouti)) + " & " + err(abs(zouti_sim-zouti)/abs(zouti_sim)*100) + " \\\\ \n \hline \n")
+
+f.close()
