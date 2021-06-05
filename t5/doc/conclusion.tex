@@ -7,12 +7,18 @@
 %Some deviations between the simulation and theoretical results were expected, due to the different model used by {\bf Ngspice} for transistors. In the theoretical analysis, we used very simple models. These deviations can be observed not only in table \ref{error1_res}, but also by comparing figures \ref{vg} and \ref{fig:frequencyresp} and the gains and impedances computed.
 %All in all, the objectives were met. With more time and a lengthier study, better results could be obtained, and other solutions implemented.
 
+This laboratory assignment had as the main objective the construction and analysis of a bandpass filter, using an OP-AMP. In the laboratory, the circuit presented in figure \ref{circuit} was analysed. After, this circuit was simulated using {\bf Ngspice} and analysed theoretically using {\bf Octave}. In the following graph, it can be observed the results obtained in the lab and the ones obtained with {\bf Ngspice} and {\bf Octave}.
+
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{gain_all.eps}
         \caption{Data comparison}
         \label{alldata}
 \end{figure}
+
+As it was expected, the different results show some deviations. Some possible reasons for the deviations of the experimental points were already given in Section~\ref{sec:simulation}. The deviations between the simulation and the theory are probably the consequence of the different model used for the OP-AMP. {\bf Ngspice} uses a quite complex model. On the contrary, for the theoretical analysis a quite simple model was considered, in which the OP-AMP is ideal. As expected, the model used by {\bf Ngspice} is more realistic, so the simulated points come closer to the experimental points than the theoretical ones.
+
+In the next table, the results for the simulation and the theory regarding the central frequency, the gain and the impedances are compared:
 
 \begin{table}[H]
   \centering
@@ -24,6 +30,6 @@
         \input{comparison}
         \hline
   \end{tabular}
-  \caption{Theoretical values ($V_t$) and Simulation values ($V_s$) of the operating point analysis (table produced with {\bf Python})  - The absolute deviation and error presented here are rounded up to one significant digit, for ease of interpretation.}
+  \caption{Theoretical values ($V_t$) and Simulation values ($V_s$) (table produced with {\bf Python})  - The absolute deviation and error presented here are rounded up to one significant digit, for ease of interpretation.}
   \label{error1_res}
 \end{table}
