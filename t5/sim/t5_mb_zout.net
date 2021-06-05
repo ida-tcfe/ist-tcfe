@@ -60,8 +60,8 @@ X1 ninv_in inv_in vcc vee amp_out uA741
 
 * Resistors
 R1 ninv_in 0 1k
-R4 inv_in 0 1k
-R5 inv_in amp_out 100k
+R4 inv_in 0 3.33333333333333333333333k
+R5 inv_in amp_out 300k
 R2 amp_out out 0.5k 
 
 * Capacitors
