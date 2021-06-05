@@ -61,7 +61,7 @@ X1 ninv_in inv_in vcc vee amp_out uA741
 R1 ninv_in 0 1k
 R4 inv_in 0 1k
 R5 inv_in amp_out 100k
-R2 amp_out out 0.5k
+R2 amp_out out 1k
 
 * Capacitors
 Cin in ninv_in 0.220uF
@@ -119,7 +119,7 @@ meas ac p20 FIND vdb(out) AT=6000
 meas ac p21 FIND vdb(out) AT=10000
 
 *input impedance in kohm
-let zin = {v(in)[20]/vin#branch[20]/(-1000)}
+let zin = {-v(in)[1000]/vin#branch[1000]}
 print zin
 
 * gain

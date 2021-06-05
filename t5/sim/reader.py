@@ -50,7 +50,7 @@ while (n < 21):
 
 f.close()
 
-max_gain = read("max", 2)
+max_gain = read("maxgain", 2)
 left = read("left", 2)
 right = read("right", 2)
 central_freq = np.sqrt(left*right)
@@ -73,7 +73,7 @@ out_i = out[1]
 f = open("../doc/lab.tex", "w")
 
 f.write("$f_c\; (Hz)$ & " + str(central_freq) + " \\\\ \n \hline \n")
-f.write("$gain(f_c)\; (dB)$ & " + str(max_gain) + " \\\\ \n \hline \n")
+f.write("$gain(1000\;Hz)\; (dB)$ & " + str(max_gain) + " \\\\ \n \hline \n")
 f.write("$z_{in}$ & " + str(inp_r) + " + i ( " + str(inp_i) + " ) \\\\ \n \hline \n")
 f.write("$z_{out}$ & " + str(out_r) + " + i ( " + str(out_i) + " ) \\\\ \n \hline \n")
 
@@ -100,7 +100,7 @@ while (n < 21):
 
 f.close()
 
-max_gain = read("max", 2)
+max_gain = read("maxgain", 2)
 left = read("left", 2)
 right = read("right", 2)
 central_freq = np.sqrt(left*right)
@@ -123,7 +123,7 @@ out_i = out[1]
 f = open("../doc/mb.tex", "w")
 
 f.write("$f_c\; (Hz)$ & " + str(central_freq) + " \\\\ \n \hline \n")
-f.write("$gain(f_c)\; (dB)$ & " + str(max_gain) + " \\\\ \n \hline \n")
+f.write("$gain(1000\;Hz)\; (dB)$ & " + str(max_gain) + " \\\\ \n \hline \n")
 f.write("$z_{in}$ & " + str(inp_r) + " + i ( " + str(inp_i) + " ) \\\\ \n \hline \n")
 f.write("$z_{out}$ & " + str(out_r) + " + i ( " + str(out_i) + " ) \\\\ \n \hline \n")
 

@@ -91,7 +91,7 @@ hardcopy vo1f.eps vdb(out)
 hardcopy vo1f_phase.eps vp(out)
 
 * Output Specific Frequencies
-meas ac max MAX vdb(out) from=500 to=10000
+meas ac max MAX vdb(out) from=0 to=10000
 let lim = {max-3}
 meas ac left WHEN vdb(out)=lim CROSS=1
 meas ac right WHEN vdb(out)=lim CROSS=LAST
@@ -119,7 +119,7 @@ meas ac p20 FIND vdb(out) AT=6000
 meas ac p21 FIND vdb(out) AT=10000
 
 *input impedance in kohm
-let zin = {v(in)[20]/vin#branch[20]/(-1000)}
+let zin = {-v(in)[1000]/vin#branch[1000]}
 print zin
 
 * gain

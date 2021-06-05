@@ -40,7 +40,7 @@ Rout = 1/(1/R2+j*w*C2)
 fi = fopen("../doc/centralf.tex", "w");
 fprintf(fi, "$f_c\\; (Hz)$ & %f \\\\ \n", wc/(2*pi));
 fprintf(fi, "\\hline\n");
-fprintf(fi, "$gain(f_c)\\; (dB)$ & %f \\\\ \n", GaindB);
+fprintf(fi, "$gain(1000\\;Hz)\\; (dB)$ & %f \\\\ \n", GaindB);
 fprintf(fi, "\\hline\n");
 fprintf(fi, "$z_{in}$ & %f + i ( %f ) \\\\ \n", real(Rin), imag(Rin));
 fprintf(fi, "\\hline\n");

@@ -7,7 +7,7 @@
 all: clean
 	make -C sim
 	make -C mat
-	python compare.py
+	python2.7 compare.py
 	make -C doc
 	cp doc/report.pdf .
 

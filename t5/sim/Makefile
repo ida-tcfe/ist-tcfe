@@ -23,4 +23,4 @@ clean:
 .PHONY: all clean
 
 test:
-	python reader.py
+	python2.7 reader.py
