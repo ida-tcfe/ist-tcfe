@@ -84,7 +84,7 @@ hardcopy vo1.ps vdb(out)
 
 
 * frequency analysis
-ac dec 10 10 99k
+ac dec 2000 10 99k
 plot vdb(out)
 plot vp(out)
 hardcopy vo1f_mb.eps vdb(out)
@@ -121,6 +121,9 @@ meas ac p21 FIND vdb(out) AT=10000
 *input impedance in kohm
 let zin = {v(in)[20]/vin#branch[20]/(-1000)}
 print zin
+
+* gain
+meas ac maxgain FIND vdb(out) AT=1000
 
 *need a different setup to measure output impedance
 
