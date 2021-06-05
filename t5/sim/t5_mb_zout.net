@@ -89,7 +89,8 @@ plot vdb(out)
 plot vp(out)
 
 *output impedance
-print v(out)[20]/vout#branch[20]/(-1000)
+let zout = {v(out)[20]/vout#branch[20]/(-1000)}
+print zout
 
 .endc 
 

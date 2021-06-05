@@ -1,46 +1,63 @@
+import numpy as np
+
+v = []
+
+def read(s, n):
+    i = 0
+    while (1):
+        if (v[i] != "\n"):
+            if(v[i].split()[0] == s):
+                break
+        i += 1
+    return float(v[i].split()[n])
+
+def read2(s, n, rep):
+    i = 0
+    while (1):
+        if (v[i] != "\n"):
+            if(v[i].split()[0] == s):
+                break
+        i += 1
+    return float(v[i].split()[n].replace(rep,""))
+
+def read3(s, n):
+    i = 0
+    while (1):
+        if (v[i] != "\n"):
+            if(v[i].split()[0] == s):
+                break
+        i += 1
+    return [float(v[i].split()[n].split(",")[0]), float(v[i].split()[n].split(",")[1])]
+
+
 f = open("lab.log", "r")
 
 v = f.readlines()
 
 f.close()
 
-i = 0;
-while (1):
-    if (v[i] != "\n"):
-        #print(str(i) + v[i])
-        if (v[i].split()[0] == "p1"):
-            break
-    i += 1
+p = []
+for i in range(1,22):
+    p.append(read("p"+str(i), 2))
 
 f = open("../mat/sim_data.txt", "w")
 
 n = 0;
 while (n < 21):
-    f.write(str(float(v[i+n].split()[2])) + "\n")
+    f.write(str(p[n]) + "\n")
     n += 1
 
 f.close()
 
-i = 0;
-while (1):
-    if (v[i] != "\n"):
-        if (v[i].split()[0] == "max"):
-            break
-    i += 1
+max_gain = read("max", 2)
+left = read("left", 2)
+right = read("right", 2)
+central_freq = np.sqrt(left*right)
+#central_freq = float(v[i].split()[4])
 
-max_gain = float(v[i].split()[2])
-central_freq = float(v[i].split()[4])
-
-i = 0;
-while (1):
-    if (v[i] != "\n"):
-        if (v[i].split()[0] == "v(in)[20]/vin#branch[20]/(-1000)"):
-            break
-    i += 1
-
-inp = v[i].split()[2]
-inp_r = float(inp.split(",")[0])
-inp_i = float(inp.split(",")[1])
+inp = read3("zin", 2)
+inp_r = inp[0]
+inp_i = inp[1]
 
 f = open("lab_zout.log", "r")
 
@@ -48,16 +65,9 @@ v = f.readlines()
 
 f.close()
 
-i = 0;
-while (1):
-    if (v[i] != "\n"):
-        if (v[i].split()[0] == "v(out)[20]/vout#branch[20]/(-1000)"):
-            break
-    i += 1
-
-out = v[i].split()[2]
-out_r = float(out.split(",")[0])
-out_i = float(out.split(",")[1])
+out = read3("zout", 2)
+out_r = out[0]
+out_i = out[1]
 
 f = open("../doc/lab.tex", "w")
 
