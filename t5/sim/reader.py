@@ -155,6 +155,6 @@ print("Merit: " + str(merit))
 
 f.close()
 
-f = open("merit_mb.tex", "w")
+f = open("../doc/merit.tex", "w")
 f.write(str(merit))
 f.close()
