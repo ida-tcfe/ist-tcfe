@@ -42,7 +42,7 @@ print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
-inp = read3("v(in2vv)[40]/vin#branch[40]/(-1000)", 2)
+inp = read3("zin", 2)
 inp_r = inp[0]
 inp_i = inp[1]
 
@@ -54,7 +54,7 @@ f = open("ngspice2.log", "r")
 
 v = f.readlines()
 
-out = read3("v(out)[40]/vin#branch[40]/(-1000)", 2)
+out = read3("zout", 2)
 out_r = out[0]
 out_i = out[1]
 
@@ -145,7 +145,7 @@ print("Voltage gain: " + str(ma) + " V")
 print("Lower cuttoff frequency: " + str(left) + " Hz")
 print("Bandwidth: " + str(right-left) + " Hz")
 
-inp = read3("v(in2vv)[40]/vin#branch[40]/(-1000)", 2)
+inp = read3("zin_mb", 2)
 inp_r = inp[0]
 inp_i = inp[1]
 
@@ -157,7 +157,7 @@ f = open("ngspice2_mb.log", "r")
 
 v = f.readlines()
 
-out = read3("v(out)[40]/vout#branch[40]/(-1000)", 2)
+out = read3("zout_mb", 2)
 out_r = out[0]
 out_i = out[1]
 
