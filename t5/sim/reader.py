@@ -137,11 +137,13 @@ v = f.readlines()
 
 R1 = read2("R1", 3, "k")
 R4 = read2("R4", 3, "k")
-R5 = read2("R5", 3, "k")
+#R5 = read2("R5", 3, "k")
+R5 = 120
 R2 = read2("R2", 3, "k")
 
 Cin = read2("Cin", 3, "uF")
-Cout = read2("Cout", 3, "uF")
+#Cout = read2("Cout", 3, "uF")
+Cout = 0.44
 
 cost = R1 + R2 + R4 + R5 + Cin + Cout
 
