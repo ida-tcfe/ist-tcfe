@@ -8,24 +8,101 @@
 %inicio analise t4
 %To study the circuit in figure \ref{circuit}, it was first performed an operating point analysis, OP, as it was explained in classes. In this DC analysis (the source is like a short-circuit), the capacitors have infinite impedance, so they behave like an open circuit. The fact that capacitor $C_O$ behaves like an open circuit implies that the DC final output voltage is equal to 0 V, like the DC initial voltage. Bearing this in mind, the capacitors and $R_{in}$ can be removed from the OP analysis. Using a Thévenin's equivalent for the bias circuit makes the OP analysis quite simple. Considering first the common emitter, with the mesh analysis it is possible to observe that:
 
-First, the real circuit was analised. As already mentioned, to perform the theoretical analysis of the circuit {\bf Octave} was used. This analysis was conducted considering a sine wave of amplitude 1 and phase 0 as the input. In order to compute the gain, the input impedance and the output impedance, the circuit was analised using phasors.
+First, the real circuit was analysed. As already mentioned, to perform the theoretical analysis {\bf Octave} was used. This analysis was conducted considering a sine wave of amplitude 1 and phase 0 as the input. In order to compute the gain, the input impedance and the output impedance, the circuit was analysed using phasors.
 
 It is possible to observe that the OP-AMP is inserted in a non-inverting amplifier with resistive feedback loop. Considering the ideal model for the OP-AMP, the voltage in node 3 must be equal to voltage in node 2. Also, voltage in node 2 must be:
 
 \begin{equation}
-        V_2 = \frac{R_4}{R_4+R_5}V_6
+        \widetilde{V_2} = \frac{R_4}{R_4+R_5}\widetilde{V_6}
 \end{equation}
+
+An ideal OP-AMP has infinite input impedance, so no current goes in the entries of the OP-AMP. Considering this, we can perform nodal analysis and, for node 3, we obtain: 
+
+\begin{equation}
+        (\widetilde{V_3}-\widetilde{V_i})jwC_1 + \frac{\widetilde{V_3}}{R_1} = 0
+\end{equation}
+
+For the node of the output voltage, we get:
+
+\begin{equation}
+        \frac{\widetilde{V_o}-\widetilde{V_6}}{R_2} + \widetilde{V_o}jwC_2 = 0
+\end{equation}
+
+With this, it's possible to write the following matrix:
+
+\begin{equation}
+  \begin{bmatrix}
+    1 & -1 & 0 & 0 \\
+    1 & 0 & -\frac{R_4}{R_4+R_5} & 0 \\
+    0 & jwC_1+\frac{1}{R_1} & 0 & 0 \\
+    0 & 0 & -\frac{1}{R_2} & jwC_2+\frac{1}{R_2}  
+  \end{bmatrix}
+  \begin{bmatrix}
+    \widetilde{V_2} \\
+    \widetilde{V_3} \\
+    \widetilde{V_6} \\
+    \widetilde{V_o}
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    0 \\
+    0 \\
+    jwC_1\widetilde{V_i} \\
+    0
+  \end{bmatrix}
+  \label{pha}
+\end{equation}
+
+By solving the matrix it is then possible to compute the gain for every frequency.
+
+The central frequency was calculated by considering that:
+
+\begin{equation}
+        w_c = \sqrt{w_Lw_H}
+\end{equation}
+
+The analysis of the circuit allows to conclude that $w_L=\frac{1}{R_1C_1}$ and $w_H=\frac{1}{R_2C_2}$.
+
+The input impedance will be: 
+
+\begin{equation}
+        z_{in} = \frac{\widetilde{V_i}}{\widetilde{I_i}} = \frac{\widetilde{V_i}}{(\widetilde{V_i}-\widetilde{V_3})jwC_1}
+\end{equation}
+
+The output impedance is calculated considering that the input source is off, is like a short-circuit. That results in no current in $C_1$, $R_1$ and $R_4$. $R_5$ is in parallel with the OP-AMP. Ideally, the OP-AMP has 0 output impedance, so the parallel with $R_5$ results in 0 impedance. So, in the end, what is left is the parallel of $R_2$ and $C_2$. Consequently, the output impedance is:
+
+\begin{equation}
+        z_{out} = \frac{1}{\frac{1}{R_2}+jwC_2}
+\end{equation}
+
+With this analysis, the following results for the central frequency were obtained:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+        {\bf Name} & {\bf Value} \\
+        \hline
+        \hline
+        \input{centralf}
+        \hline
+  \end{tabular}
+  \caption{Results}
+  \label{teo_results}
+\end{table}
+
+The frequency response was also calculated and the following was obtained:
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{Vo_Vi.eps}
-        \caption{Transistor incremental model}
-        \label{transistorinc}
+        \caption{Frequency response - Gain}
+        \label{tfrg}
 \end{figure}
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{phase.eps}
-        \caption{Transistor incremental model}
-        \label{transistorinc}
+        \caption{Frequency response - Phase}
+        \label{tfrf}
 \end{figure}
