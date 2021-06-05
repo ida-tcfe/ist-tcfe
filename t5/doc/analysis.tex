@@ -13,55 +13,61 @@ First, the real circuit was analysed. As already mentioned, to perform the theor
 It is possible to observe that the OP-AMP is inserted in a non-inverting amplifier with resistive feedback loop. Considering the ideal model for the OP-AMP, the voltage in node 3 must be equal to voltage in node 2. Also, voltage in node 2 must be:
 
 \begin{equation}
-        \widetilde{V_2} = \frac{R_4}{R_4+R_5}\widetilde{V_6}
+        \widetilde{V_2} = \frac{R_4}{R_4+R_5}\widetilde{V_6} \iff \widetilde{V_6} = (1+\frac{R_5}{R_4})\widetilde{V_2}
 \end{equation}
 
 An ideal OP-AMP has infinite input impedance, so no current goes in the entries of the OP-AMP. Considering this, we can perform nodal analysis and, for node 3, we obtain: 
 
 \begin{equation}
-        (\widetilde{V_3}-\widetilde{V_i})jwC_1 + \frac{\widetilde{V_3}}{R_1} = 0
+        (\widetilde{V_3}-\widetilde{V_i})jwC_1 + \frac{\widetilde{V_3}}{R_1} = 0 \iff \widetilde{V_3} = \frac{jwC_1R_1\widetilde{V_i}}{jwC_1R_1+1}
 \end{equation}
 
 For the node of the output voltage, we get:
 
 \begin{equation}
-        \frac{\widetilde{V_o}-\widetilde{V_6}}{R_2} + \widetilde{V_o}jwC_2 = 0
+        \frac{\widetilde{V_o}-\widetilde{V_6}}{R_2} + \widetilde{V_o}jwC_2 = 0 \iff \widetilde{V_o} = \frac{\widetilde{V_6}}{1+jwC_2R_2}
 \end{equation}
 
-With this, it's possible to write the following matrix:
+The transfer function is then:
 
 \begin{equation}
-  \begin{bmatrix}
-    1 & -1 & 0 & 0 \\
-    1 & 0 & -\frac{R_4}{R_4+R_5} & 0 \\
-    0 & jwC_1+\frac{1}{R_1} & 0 & 0 \\
-    0 & 0 & -\frac{1}{R_2} & jwC_2+\frac{1}{R_2}  
-  \end{bmatrix}
-  \begin{bmatrix}
-    \widetilde{V_2} \\
-    \widetilde{V_3} \\
-    \widetilde{V_6} \\
-    \widetilde{V_o}
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-    0 \\
-    0 \\
-    jwC_1\widetilde{V_i} \\
-    0
-  \end{bmatrix}
-  \label{pha}
+        \frac{\widetilde{V_o}}{\widetilde{V_i}} = (1+\frac{R_5}{R_4})\frac{jwC_1R_1}{jwC_1R_1+1}\frac{1}{1+jwC_2R_2}
 \end{equation}
 
-By solving the matrix it is then possible to compute the gain for every frequency.
+%With this, it's possible to write the following matrix:
 
-The central frequency was calculated by considering that:
+%\begin{equation}
+ % \begin{bmatrix}
+  %  1 & -1 & 0 & 0 \\
+   % 1 & 0 & -\frac{R_4}{R_4+R_5} & 0 \\
+    %0 & jwC_1+\frac{1}{R_1} & 0 & 0 \\
+    %0 & 0 & -\frac{1}{R_2} & jwC_2+\frac{1}{R_2}  
+  %\end{bmatrix}
+  %\begin{bmatrix}
+%    \widetilde{V_2} \\
+ %   \widetilde{V_3} \\
+  %  \widetilde{V_6} \\
+   % \widetilde{V_o}
+%  \end{bmatrix}
+ % =
+  %\begin{bmatrix}
+   % 0 \\
+    %0 \\
+%    jwC_1\widetilde{V_i} \\
+ %   0
+  %\end{bmatrix}
+%  \label{pha}
+%\end{equation}
+
+%By solving the matrix it is then possible to compute the gain for every frequency.
+
+The central frequency will then be calculated as:
 
 \begin{equation}
         w_c = \sqrt{w_Lw_H}
 \end{equation}
 
-The analysis of the circuit allows to conclude that $w_L=\frac{1}{R_1C_1}$ and $w_H=\frac{1}{R_2C_2}$.
+where $w_L=\frac{1}{R_1C_1}$ and $w_H=\frac{1}{R_2C_2}$.
 
 The input impedance will be: 
 
@@ -108,7 +114,7 @@ The frequency response was also calculated and the following was obtained:
 \end{figure}
 
 
-Next, the optimized circuit was analysed theoretically.
+For the optimized circuit, the following results were calculated:
 
 \begin{table}[H]
   \centering
