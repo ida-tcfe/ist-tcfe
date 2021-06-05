@@ -81,25 +81,15 @@ print all
 * time analysis
 tran 1e-5 1e-2
 plot v(out)
-<<<<<<< HEAD:t5/sim/t5_lab_zout.net
-=======
 hardcopy vo1.ps v(out)
->>>>>>> 4ec2c6fec9762ea9b4310e2e79b1d954e9594b8a:t5/t5.net
-
 
 * frequency analysis
 ac dec 10 10 10k
 plot vdb(out)
 plot vp(out)
-<<<<<<< HEAD:t5/sim/t5_lab_zout.net
-=======
 hardcopy vo1f.ps vdb(out)
 
-*input impedance in kohm
-*print v(in)[40]/R1[i]/1000
->>>>>>> 4ec2c6fec9762ea9b4310e2e79b1d954e9594b8a:t5/t5.net
-
-*output impedance
+*output impedance in kohm
 let zout = {v(out)[20]/vout#branch[20]/(-1000)}
 print zout
 
