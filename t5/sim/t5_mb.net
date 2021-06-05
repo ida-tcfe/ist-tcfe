@@ -1,0 +1,124 @@
+*-----------------------------------------------------------------------------
+*
+* To use a subcircuit, the name must begin with 'X'.  For example:
+* X1 1 2 3 4 5 uA741
+*
+* connections:   non-inverting input
+*                |  inverting input
+*                |  |  positive power supply
+*                |  |  |  negative power supply
+*                |  |  |  |  output
+*                |  |  |  |  |
+.subckt uA741    1  2  3  4  5
+*
+  c1   11 12 8.661E-12
+  c2    6  7 30.00E-12
+  dc    5 53 dx
+  de   54  5 dx
+  dlp  90 91 dx
+  dln  92 90 dx
+  dp    4  3 dx
+  egnd 99  0 poly(2) (3,0) (4,0) 0 .5 .5
+  fb    7 99 poly(5) vb vc ve vlp vln 0 10.61E6 -10E6 10E6 10E6 -10E6
+  ga    6  0 11 12 188.5E-6
+  gcm   0  6 10 99 5.961E-9
+  iee  10  4 dc 15.16E-6
+  hlim 90  0 vlim 1K
+  q1   11  2 13 qx
+  q2   12  1 14 qx
+  r2    6  9 100.0E3
+  rc1   3 11 5.305E3
+  rc2   3 12 5.305E3
+  re1  13 10 1.836E3
+  re2  14 10 1.836E3
+  ree  10 99 13.19E6
+  ro1   8  5 50
+  ro2   7 99 100
+  rp    3  4 18.16E3
+  vb    9  0 dc 0
+  vc    3 53 dc 1
+  ve   54  4 dc 1
+  vlim  7  8 dc 0
+  vlp  91  0 dc 40
+  vln   0 92 dc 40
+.model dx D(Is=800.0E-18 Rs=1)
+.model qx NPN(Is=800.0E-18 Bf=93.75)
+.ends
+
+
+
+.options savecurrents
+
+* Sources
+Vcc vcc 0 10.0
+Vee vee 0 -10.0
+Vin in 0 0 ac 1.0 sin(0 10m 1k)
+
+X1 ninv_in inv_in vcc vee amp_out uA741
+
+
+* Resistors
+R1 ninv_in 0 1k
+R4 inv_in 0 1k
+R5 inv_in amp_out 100k
+R2 amp_out out 0.5k 
+
+* Capacitors
+Cin in ninv_in 220nF
+Cout out 0 220nF 
+
+* Load
+
+
+.op
+.end
+
+.control
+
+print all
+
+* time analysis
+tran 1e-5 1e-2
+plot v(out)
+hardcopy vo1.ps vdb(out)
+
+
+* frequency analysis
+ac dec 10 10 99k
+plot vdb(out)
+plot vp(out)
+hardcopy vo1f.eps vdb(out)
+hardcopy vo1f_phase.eps vp(out)
+
+* Output Specific Frequencies
+meas ac max MAX vdb(out) from=500 to=10000
+*let lim = {max-3}
+meas ac p1 FIND vdb(out) AT=500
+meas ac p2 FIND vdb(out) AT=600
+meas ac p3 FIND vdb(out) AT=700
+meas ac p4 FIND vdb(out) AT=800
+meas ac p5 FIND vdb(out) AT=900
+meas ac p6 FIND vdb(out) AT=1000
+meas ac p7 FIND vdb(out) AT=1100
+meas ac p8 FIND vdb(out) AT=1200
+meas ac p9 FIND vdb(out) AT=1300
+meas ac p10 FIND vdb(out) AT=1400
+meas ac p11 FIND vdb(out) AT=1500
+meas ac p12 FIND vdb(out) AT=2000
+meas ac p13 FIND vdb(out) AT=2500
+meas ac p14 FIND vdb(out) AT=3000
+meas ac p15 FIND vdb(out) AT=3500
+meas ac p16 FIND vdb(out) AT=4000
+meas ac p17 FIND vdb(out) AT=4500
+meas ac p18 FIND vdb(out) AT=5000
+meas ac p19 FIND vdb(out) AT=5500
+meas ac p20 FIND vdb(out) AT=6000
+meas ac p21 FIND vdb(out) AT=10000
+
+*input impedance in kohm
+print v(in)[20]/vin#branch[20]/(-1000)
+
+*need a different setup to measure output impedance
+
+.endc 
+
