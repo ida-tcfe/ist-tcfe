@@ -3,12 +3,6 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-%parte do t4
-%This laboratory assignment had as the main objective the construction and analysis of an audio amplifier. The chosen design is present in figure \ref{circuit}. The goal was to maximise the voltage gain and the bandwidth at which the circuit operates at ``full capacity'', while minimising the cost and the lower cutoff frequency, preferably to less than $20\;Hz$, the lower limit of the audible range.
-%The merit figure of our first circuit is: \input{../sim/merit}. For our second circuit, it's \input{../sim/merit_mb}.
-%Some deviations between the simulation and theoretical results were expected, due to the different model used by {\bf Ngspice} for transistors. In the theoretical analysis, we used very simple models. These deviations can be observed not only in table \ref{error1_res}, but also by comparing figures \ref{vg} and \ref{fig:frequencyresp} and the gains and impedances computed.
-%All in all, the objectives were met. With more time and a lengthier study, better results could be obtained, and other solutions implemented.
-
 This laboratory assignment had as the main objective the construction and analysis of a bandpass filter, using an OP-AMP. In the laboratory, the circuit presented in figure \ref{circuit} was analysed. After, this circuit was simulated using {\bf Ngspice} and analysed theoretically using {\bf Octave}. In the following graph, the results obtained in the lab and the ones obtained with {\bf Ngspice} and {\bf Octave} are presented.
 
 \begin{figure}[H]
@@ -52,4 +46,8 @@ For the optimized circuit, the following results were obtained:
   \label{error2_res}
 \end{table}
 
-The merit figure is: \input{merit}.
+In both instances, there were slight deviations, as was expected. The second circuit, compared with the first one, allowed for a slightly higher gain and a central frequency closer to the goal. Furthermore, it complied with the component limitations imposed, and the first one did not.
+
+The merit figure (for the optimized, second circuit) is: \input{merit}.
+
+All in all, the objectives were met. With more time and a lengthier study, better results could be obtained, and other solutions implemented.
