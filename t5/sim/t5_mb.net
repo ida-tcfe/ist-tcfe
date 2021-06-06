@@ -80,11 +80,11 @@ print all
 * time analysis
 tran 1e-5 1e-2
 plot v(out)
-hardcopy vo1.ps vdb(out)
+hardcopy vo1.ps v(out)
 
 
 * frequency analysis
-ac dec 2000 10 99k
+ac dec 100 10 100k
 plot vdb(out)
 plot vp(out)
 hardcopy vo1f_mb.eps vdb(out)
@@ -119,7 +119,7 @@ meas ac p20 FIND vdb(out) AT=6000
 meas ac p21 FIND vdb(out) AT=10000
 
 *input impedance in kohm
-let zin = {-v(in)[1000]/vin#branch[1000]}
+let zin = {-v(in)[200]/vin#branch[200]}
 print zin
 
 * gain

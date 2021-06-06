@@ -84,12 +84,12 @@ plot v(out)
 
 
 * frequency analysis
-ac dec 10 10 10k
+ac dec 100 10 10k
 plot vdb(out)
 plot vp(out)
 
 *output impedance
-let zout = {-v(out)[20]/vout#branch[20]}
+let zout = {-v(out)[200]/vout#branch[200]}
 print zout
 
 .endc 
