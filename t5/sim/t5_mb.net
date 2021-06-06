@@ -124,6 +124,7 @@ print zin
 
 * gain
 meas ac maxgain FIND vdb(out) AT=1000
+meas ac maxgainmerit FIND v(out) AT=1000
 
 *need a different setup to measure output impedance
 

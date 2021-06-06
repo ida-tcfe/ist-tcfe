@@ -101,6 +101,7 @@ while (n < 21):
 f.close()
 
 max_gain = read("maxgain", 2)
+max_gain_merit = read("maxgainmerit", 2)
 left = read("left", 2)
 right = read("right", 2)
 central_freq = np.sqrt(left*right)
@@ -147,7 +148,7 @@ Cout = 0.44
 
 cost = R1 + R2 + R4 + R5 + Cin + Cout
 
-merit = 1 / (cost * abs(40-max_gain) * abs(central_freq - 1000) + 10e-6)
+merit = 1 / (cost * (abs(40-max_gain_merit) * abs(central_freq - 1000) + 10e-6))
 
 print("Central frequency: " + str(central_freq))
 print("Gain at central frequency: " + str(max_gain))
