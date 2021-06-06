@@ -148,7 +148,7 @@ Cout = 0.44
 
 cost = R1 + R2 + R4 + R5 + Cin + Cout
 
-merit = 1 / (cost * (abs(40-max_gain_merit) * abs(central_freq - 1000) + 10e-6))
+merit = 1 / (cost * (abs(40-max_gain_merit) + abs(central_freq - 1000) + 10e-6))
 
 print("Central frequency: " + str(central_freq))
 print("Gain at central frequency: " + str(max_gain))
