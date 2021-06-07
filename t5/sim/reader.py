@@ -148,6 +148,17 @@ Cout = 0.44
 
 cost = R1 + R2 + R4 + R5 + Cin + Cout
 
+f = open("../doc/cost.tex", "w")
+f.write(str(cost))
+f.close()
+
+ampop = 13323.29204
+cost += ampop
+
+f = open("../doc/ampop.tex", "w")
+f.write(str(ampop))
+f.close()
+
 merit = 1 / (cost * (abs(40-max_gain_merit) + abs(central_freq - 1000) + 10e-6))
 
 print("Central frequency: " + str(central_freq))
@@ -159,3 +170,5 @@ f.close()
 f = open("../doc/merit.tex", "w")
 f.write(str(merit))
 f.close()
+
+
